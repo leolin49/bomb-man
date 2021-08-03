@@ -1,0 +1,17 @@
+syntax = "proto2";
+
+package usercmd;
+
+option go_package = "./;usercmd";
+
+enum SRPCLogin{
+    Loginlogin  = 16;
+    Logingame   = 17;
+    Loginmsg    = 23;
+    LoginServer = 66;
+}
+
+message BaseHead{
+    optional uint64 UserId  = 1;
+    optional string Account = 2;
+}

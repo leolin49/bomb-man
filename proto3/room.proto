@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package usercmd;
+
+option go_package = "./;usercmd";
+
+enum RoomMsgType {
+    RegisterRoom    = 0;    // 注册房间信息
+    UpdateRoom      = 1;    // 更新房间信息
+}
+
+message RoomRequest {
+    RoomMsgType type = 1;
+    bytes       data = 2;
+}
+
+message RoomResponse {
+
+}
+
+service StreamRoomService {
+    rpc Route (stream RoomRequest) returns (stream RoomResponse) {};
+}

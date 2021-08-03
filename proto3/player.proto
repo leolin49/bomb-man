@@ -1,0 +1,30 @@
+syntax = "proto2";
+
+package usercmd;
+
+option go_package = "./;usercmd";
+
+enum MsgType {
+    Login               = 1;    // 登录
+    RequestIntoRoom     = 5;    // 请求进入房间
+};
+
+message ReqIntoRoom {
+    required uint64 UId      = 1;   // 玩家id
+    optional string UserName = 2;   // 账号
+}
+
+// Request Into room
+message RetIntoRoom {
+    required uint32 Err     = 1;
+    optional string Addr    = 2;
+    optional string Key     = 3;
+    optional uint64 UId     = 4;
+    optional uint32 Tips    = 5;
+    optional uint32 RoomId  = 6;
+    optional uint32 Priv    = 7;
+    optional uint64 OtherId = 8;
+    optional string AddrAll = 9;
+    optional uint64 PowerId = 10;
+    optional bool   NewSync = 11;
+}

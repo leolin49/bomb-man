@@ -1,0 +1,13 @@
+Log file created at: 2021/07/30 17:32:20
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0730 17:32:20.502041   91234 httpserver.go:48] [InitHttpServer] listen port  8001
+I0730 17:33:37.199375   91234 httpserver.go:108] [User Login] password error  12345
+I0730 17:34:55.939107   91234 httpserver.go:156] 100010
+I0730 17:34:55.939331   91234 httpserver.go:159] Id -> 100010
+I0730 17:34:55.939360   91234 httpserver.go:159] PassWord -> 123456
+I0730 17:34:55.939365   91234 httpserver.go:159] RegisterTime -> 2021-7-30 17:33:15
+E0730 17:35:56.793412   91234 httpserver.go:144] [Start Game] token error or expired
+E0730 17:35:56.793747   91234 httpserver.go:145] [Start Game] redis token:  u9Y21tBulsksRQL2UN+VCz1VVhEdnEnZrui6fjXQ7kFtPF/gmkcw1LGHvCD0vEi56iy0gq7QuN0QWpC37/7QydOjJJIeZazfAdIwtj3OPdNIWStZjD96HU2zbguocn21fFCWd9yj2LMw+c3zq5grjtX/08wWNPY3YHqEVARe+sw=
+E0730 17:35:56.793787   91234 httpserver.go:146] [Start Game] request token:  qD5ZBXR3PSVV5+EVtxe90jSmd0wzRLCExwaKB4j9VntbW2w1a1NPboCK0Rx5YgZmkFTi34VPwRja7rupf2n4v2mcEMea3pkLSHq6AvfuNNY8oVhA7uFgJlcWbET/1jkplJGj+XM+bQ6C7crybQOJNGyCaRrnGGNEIHMs6y2e7iY=

@@ -1,0 +1,14 @@
+{
+    "redis":{
+        "server":"localhost:6379",
+        "password":"123456",
+        "db":"1"
+    },
+    "logic":{
+        "heartbeat_server":"localhost:11110",
+        "rcenter_rpc_server":"localhost:11111"
+    },
+    "rcenter":{
+        "server":"localhost:11111"
+    }
+}
