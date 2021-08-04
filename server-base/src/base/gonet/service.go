@@ -50,7 +50,7 @@ func (this *Service) Main() bool {
 			default: // 其他信号则结束
 				this.Terminate()
 			}
-			glog.Info("[Service] Got Signal ", sig)
+			glog.Infoln("[Service] Got Signal ", sig)
 		}
 	}()
 

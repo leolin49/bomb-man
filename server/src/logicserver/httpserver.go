@@ -7,6 +7,7 @@ import (
 	"net"
 	"net/http"
 	"paopao/server/src/common"
+	"paopao/server/usercmd"
 	"strconv"
 	"time"
 
@@ -191,9 +192,9 @@ func StartGameHandler(writer http.ResponseWriter, request *http.Request) {
 	}
 
 	// TODO:rpc请求，获取房间信息
-	reqData := RpcReqData{
-		UserId:   id,
-		UserName: username,
+	reqData := usercmd.ReqIntoRoom{
+		UId:      &id,
+		UserName: &username,
 	}
 	rspData := RequestRpcService(reqData)
 	res, _ := json.Marshal(rspData)

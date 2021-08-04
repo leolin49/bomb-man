@@ -9,6 +9,10 @@
         "rcenter_rpc_server":"localhost:11111"
     },
     "rcenter":{
-        "server":"localhost:11111"
+        "rpc_server":"localhost:11111",
+        "grpc_server":"localhost:11112"
+    },
+    "room":{
+        "grpc_server":"localhost:11112"
     }
 }

@@ -3,13 +3,6 @@ package gonet
 import (
 	"net"
 	"time"
-
-	"github.com/golang/glog"
-)
-
-const (
-	READ_BUFFER_SIZE  = 128 * 1024
-	WRITE_BUFFER_SIZE = 128 * 1024
 )
 
 type TcpServer struct {
@@ -17,20 +10,35 @@ type TcpServer struct {
 }
 
 func (this *TcpServer) Bind(address string) error {
+
 	tcpAddr, err := net.ResolveTCPAddr("tcp4", address)
 	if nil != err {
-		glog.Error("[TcpServer Bind] Bind Failed ", address)
 		return err
 	}
 
-	lis, err := net.ListenTCP("tcp", tcpAddr)
+	listener, err := net.ListenTCP("tcp", tcpAddr)
 	if nil != err {
-		glog.Error("[TcpServer Bind] Listen Failed ", address)
 		return err
 	}
 
-	glog.Info("[TcpServer] Listen Success ", address)
-	this.listener = lis
+	this.listener = listener
+	return nil
+}
+
+func (this *TcpServer) BindAccept(address string, handler func(*net.TCPConn)) error {
+	err := this.Bind(address)
+	if err != nil {
+		return err
+	}
+	go func() {
+		for {
+			conn, err := this.Accept()
+			if err != nil {
+				continue
+			}
+			handler(conn)
+		}
+	}()
 	return nil
 }
 
@@ -40,7 +48,6 @@ func (this *TcpServer) Accept() (*net.TCPConn, error) {
 
 	conn, err := this.listener.AcceptTCP()
 	if err != nil {
-		glog.Error("[TcpServer Accept] AcceptTCP Failed ")
 		return nil, err
 	}
 
@@ -50,8 +57,12 @@ func (this *TcpServer) Accept() (*net.TCPConn, error) {
 	// SetNoDelay 控制操作系统是否应该延迟数据包传输以希望发送更少的数据包（Nagle 算法）。默认值为真（无延迟），意味着在写入后尽快发送数据。
 	conn.SetNoDelay(true)
 	// 设置缓冲区大小
-	conn.SetWriteBuffer(WRITE_BUFFER_SIZE)
-	conn.SetReadBuffer(READ_BUFFER_SIZE)
+	conn.SetWriteBuffer(128 * 1024)
+	conn.SetReadBuffer(128 * 1024)
 
 	return conn, nil
+}
+
+func (this *TcpServer) Close() error {
+	return this.listener.Close()
 }

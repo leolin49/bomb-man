@@ -28,7 +28,7 @@ func RoomGrpcClient_GetMe() *RoomGrpcClient {
 
 func (this *RoomGrpcClient) Init() bool {
 	var err error
-	this.conn, err = grpc.Dial(env.Get("room", "grpc_server"))
+	this.conn, err = grpc.Dial(env.Get("room", "grpc_server"), grpc.WithInsecure())
 	if err != nil {
 		glog.Errorln("[RoomGrpcClient] connect failed:", err)
 		return false
@@ -37,6 +37,7 @@ func (this *RoomGrpcClient) Init() bool {
 		glog.Errorln("[RoomGrpcClient] init grpc client error:", err)
 		return false
 	}
+	this.SendRegist()
 	// 定时发送服务器信息给rcenterserver
 	go this.TickerSendLoadInfo()
 
@@ -52,9 +53,11 @@ func (this *RoomGrpcClient) InitGrpcClient() bool {
 		glog.Errorln("[InitGrpcClient] error:", err)
 		return false
 	}
+
 	return true
 }
 
+// roomserver启动时主动向rcenterserver发送基本信息
 func (this *RoomGrpcClient) SendRegist() bool {
 	if this.mRouteClient == nil {
 		glog.Errorln("[RoomGrpcClient] route client is nil")
@@ -82,19 +85,25 @@ func (this *RoomGrpcClient) SendRegist() bool {
 
 // roomserver向rcenterserver发送负载信息（例如有多少房间、多少玩家等）
 func (this *RoomGrpcClient) TickerSendLoadInfo() {
+	if this.mRouteClient == nil {
+		glog.Errorln("[RoomGrpcClient] route client is nil")
+		return
+	}
 	var info usercmd.RoomServerInfo
 	// 固定信息
 	p, _ := strconv.Atoi(*port)
 	info.Ip = "localhost"
 	info.Port = uint32(p)
 	//
+	r := RoomMgr_GetMe()
+
 	ticker := time.NewTicker(2 * time.Second)
 	for {
 		<-ticker.C
 		// 获取实时信息
-		info.RoomNum = roommgr.curNum
-		info.PlayerNum = roommgr.curNum * MaxPlayerInRoom // 粗略计算（待优化）
-		info.CurRoomId = roommgr.curNum
+		info.RoomNum = r.curNum
+		info.PlayerNum = r.curNum * MaxPlayerInRoom // 粗略计算（待优化）
+		info.CurRoomId = r.curNum
 		//
 		bytes, err := json.Marshal(info) // TODO ???
 		if err != nil {

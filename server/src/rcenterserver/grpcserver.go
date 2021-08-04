@@ -3,15 +3,18 @@ package main
 import (
 	"encoding/json"
 	"io"
+	"net"
+	"paopao/server-base/src/base/env"
 	"paopao/server/usercmd"
 
 	"github.com/golang/glog"
+	"google.golang.org/grpc"
 )
 
-type RoomGrpcServer struct {
+type RoomGrpcService struct {
 }
 
-func (this *RoomGrpcServer) Route(conn usercmd.StreamRoomService_RouteServer) error {
+func (this *RoomGrpcService) Route(conn usercmd.StreamRoomService_RouteServer) error {
 	for {
 		stream, err := conn.Recv()
 		if err != nil {
@@ -26,9 +29,10 @@ func (this *RoomGrpcServer) Route(conn usercmd.StreamRoomService_RouteServer) er
 
 		switch stream.Type {
 		case usercmd.RoomMsgType_RegisterRoom:
+			glog.Infoln("[RoomGrpcServer] get one <RoomMsgType_RegisterRoom> message")
 			var info struct {
 				Ip   string `json:"ip"`
-				Port int    `json:"port"`
+				Port uint32 `json:"port"`
 			}
 			err := json.Unmarshal(stream.Data, &info)
 			if err != nil {
@@ -38,6 +42,7 @@ func (this *RoomGrpcServer) Route(conn usercmd.StreamRoomService_RouteServer) er
 			RCenterServer_GetMe().AddRoomServer(info.Ip, info.Port)
 			break
 		case usercmd.RoomMsgType_UpdateRoom:
+			glog.Infoln("[RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message")
 			var info usercmd.RoomServerInfo
 			err := json.Unmarshal(stream.Data, &info)
 			if err != nil {
@@ -48,4 +53,20 @@ func (this *RoomGrpcServer) Route(conn usercmd.StreamRoomService_RouteServer) er
 			break
 		}
 	}
+}
+
+func GrpcServerStart() bool {
+	grpcServer := grpc.NewServer()
+	usercmd.RegisterStreamRoomServiceServer(grpcServer, new(RoomGrpcService))
+	glog.Infoln("[GrpcServerStart] address: ", env.Get("rcenter", "grpc_server"))
+	listener, err := net.Listen("tcp", env.Get("rcenter", "grpc_server"))
+	if err != nil {
+		glog.Errorln("[GrpcServerStart] grpc service start error:", err)
+		return false
+	}
+	go func() {
+		grpcServer.Serve(listener)
+	}()
+	glog.Infoln("[GrpcServerStart] grpc service start success")
+	return true
 }

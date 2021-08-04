@@ -1,14 +1,13 @@
 package main
 
 import (
+	"net"
 	"paopao/server-base/src/base/gonet"
 	"time"
-
-	"github.com/gorilla/websocket"
 )
 
 type PlayerTask struct {
-	tcptask *gonet.WebSocketTask
+	gonet.TcpTask
 	// udptask *snet.Session
 	isUdp bool
 
@@ -28,20 +27,19 @@ type PlayerTask struct {
 	onlineTime int64
 }
 
-func NewPlayerTask(conn *websocket.Conn) *PlayerTask {
+func NewPlayerTask(conn net.Conn) *PlayerTask {
 	m := &PlayerTask{
-		tcptask:    gonet.NewWebSocketTask(conn),
+		TcpTask:    *gonet.NewTcpTask(conn),
 		activeTime: time.Now(),
 	}
-	m.tcptask.Derived = m
+	m.Derived = m
 	return m
 }
 
 func (this *PlayerTask) OnClose() {
-	this.tcptask.Stop()
 	this.room = nil
 }
 
-func (this *PlayerTask) ParseMessage(data []byte, flag byte) bool {
+func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 	return true
 }

@@ -10,7 +10,7 @@ import (
 
 type RoomServer struct {
 	gonet.Service
-	roomser *gonet.TcpServer
+	tcpser  *gonet.TcpServer
 	version uint32
 }
 
@@ -19,7 +19,7 @@ var server *RoomServer
 func RoomServer_GetMe() *RoomServer {
 	if server == nil {
 		server = &RoomServer{
-			roomser: &gonet.TcpServer{},
+			tcpser: &gonet.TcpServer{},
 		}
 		server.Derived = server
 	}
@@ -28,15 +28,22 @@ func RoomServer_GetMe() *RoomServer {
 
 func (this *RoomServer) Init() bool {
 
-	err := this.roomser.Bind(env.Get("room", "tcp_server"))
-	if err != nil {
-		glog.Errorln("[RoomServer] Binding port failed")
+	if !RoomGrpcClient_GetMe().Init() {
+		glog.Errorln("[RoomServer] room grpc client init error")
 		return false
 	}
+	go func() {
+		err := this.tcpser.Bind("localhost:" + *port)
+		if err != nil {
+			glog.Errorln("[RoomServer] Binding port failed")
+			return
+		}
+	}()
 	return true
 }
 
 func (this *RoomServer) Final() bool {
+	this.tcpser.Close()
 	return true
 }
 
@@ -44,13 +51,21 @@ func (this *RoomServer) Reload() {
 }
 
 func (this *RoomServer) MainLoop() {
+	conn, err := this.tcpser.Accept()
+	if err != nil {
+		return
+	}
+	NewPlayerTask(conn).Start()
 }
 
 var (
-	port   = flag.String("port", "8000", "logicserver listen port")
+	port   = flag.String("port", "13000", "logicserver listen port")
 	config = flag.String("config", "", "config json file path")
 )
 
 func main() {
-	// TODO
+	flag.Parse()
+	env.Load(*config)
+	defer glog.Flush()
+	RoomServer_GetMe().Main()
 }

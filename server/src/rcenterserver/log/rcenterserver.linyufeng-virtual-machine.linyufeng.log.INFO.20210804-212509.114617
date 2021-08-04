@@ -1,0 +1,10 @@
+Log file created at: 2021/08/04 21:25:09
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0804 21:25:09.802621  114617 rpcserver.go:55] [RpcServerStart] address:  localhost:11111
+I0804 21:25:09.803674  114617 rpcserver.go:71] [RpcServerStart] rpc service start success
+I0804 21:25:09.803734  114617 grpcserver.go:61] [GrpcServerStart] address:  localhost:11112
+I0804 21:25:09.803779  114617 grpcserver.go:70] [GrpcServerStart] grpc service start success
+I0804 21:38:55.484972  114617 service.go:53] [Service] Got Signal  interrupt
+I0804 21:38:56.298875  114617 rcenterserver.go:89] [Close] RCenterServer closed.
