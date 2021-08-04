@@ -33,6 +33,13 @@ func (this *RoomGrpcClient) Init() bool {
 		glog.Errorln("[RoomGrpcClient] connect failed:", err)
 		return false
 	}
+	if !this.InitGrpcClient() {
+		glog.Errorln("[RoomGrpcClient] init grpc client error:", err)
+		return false
+	}
+	// 定时发送服务器信息给rcenterserver
+	go this.TickerSendLoadInfo()
+
 	return true
 }
 
@@ -75,13 +82,28 @@ func (this *RoomGrpcClient) SendRegist() bool {
 
 // roomserver向rcenterserver发送负载信息（例如有多少房间、多少玩家等）
 func (this *RoomGrpcClient) TickerSendLoadInfo() {
+	var info usercmd.RoomServerInfo
+	// 固定信息
+	p, _ := strconv.Atoi(*port)
+	info.Ip = "localhost"
+	info.Port = uint32(p)
+	//
 	ticker := time.NewTicker(2 * time.Second)
 	for {
 		<-ticker.C
+		// 获取实时信息
+		info.RoomNum = roommgr.curNum
+		info.PlayerNum = roommgr.curNum * MaxPlayerInRoom // 粗略计算（待优化）
+		info.CurRoomId = roommgr.curNum
+		//
+		bytes, err := json.Marshal(info) // TODO ???
+		if err != nil {
+			glog.Errorln("[RoomGrpcClient TickerSendLoadInfo] struct to json error: ", err)
+			continue
+		}
 		this.mRouteClient.Send(&usercmd.RoomRequest{
 			Type: usercmd.RoomMsgType_UpdateRoom,
-			// TODO
-			Data: []byte("todo"),
+			Data: bytes,
 		})
 	}
 }

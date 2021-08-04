@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net"
 	"net/http"
+	"paopao/server/src/common"
 	"strconv"
 	"time"
 
@@ -133,7 +134,7 @@ func LoginHandler(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 	// 生成token
-	token, err := CreateToken(key)
+	token, err := common.CreateLoginToken(key)
 	if len(token) == 0 || err != nil {
 		glog.Errorln("[User Login] create token error", err)
 		return
@@ -168,7 +169,7 @@ func StartGameHandler(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 	// 解析token
-	username, err := ParseToken(req.Token)
+	username, err := common.ParseLoginToken(req.Token)
 	if err != nil {
 		glog.Errorln("[Start Game] ", err)
 		return

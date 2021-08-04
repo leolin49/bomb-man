@@ -4,6 +4,14 @@ package usercmd;
 
 option go_package = "./;usercmd";
 
+message RoomServerInfo {
+    string Ip         = 1;  // ip
+    uint32 Port       = 2;  // 端口
+	uint32 RoomNum    = 3;  // 当前的房间数量
+	uint32 PlayerNum  = 4;  // 当前的玩家总数
+	uint32 CurRoomId  = 5;  // 当前的房间id
+}
+
 enum RoomMsgType {
     RegisterRoom    = 0;    // 注册房间信息
     UpdateRoom      = 1;    // 更新房间信息

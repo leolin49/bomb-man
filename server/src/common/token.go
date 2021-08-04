@@ -1,10 +1,11 @@
-package main
+package common
 
 import (
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/x509"
 	"encoding/base64"
+	"encoding/json"
 	"encoding/pem"
 	"errors"
 	"io/ioutil"
@@ -27,10 +28,10 @@ func ReadFileAll(filepath string) ([]byte, error) {
 	return ioutil.ReadAll(f)
 }
 
-func CreateToken(username string) (string, error) {
+func CreateLoginToken(username string) (string, error) {
 	pubkey, err := ReadFileAll(RSA_PUBLIC_FILEPATH)
 	if err != nil {
-		glog.Errorln("[GetToken] read file error")
+		glog.Errorln("[CreateToken] read file error")
 		return "", err
 	}
 	token, err := RSAEncrypt([]byte(username), pubkey)
@@ -40,22 +41,64 @@ func CreateToken(username string) (string, error) {
 	return base64.StdEncoding.EncodeToString(token), nil
 }
 
-func ParseToken(token string) (string, error) {
+func ParseLoginToken(token string) (string, error) {
 	prikey, err := ReadFileAll(RSA_PRIVATE_FILEPATH)
 	if err != nil {
 		glog.Errorln("[GetToken] read file error")
 		return "", err
 	}
+	// base64
 	bytes, err := base64.StdEncoding.DecodeString(token)
 	if err != nil {
 		glog.Errorln("[GetToken]", err)
 		return "", err
 	}
+	// rsa
 	res, err := RSADecrypt(bytes, prikey)
 	if err != nil {
 		return "", err
 	}
 	return string(res), nil
+}
+
+func CreateRoomToken(info RoomTokenInfo) (string, error) {
+	pubkey, err := ReadFileAll(RSA_PUBLIC_FILEPATH)
+	if err != nil {
+		glog.Errorln("[CreateToken] read file error")
+		return "", err
+	}
+	bytes, err := json.Marshal(info)
+	if err != nil {
+		glog.Errorln("[CreateToken] json marshal error")
+		return "", err
+	}
+	token, err := RSAEncrypt(bytes, pubkey)
+	if err != nil {
+		return "", err
+	}
+	return base64.StdEncoding.EncodeToString(token), nil
+}
+
+func ParseRoomToken(token string) (*RoomTokenInfo, error) {
+	prikey, err := ReadFileAll(RSA_PRIVATE_FILEPATH)
+	if err != nil {
+		glog.Errorln("[GetToken] read file error")
+		return nil, err
+	}
+	// base64
+	bytes, err := base64.StdEncoding.DecodeString(token)
+	if err != nil {
+		glog.Errorln("[GetToken]", err)
+		return nil, err
+	}
+	// rsa
+	res, err := RSADecrypt(bytes, prikey)
+	if err != nil {
+		return nil, err
+	}
+	var info RoomTokenInfo
+	err = json.Unmarshal(res, &info)
+	return &info, nil
 }
 
 // 解密，origData：原始数据，publicKey：公钥

@@ -35,7 +35,17 @@ func (this *RoomGrpcServer) Route(conn usercmd.StreamRoomService_RouteServer) er
 				glog.Errorln("[RoomGrpcServer] json to struct error: ", err)
 				return err
 			}
-
+			RCenterServer_GetMe().AddRoomServer(info.Ip, info.Port)
+			break
+		case usercmd.RoomMsgType_UpdateRoom:
+			var info usercmd.RoomServerInfo
+			err := json.Unmarshal(stream.Data, &info)
+			if err != nil {
+				glog.Errorln("[RoomGrpcServer] json to struct error: ", err)
+				return err
+			}
+			RCenterServer_GetMe().UpdateRoomServer(info)
+			break
 		}
 	}
 }
