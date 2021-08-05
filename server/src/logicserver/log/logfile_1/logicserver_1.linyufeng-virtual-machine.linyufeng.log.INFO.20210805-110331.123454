@@ -1,0 +1,10 @@
+Log file created at: 2021/08/05 11:03:31
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0805 11:03:31.758041  123454 httpserver.go:64] [InitHttpServer] Listen port  8001
+I0805 11:03:31.759281  123454 httpserver.go:76] [InitHttpServer] Service start success
+E0805 11:03:31.759322  123454 logicserver.go:31] [LogicServer Init] Init success
+I0805 11:03:40.215387  123454 httpserver.go:149] [User Login] login success, username: ddddd
+E0805 11:03:49.878314  123454 rpcclient.go:53] [LogicServer Rpc] request failed,  rpc: can't find service RPC.GetRoomServerInfo.RetRoom
+I0805 11:04:27.612743  123454 service.go:53] [Service] Got Signal  interrupt

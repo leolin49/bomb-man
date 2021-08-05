@@ -1,0 +1,6 @@
+Log file created at: 2021/08/05 11:03:31
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0805 11:03:31.759322  123454 logicserver.go:31] [LogicServer Init] Init success
+E0805 11:03:49.878314  123454 rpcclient.go:53] [LogicServer Rpc] request failed,  rpc: can't find service RPC.GetRoomServerInfo.RetRoom

@@ -46,8 +46,7 @@ func (r *RpcRoomService) RetRoom(request *usercmd.ReqIntoRoom, reply *usercmd.Re
 }
 
 func RpcServerStart() bool {
-	ser := rpc.NewServer()
-	err := ser.RegisterName(RpcServiceName, new(RpcRoomService))
+	err := rpc.RegisterName(RpcServiceName, new(RpcRoomService))
 	if err != nil {
 		glog.Errorln("[RpcServerStart] rpc RegisterName error:", err)
 		return false
@@ -65,7 +64,7 @@ func RpcServerStart() bool {
 				glog.Errorln("[RCenterServer] accept error:", err)
 				continue
 			}
-			rpc.ServeConn(conn)
+			go rpc.ServeConn(conn)
 		}
 	}()
 	glog.Infoln("[RpcServerStart] rpc service start success")

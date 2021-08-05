@@ -196,7 +196,7 @@ func StartGameHandler(writer http.ResponseWriter, request *http.Request) {
 		UId:      &id,
 		UserName: &username,
 	}
-	rspData := RequestRpcService(reqData)
+	rspData := RequestRpcService(&reqData)
 	res, _ := json.Marshal(rspData)
 
 	// 将房间信息返回给用户

@@ -1,0 +1,41 @@
+Log file created at: 2021/08/05 11:03:27
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0805 11:03:27.373507  123322 rpcserver.go:55] [RpcServerStart] address:  localhost:11111
+I0805 11:03:27.374748  123322 rpcserver.go:71] [RpcServerStart] rpc service start success
+I0805 11:03:27.374773  123322 grpcserver.go:61] [GrpcServerStart] address:  localhost:11112
+I0805 11:03:27.374832  123322 grpcserver.go:70] [GrpcServerStart] grpc service start success
+I0805 11:03:29.360024  123322 grpcserver.go:32] [RoomGrpcServer] get one <RoomMsgType_RegisterRoom> message
+I0805 11:03:31.360796  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:33.360734  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:35.361044  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:37.360428  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:39.360903  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:41.360808  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:43.361090  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:45.360436  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:47.360824  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:49.361143  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:51.360906  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:53.361039  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:55.360616  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:57.361248  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:03:59.360653  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:01.360915  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:03.360519  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:05.361114  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:07.360540  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:09.361691  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:11.360630  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:13.361121  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:15.360321  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:17.361072  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:19.361709  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:21.360221  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:23.361786  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:25.361003  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:27.361366  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:28.607285  123322 service.go:53] [Service] Got Signal  interrupt
+I0805 11:04:29.368630  123322 grpcserver.go:45] [RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message
+I0805 11:04:29.420420  123322 rcenterserver.go:89] [Close] RCenterServer closed.
