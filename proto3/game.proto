@@ -1,0 +1,43 @@
+syntax = "proto2";
+package usercmd;
+
+option go_package = "./;usercmd";
+
+// 客户端发送的消息类型***
+enum MsgTypeCmd {
+    None          = 0;  // 占位
+    Login         = 1;  // 登录
+    Top           = 2;  // 排行榜
+    AddPlayer     = 3;  // 添加玩家
+    RemovePlayer  = 4;  // 删除玩家
+    Scene         = 5;  // 更新场景数据
+    Move          = 6;  // 移动***
+    PutBomb       = 7;  // 放炸弹***
+  
+    Death         = 10; // 死亡***
+    EndRoom       = 11; 
+    NewScene      = 13;
+    ReSetNet      = 15;
+    HeartBeat     = 16; // 心跳***
+  
+    SystemMsg     = 22; // 消息通报
+  
+    ErrorMsg      = 23;
+  
+    SceneSync     = 100;
+    InitSyncData  = 101;
+    AddPlayers    = 102;
+    AddBalls      = 104;
+    RemoveBalls   = 105;
+    SetSceneData  = 106;
+    CheckSyncData = 108;
+    SetPlayerAttrs= 109;
+  
+    UserStateSet  = 111;
+    UserStateClr  = 112;
+  
+  }
+
+  message UserLoginInfo {
+    required string Token = 1;
+  }

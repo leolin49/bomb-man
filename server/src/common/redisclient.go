@@ -1,4 +1,4 @@
-package main
+package common
 
 import (
 	"paopao/server-base/src/base/env"
@@ -9,10 +9,10 @@ import (
 )
 
 type RedisManager struct {
-	pool *redis.Pool
+	RedisPool *redis.Pool
 }
 
-var redisMgr RedisManager
+var RedisMgr RedisManager
 
 func newPool(addr string) *redis.Pool {
 	return &redis.Pool{
@@ -54,8 +54,8 @@ func newPool(addr string) *redis.Pool {
 
 func (this *RedisManager) NewRedisManager() bool {
 	server := env.Get("redis", "server")
-	this.pool = newPool(server)
-	if this.pool == nil {
+	this.RedisPool = newPool(server)
+	if this.RedisPool == nil {
 		glog.Errorln("[Redis] connect error")
 		return false
 	}
@@ -63,7 +63,7 @@ func (this *RedisManager) NewRedisManager() bool {
 }
 
 func (this *RedisManager) Set(key, value string) {
-	conn := this.pool.Get()
+	conn := this.RedisPool.Get()
 	defer conn.Close()
 	_, err := conn.Do("SET", key, value)
 	if err != nil {
@@ -73,7 +73,7 @@ func (this *RedisManager) Set(key, value string) {
 }
 
 func (this *RedisManager) Get(key string) string {
-	conn := this.pool.Get()
+	conn := this.RedisPool.Get()
 	defer conn.Close()
 	val, err := redis.String(conn.Do("GET", key))
 	if err != nil {
@@ -84,7 +84,7 @@ func (this *RedisManager) Get(key string) string {
 }
 
 func (this *RedisManager) HMSet(key string, fields interface{}) {
-	conn := this.pool.Get()
+	conn := this.RedisPool.Get()
 	defer conn.Close()
 	_, err := conn.Do("HMSET", redis.Args{key}.AddFlat(fields)...)
 	if err != nil {
@@ -94,7 +94,7 @@ func (this *RedisManager) HMSet(key string, fields interface{}) {
 }
 
 func (this *RedisManager) HGet(key, field string) string {
-	conn := this.pool.Get()
+	conn := this.RedisPool.Get()
 	defer conn.Close()
 	val, err := redis.String(conn.Do("HGET", key, field))
 	if err != nil {
@@ -105,7 +105,7 @@ func (this *RedisManager) HGet(key, field string) string {
 }
 
 func (this *RedisManager) HGetAll(key string) map[string]string {
-	conn := this.pool.Get()
+	conn := this.RedisPool.Get()
 	defer conn.Close()
 	m, err := redis.StringMap(conn.Do("HGETALL", key))
 	if err != nil {
@@ -116,7 +116,7 @@ func (this *RedisManager) HGetAll(key string) map[string]string {
 }
 
 func (this *RedisManager) Exist(key string) bool {
-	conn := this.pool.Get()
+	conn := this.RedisPool.Get()
 	defer conn.Close()
 	exist, err := redis.Bool(conn.Do("EXISTS", key))
 	if err != nil {
