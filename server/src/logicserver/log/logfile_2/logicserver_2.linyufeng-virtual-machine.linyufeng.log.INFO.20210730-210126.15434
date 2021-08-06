@@ -1,9 +1,0 @@
-Log file created at: 2021/07/30 21:01:26
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I0730 21:01:26.023353   15434 httpserver.go:57] [InitHttpServer] Listen port  8002
-I0730 21:01:26.023871   15434 httpserver.go:69] [InitHttpServer] Service start success
-E0730 21:01:26.023881   15434 logicserver.go:31] [LogicServer Init] Init success
-I0730 21:01:33.283077   15434 httpserver.go:106] [Register success]aaaaa, 100014, 123456, 2021-7-30 21:1:33
-I0730 21:26:14.745243   15434 service.go:53] [Service] Got Signal interrupt

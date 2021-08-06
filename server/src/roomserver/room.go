@@ -4,11 +4,17 @@ import (
 	"errors"
 	"sync"
 	"time"
+
+	"github.com/golang/glog"
 )
 
 const (
 	RoomMaxNumber   = 10
 	MaxPlayerInRoom = 2
+)
+
+const (
+	ROOMTYPE_1V1 = 1
 )
 
 type Room struct {
@@ -40,6 +46,7 @@ func NewRoom(roomtype, roomid uint32) *Room {
 		startTime:    uint64(time.Now().Unix()),
 		endchan:      make(chan bool),
 	}
+	glog.Infof("[NewRoom] roomtype:%v, roomid:%v", roomtype, roomid)
 	return room
 }
 
@@ -51,6 +58,11 @@ func (this *Room) AddPlayer(player *PlayerTask) error {
 	}
 	// 更新房间信息
 	this.curPlayerNum++
+	// 房间内玩家数量达到最大，自动开始游戏
+	if this.curPlayerNum == MaxPlayerInRoom {
+		RoomMgr_GetMe().curNum++ // 房间id++
+		go this.StartGame()
+	}
 	this.mutex.Unlock()
 	this.players[uint32(player.id)] = player
 	// 更新玩家信息

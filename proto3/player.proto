@@ -4,17 +4,11 @@ package usercmd;
 
 option go_package = "./;usercmd";
 
-enum MsgType {
-    Login               = 1;    // 登录
-    RequestIntoRoom     = 5;    // 请求进入房间
-};
-
 message ReqIntoRoom {
     required uint64 UId      = 1;   // 玩家id
     optional string UserName = 2;   // 账号
 }
 
-// Request Into room
 message RetIntoRoom {
     required uint32 Err     = 1;
     optional string Addr    = 2;

@@ -85,6 +85,5 @@ func main() {
 	env.Load(*config)
 	defer glog.Flush()
 	RCenterServer_GetMe().Main()
-
 	glog.Info("[Close] RCenterServer closed.")
 }

@@ -1,8 +1,0 @@
-Log file created at: 2021/08/04 18:19:28
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-E0804 18:19:28.465651  104708 logicserver.go:31] [LogicServer Init] Init success
-E0804 20:50:38.540715  104708 redisclient.go:32] [Redis] password error
-E0804 20:50:38.540802  104708 redisclient.go:80] [Redis] Get Error:  ERR AUTH <password> called without any password configured for the default user. Are you sure your configuration is correct?
-E0804 20:57:41.649720  104708 rpcclient.go:53] [LogicServer Rpc] Request Failed

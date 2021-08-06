@@ -62,7 +62,11 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 				return false
 			}
 			this.Verify() // 验证通过
-			// roommgr.roomList[info.RoomId].AddPlayer()
+			rMap := RoomMgr_GetMe().roomMap
+			if rMap[info.RoomId] == nil { // 当前玩家为房间的第一位玩家，创建房间
+				rMap[info.RoomId] = NewRoom(ROOMTYPE_1V1, info.RoomId)
+			}
+			rMap[info.RoomId].AddPlayer(this)
 
 		case usercmd.MsgTypeCmd_Move: // 移动
 			// TODO

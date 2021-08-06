@@ -34,12 +34,12 @@ func DialRcenterService(network, address string) (*RcenterServiceClient, error) 
 	return &RcenterServiceClient{Client: c}, nil
 }
 
-func (p *RcenterServiceClient) RequestService(request *usercmd.ReqIntoRoom, reply *usercmd.RetIntoFRoom) error {
+func (p *RcenterServiceClient) RequestService(request *usercmd.ReqIntoRoom, reply *usercmd.RetIntoRoom) error {
 	return p.Client.Call(RpcServiceName+".RetRoom", request, reply)
 }
 
 // 同步阻塞rpc
-func RequestRpcService(request *usercmd.ReqIntoRoom) *usercmd.RetIntoFRoom {
+func RequestRpcService(request *usercmd.ReqIntoRoom) *usercmd.RetIntoRoom {
 	rpcServer := env.Get("logic", "rcenter_rpc_server")
 	client, err := DialRcenterService("tcp", rpcServer)
 	defer client.Close()
@@ -47,7 +47,7 @@ func RequestRpcService(request *usercmd.ReqIntoRoom) *usercmd.RetIntoFRoom {
 		glog.Errorln("[LogicServer Rpc] Dial Failed, ", err)
 		return nil
 	}
-	var respon usercmd.RetIntoFRoom
+	var respon usercmd.RetIntoRoom
 	err = client.RequestService(request, &respon)
 	if err != nil {
 		glog.Errorln("[LogicServer Rpc] request failed, ", err)
@@ -57,7 +57,7 @@ func RequestRpcService(request *usercmd.ReqIntoRoom) *usercmd.RetIntoFRoom {
 }
 
 // 异步rpc请求
-func AsynRequestRpcService(request *usercmd.ReqIntoRoom) *usercmd.RetIntoFRoom {
+func AsynRequestRpcService(request *usercmd.ReqIntoRoom) *usercmd.RetIntoRoom {
 	rpcServer := env.Get("logic", "rcenter_rpc_server")
 	client, err := DialRcenterService("tcp", rpcServer)
 	defer client.Close()
@@ -72,6 +72,6 @@ func AsynRequestRpcService(request *usercmd.ReqIntoRoom) *usercmd.RetIntoFRoom {
 		glog.Errorln("[LogicServer Rpc] Asyn Request Failed")
 		return nil
 	}
-	respon := call.Reply.(*usercmd.RetIntoFRoom)
+	respon := call.Reply.(*usercmd.RetIntoRoom)
 	return respon
 }

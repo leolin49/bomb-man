@@ -3,13 +3,14 @@ package common
 import (
 	"bytes"
 	"compress/zlib"
-	"fmt"
 	"io"
+
+	"github.com/golang/glog"
 )
 
 const (
 	MaxCompressSize = 1024
-	MaxCmdSize      = 2
+	CmdHeaderSize   = 2
 )
 
 type Message interface {
@@ -52,20 +53,20 @@ func EncodeCmd(cmd uint16, msg Message) ([]byte, byte, error) {
 	if msglen >= MaxCompressSize {
 		data, err := msg.Marshal()
 		if err != nil {
-			fmt.Println("[协议] 编码错误 ", err)
+			glog.Errorln("[协议] 编码错误 ", err)
 			return nil, 0, err
 		}
 		mbuff := zlibCompress(data)
-		p := make([]byte, MaxCmdSize+len(mbuff))
+		p := make([]byte, CmdHeaderSize+len(mbuff))
 		p[0] = byte(cmd)
 		p[1] = byte(cmd >> 8)
-		copy(p[MaxCmdSize:], mbuff)
+		copy(p[CmdHeaderSize:], mbuff)
 		return p, 1, nil
 	}
-	p := make([]byte, MaxCmdSize+msglen)
-	_, err := msg.MarshalTo(p[MaxCmdSize:])
+	p := make([]byte, CmdHeaderSize+msglen)
+	_, err := msg.MarshalTo(p[CmdHeaderSize:])
 	if err != nil {
-		fmt.Println("[协议] 编码错误 ", err)
+		glog.Errorln("[协议] 编码错误 ", err)
 		return nil, 0, err
 	}
 	p[0] = byte(cmd)
@@ -73,9 +74,21 @@ func EncodeCmd(cmd uint16, msg Message) ([]byte, byte, error) {
 	return p, 0, nil
 }
 
+func EncodeToBytes(cmd uint16, msg Message) ([]byte, bool) {
+	data := make([]byte, CmdHeaderSize+msg.Size())
+	_, err := msg.MarshalTo(data[CmdHeaderSize:])
+	if err != nil {
+		glog.Errorln("[协议] 编码错误", err)
+		return nil, false
+	}
+	data[0] = byte(cmd)
+	data[1] = byte(cmd >> 8)
+	return data, true
+}
+
 // 获取指令号
 func GetCmd(buf []byte) uint16 {
-	if len(buf) < MaxCmdSize {
+	if len(buf) < CmdHeaderSize {
 		return 0
 	}
 	return uint16(buf[0]) | uint16(buf[1])<<8
@@ -83,19 +96,19 @@ func GetCmd(buf []byte) uint16 {
 
 // 生成protobuf数据
 func DecodeCmd(buf []byte, flag byte, pb Message) Message {
-	if len(buf) < MaxCmdSize {
-		fmt.Println("[协议] 数据错误 ", buf)
+	if len(buf) < CmdHeaderSize {
+		glog.Errorln("[协议] 数据错误 ", buf)
 		return nil
 	}
 	var mbuff []byte
 	if flag == 1 {
-		mbuff = zlibUnCompress(buf[MaxCmdSize:])
+		mbuff = zlibUnCompress(buf[CmdHeaderSize:])
 	} else {
-		mbuff = buf[MaxCmdSize:]
+		mbuff = buf[CmdHeaderSize:]
 	}
 	err := pb.Unmarshal(mbuff)
 	if err != nil {
-		fmt.Println("[协议] 解码错误 ", err, ",", mbuff)
+		glog.Errorln("[协议] 解码错误 ", err, ",", mbuff)
 		return nil
 	}
 	return pb

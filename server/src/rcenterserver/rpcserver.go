@@ -16,7 +16,7 @@ const RpcServiceName = "RPC.GetRoomServerInfo"
 type RpcRoomService struct {
 }
 
-func (r *RpcRoomService) RetRoom(request *usercmd.ReqIntoRoom, reply *usercmd.RetIntoFRoom) error {
+func (r *RpcRoomService) RetRoom(request *usercmd.ReqIntoRoom, reply *usercmd.RetIntoRoom) error {
 	uid, username := request.GetUId(), request.GetUserName()
 
 	glog.Infof("[Rpc get room]uid:%v, username:%v", uid, username)

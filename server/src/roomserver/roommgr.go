@@ -7,11 +7,11 @@ const (
 )
 
 type RoomMgr struct {
-	mutex    sync.Mutex
-	roomList []*Room
-	maxNum   int
-	curNum   uint32 // 当前最后一个不满人的房间id
-	endchan  chan uint32
+	mutex   sync.Mutex
+	roomMap map[uint32]*Room
+	maxNum  int
+	curNum  uint32 // 当前最后一个不满人的房间id
+	endchan chan uint32
 }
 
 var roommgr *RoomMgr
@@ -19,10 +19,10 @@ var roommgr *RoomMgr
 func RoomMgr_GetMe() *RoomMgr {
 	if roommgr == nil {
 		roommgr = &RoomMgr{
-			roomList: make([]*Room, 10),
-			endchan:  make(chan uint32, 100),
-			maxNum:   10,
-			curNum:   1,
+			roomMap: make(map[uint32]*Room),
+			endchan: make(chan uint32, 100),
+			maxNum:  10,
+			curNum:  1,
 		}
 
 	}
