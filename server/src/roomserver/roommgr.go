@@ -2,11 +2,7 @@ package main
 
 import "sync"
 
-const (
-	RoomType_1v1Room = 1
-)
-
-type RoomMgr struct {
+type RoomManager struct {
 	mutex   sync.Mutex
 	roomMap map[uint32]*Room
 	maxNum  int
@@ -14,11 +10,11 @@ type RoomMgr struct {
 	endchan chan uint32
 }
 
-var roommgr *RoomMgr
+var roommgr *RoomManager
 
-func RoomMgr_GetMe() *RoomMgr {
+func RoomManager_GetMe() *RoomManager {
 	if roommgr == nil {
-		roommgr = &RoomMgr{
+		roommgr = &RoomManager{
 			roomMap: make(map[uint32]*Room),
 			endchan: make(chan uint32, 100),
 			maxNum:  10,
@@ -27,6 +23,45 @@ func RoomMgr_GetMe() *RoomMgr {
 
 	}
 	return roommgr
+}
+
+func (this *RoomManager) AddRoom(room *Room) (*Room, bool) {
+	this.mutex.Lock()
+	defer this.mutex.Unlock()
+	oldroom, ok := this.roomMap[room.id]
+	if ok {
+		return oldroom, false
+	}
+	this.roomMap[this.curNum] = room
+	return room, true
+}
+
+// 新增房间
+func (this *RoomManager) NewRoom(rtype, rid uint32) *Room {
+	room, ok := this.AddRoom(NewRoom(rtype, rid))
+	if ok {
+		//...
+	}
+	return room
+}
+
+func (this *RoomManager) GetRoomById(rid uint32) *Room {
+	this.mutex.Lock()
+	room, ok := this.roomMap[rid]
+	this.mutex.Unlock()
+	if !ok {
+		return nil
+	}
+	return room
+}
+
+func (this *RoomManager) GetRoomList() (rooms []*Room) {
+	this.mutex.Lock()
+	defer this.mutex.Unlock()
+	for _, room := range this.roomMap {
+		rooms = append(rooms, room)
+	}
+	return rooms
 }
 
 // logicserver通过rpc获取房间id时调用

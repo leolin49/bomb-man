@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 package usercmd;
 
 option go_package = "./;usercmd";
@@ -36,8 +36,55 @@ enum MsgTypeCmd {
     UserStateSet  = 111;
     UserStateClr  = 112;
   
-  }
+}
 
-  message UserLoginInfo {
-    required string Token = 1;
-  }
+message UserLoginInfo {
+    string Token = 1;
+}
+
+message MsgPlayer {
+    uint64  id      = 1;  // 玩家ID
+    string  name    = 2;  // 玩家名字
+    uint32  score   = 3;  // 分数
+    uint32  hp      = 4;  // 生命值
+    uint32  curbomb = 5;  // 当前已经放置的炸弹数量
+    uint32  maxbomb = 6;  // 能放置的最大炸弹数量
+    uint32  power   = 7;  // 炸弹威力
+    uint32  speed   = 8;  // 移动速度
+    int32   posX    = 9;  // 位置x
+    int32   posY    = 10; // 位置y
+}
+
+// 炸弹
+message BombData {
+    uint32 id       = 1;  // id
+    int32  posX     = 2;  // 位置x
+    int32  posY     = 3;  // 位置y
+    uint32 power    = 4;  // 威力
+    uint64 owner    = 5;  // 炸弹所有者
+    uint32 existTm  = 6;  // 存在时间
+}
+
+// 请求移动
+message MsgMove {
+    int32 way = 1;  // 方向
+}
+
+// 请求放置炸弹（tmp）
+message MsgPutBomb {
+    bool None = 1;
+}
+
+// 返回死亡
+message RetRoleDeath {
+    uint32 killName = 1;  // 被谁杀了
+    uint64 killId   = 2;  // 被谁杀了id
+    uint32 liveTime = 3;  // 存活时间
+    uint32 score    = 4;  // 得分
+}
+
+// 返回统一错误码
+message RetErrorMsgCmd {
+    uint32 RetCode = 1;   // 错误码
+    uint32 Params  = 2;   // 参数
+}

@@ -25,15 +25,6 @@ const ( // http状态码
 	Internal_Server_Error = 500 // 服务器内部错误，无法完成请求
 )
 
-const ( //
-	SUCCESS                         = 1000 // 成功
-	LOGIN_ERROR_USERNOTEXSIT        = 2001 // 登录失败，用户不存在
-	LOGIN_ERROR_PASSWORDERROR       = 2002 // 登录失败，密码错误
-	REGISTER_ERROR_USERALREADYEXSIT = 2003 // 注册失败，用户名已存在
-	INVALID_TOKEN                   = 2004 // 无效的token（token错误或已过期）
-
-)
-
 type UserInfo struct {
 	Id           string `redis:"Id"`           // 玩家ID
 	Password     string `redis:"PassWord"`     // 密码
@@ -44,7 +35,7 @@ type UserInfo struct {
 func JustRetCodeJson(code int) []byte {
 	res, _ := json.Marshal(struct {
 		ResultCode int `json:"result_code"`
-	}{SUCCESS})
+	}{code})
 	return res
 }
 
@@ -99,7 +90,7 @@ func RegisterHandler(writer http.ResponseWriter, request *http.Request) {
 	// 用户名已存在
 	if common.RedisMgr.Exist(key) {
 		glog.Infoln("[User Register] username existed")
-		writer.Write(JustRetCodeJson(REGISTER_ERROR_USERALREADYEXSIT))
+		writer.Write(JustRetCodeJson(common.ErrorCodeUserNameRepeat))
 		return
 	}
 	count++
@@ -113,7 +104,7 @@ func RegisterHandler(writer http.ResponseWriter, request *http.Request) {
 	common.RedisMgr.Set("PlayerNumber", strconv.Itoa(count))
 	glog.Infof("[Register success]%v, %v, %v, %v", key, uid, pwd, curtime)
 	// 注册成功
-	writer.Write(JustRetCodeJson(SUCCESS))
+	writer.Write(JustRetCodeJson(common.ErrorCodeSuccess))
 }
 
 // 登录游戏
@@ -125,13 +116,13 @@ func LoginHandler(writer http.ResponseWriter, request *http.Request) {
 	// 验证1：用户名不存在
 	if !common.RedisMgr.Exist(key) {
 		glog.Infoln("[User Login] user not exist ", key)
-		writer.Write(JustRetCodeJson(LOGIN_ERROR_USERNOTEXSIT))
+		writer.Write(JustRetCodeJson(common.ErrorCodeUserNotExist))
 		return
 	}
 	// 验证2：密码错误
 	if pwd != common.RedisMgr.HGet(key, "PassWord") {
 		glog.Infoln("[User Login] password error ", pwd)
-		writer.Write(JustRetCodeJson(LOGIN_ERROR_PASSWORDERROR))
+		writer.Write(JustRetCodeJson(common.ErrorCodePassWordWrong))
 		return
 	}
 	// 生成token
@@ -152,7 +143,7 @@ func LoginHandler(writer http.ResponseWriter, request *http.Request) {
 		ResultCode int    `json:"result_code"`
 		Token      string `json:"token"`
 	}{
-		SUCCESS,
+		common.ErrorCodeSuccess,
 		token,
 	}
 	res, _ := json.Marshal(tmp)
@@ -180,7 +171,7 @@ func StartGameHandler(writer http.ResponseWriter, request *http.Request) {
 		glog.Errorln("[Start Game] token error or expired")
 		glog.Errorln("[Start Game] redis token: ", t)
 		glog.Errorln("[Start Game] request token: ", req.Token)
-		writer.Write(JustRetCodeJson(INVALID_TOKEN))
+		writer.Write(JustRetCodeJson(common.ErrorCodeInvalidToken))
 		writer.WriteHeader(Unauthorized)
 		return
 	}

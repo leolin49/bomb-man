@@ -51,6 +51,13 @@ func (this *TcpTask) RemoteAddr() string {
 	return this.Conn.RemoteAddr().String()
 }
 
+func (this *TcpTask) LocalAddr() string {
+	if this.Conn == nil {
+		return ""
+	}
+	return this.Conn.LocalAddr().String()
+}
+
 func (this *TcpTask) Start() {
 	if atomic.CompareAndSwapInt32(&this.closed, -1, 0) {
 		job := &sync.WaitGroup{}

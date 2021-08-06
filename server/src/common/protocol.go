@@ -86,6 +86,31 @@ func EncodeToBytes(cmd uint16, msg Message) ([]byte, bool) {
 	return data, true
 }
 
+// protobuf解码数据
+func DecodeGoMsg(buf []byte, flag byte, pb Message) (err error) {
+	var mbuff []byte
+	if flag == 1 {
+		mbuff = zlibUnCompress(buf)
+	} else {
+		mbuff = buf
+	}
+	err = pb.Unmarshal(mbuff)
+	if err != nil {
+		glog.Errorln("[协议] gogo解码错误 ", err)
+	}
+	return
+}
+
+// protobuf解码数据
+func DecodeGoCmd(buf []byte, flag byte, pb Message) (err error) {
+	if len(buf) < CmdHeaderSize {
+		glog.Errorln("[协议] 解码错误，长度过短")
+		return
+	}
+	err = DecodeGoMsg(buf[CmdHeaderSize:], flag, pb)
+	return
+}
+
 // 获取指令号
 func GetCmd(buf []byte) uint16 {
 	if len(buf) < CmdHeaderSize {

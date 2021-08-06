@@ -95,14 +95,14 @@ func (this *RoomGrpcClient) TickerSendLoadInfo() {
 	info.Ip = "localhost"
 	info.Port = uint32(p)
 	//
-	r := RoomMgr_GetMe()
+	r := RoomManager_GetMe()
 
 	ticker := time.NewTicker(2 * time.Second)
 	for {
 		<-ticker.C
 		// 获取实时信息
 		info.RoomNum = r.curNum
-		info.PlayerNum = r.curNum * MaxPlayerInRoom // 粗略计算（待优化）
+		info.PlayerNum = r.curNum * 2 // 粗略计算（待优化）
 		info.CurRoomId = r.curNum
 		//
 		bytes, err := json.Marshal(info) // TODO ???

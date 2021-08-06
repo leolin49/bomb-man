@@ -5,7 +5,6 @@ package usercmd
 
 import (
 	fmt "fmt"
-	github_com_golang_protobuf_proto "github.com/golang/protobuf/proto"
 	proto "github.com/golang/protobuf/proto"
 	io "io"
 	math "math"
@@ -110,23 +109,8 @@ var MsgTypeCmd_value = map[string]int32{
 	"UserStateClr":   112,
 }
 
-func (x MsgTypeCmd) Enum() *MsgTypeCmd {
-	p := new(MsgTypeCmd)
-	*p = x
-	return p
-}
-
 func (x MsgTypeCmd) String() string {
 	return proto.EnumName(MsgTypeCmd_name, int32(x))
-}
-
-func (x *MsgTypeCmd) UnmarshalJSON(data []byte) error {
-	value, err := proto.UnmarshalJSONEnum(MsgTypeCmd_value, data, "MsgTypeCmd")
-	if err != nil {
-		return err
-	}
-	*x = MsgTypeCmd(value)
-	return nil
 }
 
 func (MsgTypeCmd) EnumDescriptor() ([]byte, []int) {
@@ -134,7 +118,7 @@ func (MsgTypeCmd) EnumDescriptor() ([]byte, []int) {
 }
 
 type UserLoginInfo struct {
-	Token                *string  `protobuf:"bytes,1,req,name=Token" json:"Token,omitempty"`
+	Token                string   `protobuf:"bytes,1,opt,name=Token,proto3" json:"Token,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -174,44 +158,499 @@ func (m *UserLoginInfo) XXX_DiscardUnknown() {
 var xxx_messageInfo_UserLoginInfo proto.InternalMessageInfo
 
 func (m *UserLoginInfo) GetToken() string {
-	if m != nil && m.Token != nil {
-		return *m.Token
+	if m != nil {
+		return m.Token
 	}
 	return ""
+}
+
+type MsgPlayer struct {
+	Id                   uint64   `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Score                uint32   `protobuf:"varint,3,opt,name=score,proto3" json:"score,omitempty"`
+	Hp                   uint32   `protobuf:"varint,4,opt,name=hp,proto3" json:"hp,omitempty"`
+	Curbomb              uint32   `protobuf:"varint,5,opt,name=curbomb,proto3" json:"curbomb,omitempty"`
+	Maxbomb              uint32   `protobuf:"varint,6,opt,name=maxbomb,proto3" json:"maxbomb,omitempty"`
+	Power                uint32   `protobuf:"varint,7,opt,name=power,proto3" json:"power,omitempty"`
+	Speed                uint32   `protobuf:"varint,8,opt,name=speed,proto3" json:"speed,omitempty"`
+	PosX                 int32    `protobuf:"varint,9,opt,name=posX,proto3" json:"posX,omitempty"`
+	PosY                 int32    `protobuf:"varint,10,opt,name=posY,proto3" json:"posY,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *MsgPlayer) Reset()         { *m = MsgPlayer{} }
+func (m *MsgPlayer) String() string { return proto.CompactTextString(m) }
+func (*MsgPlayer) ProtoMessage()    {}
+func (*MsgPlayer) Descriptor() ([]byte, []int) {
+	return fileDescriptor_38fc58335341d769, []int{1}
+}
+func (m *MsgPlayer) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgPlayer) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgPlayer.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgPlayer) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgPlayer.Merge(m, src)
+}
+func (m *MsgPlayer) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgPlayer) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgPlayer.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgPlayer proto.InternalMessageInfo
+
+func (m *MsgPlayer) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *MsgPlayer) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *MsgPlayer) GetScore() uint32 {
+	if m != nil {
+		return m.Score
+	}
+	return 0
+}
+
+func (m *MsgPlayer) GetHp() uint32 {
+	if m != nil {
+		return m.Hp
+	}
+	return 0
+}
+
+func (m *MsgPlayer) GetCurbomb() uint32 {
+	if m != nil {
+		return m.Curbomb
+	}
+	return 0
+}
+
+func (m *MsgPlayer) GetMaxbomb() uint32 {
+	if m != nil {
+		return m.Maxbomb
+	}
+	return 0
+}
+
+func (m *MsgPlayer) GetPower() uint32 {
+	if m != nil {
+		return m.Power
+	}
+	return 0
+}
+
+func (m *MsgPlayer) GetSpeed() uint32 {
+	if m != nil {
+		return m.Speed
+	}
+	return 0
+}
+
+func (m *MsgPlayer) GetPosX() int32 {
+	if m != nil {
+		return m.PosX
+	}
+	return 0
+}
+
+func (m *MsgPlayer) GetPosY() int32 {
+	if m != nil {
+		return m.PosY
+	}
+	return 0
+}
+
+// 炸弹
+type BombData struct {
+	Id                   uint32   `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	PosX                 int32    `protobuf:"varint,2,opt,name=posX,proto3" json:"posX,omitempty"`
+	PosY                 int32    `protobuf:"varint,3,opt,name=posY,proto3" json:"posY,omitempty"`
+	Power                uint32   `protobuf:"varint,4,opt,name=power,proto3" json:"power,omitempty"`
+	Owner                uint64   `protobuf:"varint,5,opt,name=owner,proto3" json:"owner,omitempty"`
+	ExistTm              uint32   `protobuf:"varint,6,opt,name=existTm,proto3" json:"existTm,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BombData) Reset()         { *m = BombData{} }
+func (m *BombData) String() string { return proto.CompactTextString(m) }
+func (*BombData) ProtoMessage()    {}
+func (*BombData) Descriptor() ([]byte, []int) {
+	return fileDescriptor_38fc58335341d769, []int{2}
+}
+func (m *BombData) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *BombData) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_BombData.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *BombData) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BombData.Merge(m, src)
+}
+func (m *BombData) XXX_Size() int {
+	return m.Size()
+}
+func (m *BombData) XXX_DiscardUnknown() {
+	xxx_messageInfo_BombData.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BombData proto.InternalMessageInfo
+
+func (m *BombData) GetId() uint32 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *BombData) GetPosX() int32 {
+	if m != nil {
+		return m.PosX
+	}
+	return 0
+}
+
+func (m *BombData) GetPosY() int32 {
+	if m != nil {
+		return m.PosY
+	}
+	return 0
+}
+
+func (m *BombData) GetPower() uint32 {
+	if m != nil {
+		return m.Power
+	}
+	return 0
+}
+
+func (m *BombData) GetOwner() uint64 {
+	if m != nil {
+		return m.Owner
+	}
+	return 0
+}
+
+func (m *BombData) GetExistTm() uint32 {
+	if m != nil {
+		return m.ExistTm
+	}
+	return 0
+}
+
+// 请求移动
+type MsgMove struct {
+	Way                  int32    `protobuf:"varint,1,opt,name=way,proto3" json:"way,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *MsgMove) Reset()         { *m = MsgMove{} }
+func (m *MsgMove) String() string { return proto.CompactTextString(m) }
+func (*MsgMove) ProtoMessage()    {}
+func (*MsgMove) Descriptor() ([]byte, []int) {
+	return fileDescriptor_38fc58335341d769, []int{3}
+}
+func (m *MsgMove) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgMove) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgMove.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgMove) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgMove.Merge(m, src)
+}
+func (m *MsgMove) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgMove) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgMove.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgMove proto.InternalMessageInfo
+
+func (m *MsgMove) GetWay() int32 {
+	if m != nil {
+		return m.Way
+	}
+	return 0
+}
+
+// 请求放置炸弹（tmp）
+type MsgPutBomb struct {
+	None                 bool     `protobuf:"varint,1,opt,name=None,proto3" json:"None,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *MsgPutBomb) Reset()         { *m = MsgPutBomb{} }
+func (m *MsgPutBomb) String() string { return proto.CompactTextString(m) }
+func (*MsgPutBomb) ProtoMessage()    {}
+func (*MsgPutBomb) Descriptor() ([]byte, []int) {
+	return fileDescriptor_38fc58335341d769, []int{4}
+}
+func (m *MsgPutBomb) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgPutBomb) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgPutBomb.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgPutBomb) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgPutBomb.Merge(m, src)
+}
+func (m *MsgPutBomb) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgPutBomb) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgPutBomb.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgPutBomb proto.InternalMessageInfo
+
+func (m *MsgPutBomb) GetNone() bool {
+	if m != nil {
+		return m.None
+	}
+	return false
+}
+
+// 返回死亡
+type RetRoleDeath struct {
+	KillName             uint32   `protobuf:"varint,1,opt,name=killName,proto3" json:"killName,omitempty"`
+	KillId               uint64   `protobuf:"varint,2,opt,name=killId,proto3" json:"killId,omitempty"`
+	LiveTime             uint32   `protobuf:"varint,3,opt,name=liveTime,proto3" json:"liveTime,omitempty"`
+	Score                uint32   `protobuf:"varint,4,opt,name=score,proto3" json:"score,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RetRoleDeath) Reset()         { *m = RetRoleDeath{} }
+func (m *RetRoleDeath) String() string { return proto.CompactTextString(m) }
+func (*RetRoleDeath) ProtoMessage()    {}
+func (*RetRoleDeath) Descriptor() ([]byte, []int) {
+	return fileDescriptor_38fc58335341d769, []int{5}
+}
+func (m *RetRoleDeath) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *RetRoleDeath) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_RetRoleDeath.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *RetRoleDeath) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RetRoleDeath.Merge(m, src)
+}
+func (m *RetRoleDeath) XXX_Size() int {
+	return m.Size()
+}
+func (m *RetRoleDeath) XXX_DiscardUnknown() {
+	xxx_messageInfo_RetRoleDeath.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RetRoleDeath proto.InternalMessageInfo
+
+func (m *RetRoleDeath) GetKillName() uint32 {
+	if m != nil {
+		return m.KillName
+	}
+	return 0
+}
+
+func (m *RetRoleDeath) GetKillId() uint64 {
+	if m != nil {
+		return m.KillId
+	}
+	return 0
+}
+
+func (m *RetRoleDeath) GetLiveTime() uint32 {
+	if m != nil {
+		return m.LiveTime
+	}
+	return 0
+}
+
+func (m *RetRoleDeath) GetScore() uint32 {
+	if m != nil {
+		return m.Score
+	}
+	return 0
+}
+
+// 返回统一错误码
+type RetErrorMsgCmd struct {
+	RetCode              uint32   `protobuf:"varint,1,opt,name=RetCode,proto3" json:"RetCode,omitempty"`
+	Params               uint32   `protobuf:"varint,2,opt,name=Params,proto3" json:"Params,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RetErrorMsgCmd) Reset()         { *m = RetErrorMsgCmd{} }
+func (m *RetErrorMsgCmd) String() string { return proto.CompactTextString(m) }
+func (*RetErrorMsgCmd) ProtoMessage()    {}
+func (*RetErrorMsgCmd) Descriptor() ([]byte, []int) {
+	return fileDescriptor_38fc58335341d769, []int{6}
+}
+func (m *RetErrorMsgCmd) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *RetErrorMsgCmd) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_RetErrorMsgCmd.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *RetErrorMsgCmd) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RetErrorMsgCmd.Merge(m, src)
+}
+func (m *RetErrorMsgCmd) XXX_Size() int {
+	return m.Size()
+}
+func (m *RetErrorMsgCmd) XXX_DiscardUnknown() {
+	xxx_messageInfo_RetErrorMsgCmd.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RetErrorMsgCmd proto.InternalMessageInfo
+
+func (m *RetErrorMsgCmd) GetRetCode() uint32 {
+	if m != nil {
+		return m.RetCode
+	}
+	return 0
+}
+
+func (m *RetErrorMsgCmd) GetParams() uint32 {
+	if m != nil {
+		return m.Params
+	}
+	return 0
 }
 
 func init() {
 	proto.RegisterEnum("usercmd.MsgTypeCmd", MsgTypeCmd_name, MsgTypeCmd_value)
 	proto.RegisterType((*UserLoginInfo)(nil), "usercmd.UserLoginInfo")
+	proto.RegisterType((*MsgPlayer)(nil), "usercmd.MsgPlayer")
+	proto.RegisterType((*BombData)(nil), "usercmd.BombData")
+	proto.RegisterType((*MsgMove)(nil), "usercmd.MsgMove")
+	proto.RegisterType((*MsgPutBomb)(nil), "usercmd.MsgPutBomb")
+	proto.RegisterType((*RetRoleDeath)(nil), "usercmd.RetRoleDeath")
+	proto.RegisterType((*RetErrorMsgCmd)(nil), "usercmd.RetErrorMsgCmd")
 }
 
 func init() { proto.RegisterFile("game.proto", fileDescriptor_38fc58335341d769) }
 
 var fileDescriptor_38fc58335341d769 = []byte{
-	// 365 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x91, 0xc1, 0x6e, 0xd3, 0x40,
-	0x10, 0x86, 0xeb, 0xb4, 0x21, 0xcd, 0xa4, 0x6e, 0x87, 0x15, 0x02, 0x0e, 0xc8, 0x42, 0x48, 0x48,
-	0x88, 0x43, 0x79, 0x00, 0x4e, 0x71, 0x5a, 0x89, 0x4a, 0x24, 0xaa, 0xec, 0x70, 0xe1, 0xb6, 0x78,
-	0xa7, 0x4e, 0xa8, 0x77, 0xd7, 0xda, 0x9d, 0x16, 0xf9, 0x4d, 0x78, 0x24, 0x8e, 0x3c, 0x02, 0x0a,
-	0x6f, 0xc1, 0x09, 0x8d, 0x5d, 0x45, 0xea, 0xf1, 0xff, 0x77, 0xfe, 0x6f, 0xf7, 0xdf, 0x01, 0xa8,
-	0xb5, 0xa5, 0xf3, 0x36, 0x78, 0xf6, 0x6a, 0x72, 0x17, 0x29, 0x54, 0xd6, 0xbc, 0x79, 0x0b, 0xe9,
-	0x97, 0x48, 0xe1, 0xb3, 0xaf, 0xb7, 0xee, 0xca, 0xdd, 0x78, 0xf5, 0x0c, 0xc6, 0x6b, 0x7f, 0x4b,
-	0xee, 0x65, 0xf2, 0x7a, 0xf4, 0x6e, 0x5a, 0x0c, 0xe2, 0xfd, 0xbf, 0x11, 0xc0, 0x32, 0xd6, 0xeb,
-	0xae, 0xa5, 0x85, 0x35, 0xea, 0x18, 0x8e, 0x56, 0xde, 0x11, 0x1e, 0xa8, 0x29, 0x8c, 0xfb, 0x2c,
-	0x26, 0x6a, 0x02, 0x87, 0x6b, 0xdf, 0xe2, 0x48, 0xa5, 0x30, 0x9d, 0x1b, 0x73, 0xdd, 0xe8, 0x8e,
-	0x02, 0x1e, 0x2a, 0x84, 0x93, 0x82, 0xac, 0xbf, 0xa7, 0x07, 0xe7, 0x48, 0x42, 0x65, 0x45, 0x8e,
-	0x70, 0x2c, 0xa4, 0xa5, 0xbf, 0x27, 0x7c, 0xa2, 0x66, 0x30, 0xb9, 0xbe, 0xe3, 0xdc, 0xdb, 0x6f,
-	0x38, 0x91, 0x89, 0x0b, 0xd2, 0xbc, 0x41, 0x10, 0xff, 0xd2, 0x99, 0xc2, 0x7b, 0x8b, 0x33, 0x75,
-	0x02, 0xc7, 0x2b, 0xfa, 0x31, 0x84, 0x53, 0x51, 0x05, 0x95, 0xc4, 0x2b, 0x62, 0x3c, 0x93, 0x6b,
-	0x3f, 0x91, 0x0e, 0x9c, 0x93, 0x66, 0x44, 0x91, 0x65, 0x17, 0x99, 0xec, 0x32, 0xd6, 0xf8, 0x5c,
-	0x66, 0x2f, 0x43, 0xf0, 0x41, 0xd4, 0x8b, 0xfe, 0x50, 0x20, 0x65, 0xe7, 0x2a, 0x34, 0xf2, 0xc4,
-	0x2b, 0xb7, 0x65, 0x51, 0x17, 0x9a, 0x35, 0x92, 0x3a, 0x05, 0xd8, 0x77, 0x88, 0x78, 0x23, 0xf1,
-	0xb9, 0x31, 0xb9, 0x6e, 0x9a, 0x88, 0x1b, 0x75, 0x06, 0xb3, 0xa1, 0xd2, 0x60, 0x6c, 0x05, 0x50,
-	0x12, 0xf7, 0xc8, 0x1e, 0xf0, 0x5d, 0x3d, 0x85, 0x74, 0xb1, 0xa1, 0xea, 0x76, 0xcf, 0x6c, 0x94,
-	0x82, 0xd3, 0x92, 0x78, 0x60, 0xce, 0x99, 0x43, 0x44, 0x2b, 0x41, 0xf9, 0xff, 0x92, 0x35, 0x4b,
-	0x13, 0xf4, 0x8f, 0x9c, 0x45, 0x13, 0xb0, 0xcd, 0x5f, 0xfd, 0xda, 0x65, 0xc9, 0xef, 0x5d, 0x96,
-	0xfc, 0xd9, 0x65, 0xc9, 0xcf, 0xbf, 0xd9, 0xc1, 0x57, 0x38, 0xff, 0xf0, 0xf1, 0x61, 0x83, 0xff,
-	0x03, 0x00, 0x00, 0xff, 0xff, 0xee, 0x9b, 0x54, 0xc7, 0xd7, 0x01, 0x00, 0x00,
+	// 643 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x54, 0xcf, 0x6e, 0xd3, 0x4e,
+	0x10, 0xae, 0x13, 0xe7, 0xdf, 0xb4, 0x69, 0xf7, 0xb7, 0xfa, 0xa9, 0x58, 0x80, 0xa2, 0x28, 0x12,
+	0x52, 0xc5, 0xa1, 0x1c, 0x38, 0x72, 0x6a, 0xd2, 0x4a, 0x54, 0x22, 0x51, 0xb5, 0x09, 0x12, 0xe5,
+	0xb6, 0x89, 0xa7, 0x89, 0xa9, 0xd7, 0x6b, 0xed, 0x6e, 0x9b, 0xe6, 0x0d, 0x78, 0x04, 0x1e, 0x89,
+	0x23, 0x2f, 0x80, 0x84, 0xca, 0x5b, 0x70, 0x42, 0xb3, 0xb6, 0xd3, 0x82, 0xb8, 0xcd, 0xf7, 0xed,
+	0xce, 0x37, 0xf3, 0xcd, 0xac, 0x0d, 0xb0, 0x94, 0x0a, 0x8f, 0x73, 0xa3, 0x9d, 0xe6, 0xad, 0x1b,
+	0x8b, 0x66, 0xa1, 0xe2, 0xc1, 0x0b, 0xe8, 0xbe, 0xb7, 0x68, 0xde, 0xe9, 0x65, 0x92, 0x9d, 0x67,
+	0x57, 0x9a, 0xff, 0x0f, 0x8d, 0x99, 0xbe, 0xc6, 0x2c, 0x0a, 0xfa, 0xc1, 0x51, 0x47, 0x14, 0x60,
+	0xf0, 0x3d, 0x80, 0xce, 0xd8, 0x2e, 0x2f, 0x52, 0xb9, 0x41, 0xc3, 0xf7, 0xa1, 0x96, 0xc4, 0xfe,
+	0x42, 0x28, 0x6a, 0x49, 0xcc, 0x39, 0x84, 0x99, 0x54, 0x18, 0xd5, 0x7c, 0x8a, 0x8f, 0x49, 0xc7,
+	0x2e, 0xb4, 0xc1, 0xa8, 0xde, 0x0f, 0x8e, 0xba, 0xa2, 0x00, 0x94, 0xb9, 0xca, 0xa3, 0xd0, 0x53,
+	0xb5, 0x55, 0xce, 0x23, 0x68, 0x2d, 0x6e, 0xcc, 0x5c, 0xab, 0x79, 0xd4, 0xf0, 0x64, 0x05, 0xe9,
+	0x44, 0xc9, 0x3b, 0x7f, 0xd2, 0x2c, 0x4e, 0x4a, 0x48, 0xca, 0xb9, 0x5e, 0xa3, 0x89, 0x5a, 0x85,
+	0xb2, 0x07, 0xbe, 0x5e, 0x8e, 0x18, 0x47, 0xed, 0xb2, 0x1e, 0x01, 0xea, 0x2c, 0xd7, 0xf6, 0x43,
+	0xd4, 0xe9, 0x07, 0x47, 0x0d, 0xe1, 0xe3, 0x92, 0xbb, 0x8c, 0x60, 0xcb, 0x5d, 0x0e, 0x3e, 0x07,
+	0xd0, 0x1e, 0x6a, 0x35, 0x3f, 0x95, 0x4e, 0x3e, 0xb2, 0xd7, 0xad, 0xec, 0x79, 0x91, 0xda, 0x3f,
+	0x44, 0xea, 0x0f, 0x22, 0x0f, 0x8d, 0x85, 0x7f, 0x35, 0xa6, 0xd7, 0x19, 0x1a, 0x6f, 0x30, 0x14,
+	0x05, 0x20, 0x7b, 0x78, 0x97, 0x58, 0x37, 0x53, 0x95, 0xbd, 0x12, 0x0e, 0x9e, 0x41, 0x6b, 0x6c,
+	0x97, 0x63, 0x7d, 0x8b, 0x9c, 0x41, 0x7d, 0x2d, 0x37, 0xbe, 0x93, 0x86, 0xa0, 0x70, 0xd0, 0x07,
+	0xa0, 0x35, 0xdc, 0x38, 0x6a, 0x96, 0x9a, 0x98, 0xe8, 0x0c, 0xfd, 0x85, 0xb6, 0xf0, 0xf1, 0xc0,
+	0xc1, 0x9e, 0x40, 0x27, 0x74, 0x8a, 0xa7, 0x28, 0xdd, 0x8a, 0x3f, 0x85, 0xf6, 0x75, 0x92, 0xa6,
+	0x13, 0xda, 0x4f, 0x61, 0x69, 0x8b, 0xf9, 0x21, 0x34, 0x29, 0x3e, 0x8f, 0xbd, 0xb5, 0x50, 0x94,
+	0x88, 0x72, 0xd2, 0xe4, 0x16, 0x67, 0x89, 0xaa, 0xd6, 0xb7, 0xc5, 0x0f, 0x7b, 0x0d, 0x1f, 0xed,
+	0x75, 0x30, 0x84, 0x7d, 0x81, 0xee, 0xcc, 0x18, 0x6d, 0xc6, 0x76, 0x39, 0x52, 0x31, 0x19, 0x14,
+	0xe8, 0x46, 0x3a, 0xae, 0xca, 0x56, 0x90, 0xaa, 0x5e, 0x48, 0x23, 0x95, 0xf5, 0x55, 0xbb, 0xa2,
+	0x44, 0x2f, 0x7f, 0xd5, 0xbc, 0xb9, 0xd9, 0x26, 0x47, 0x12, 0x68, 0x17, 0xe6, 0xd8, 0x0e, 0xef,
+	0x40, 0xc3, 0xbf, 0x4f, 0x16, 0xf0, 0x16, 0xd4, 0x67, 0x3a, 0x67, 0x35, 0xde, 0x85, 0xce, 0x49,
+	0x1c, 0x17, 0xef, 0x91, 0xd5, 0x39, 0x23, 0xd7, 0x4a, 0xdf, 0x62, 0xc9, 0x84, 0x94, 0x34, 0x5d,
+	0x60, 0x86, 0xac, 0x41, 0x4a, 0x34, 0x4e, 0xd6, 0xe4, 0xbb, 0xd0, 0x2a, 0x67, 0xc7, 0x5a, 0x74,
+	0xc3, 0x8f, 0x88, 0x01, 0xf1, 0x67, 0x59, 0x2c, 0xb4, 0x56, 0x6c, 0x97, 0xef, 0x41, 0x7b, 0x82,
+	0xeb, 0x22, 0xb9, 0x4b, 0x48, 0xe0, 0x14, 0xdd, 0x04, 0x1d, 0x3b, 0xa0, 0xb2, 0x6f, 0x51, 0x1a,
+	0x37, 0x44, 0xe9, 0x18, 0x23, 0x38, 0xdd, 0x58, 0x87, 0x6a, 0x6c, 0x97, 0xec, 0x90, 0xee, 0x56,
+	0x23, 0x60, 0x4f, 0xfc, 0x21, 0x89, 0x4c, 0x37, 0xd9, 0x82, 0xc5, 0xd4, 0xe2, 0x79, 0x96, 0x38,
+	0x42, 0xf4, 0xca, 0x18, 0x7d, 0x0c, 0xb0, 0xf5, 0x60, 0xd9, 0x15, 0xa5, 0x9f, 0xc4, 0xf1, 0x50,
+	0xa6, 0xa9, 0x65, 0x2b, 0x7e, 0x00, 0xbb, 0x85, 0xa5, 0x82, 0x48, 0x48, 0x60, 0x8a, 0xce, 0x4b,
+	0x7a, 0x81, 0x4f, 0xfc, 0x3f, 0xe8, 0x8e, 0x56, 0xb8, 0xb8, 0xde, 0x6a, 0xa6, 0x9c, 0xc3, 0xfe,
+	0x14, 0x5d, 0xa1, 0x79, 0xe2, 0x9c, 0xb1, 0x4c, 0x51, 0x22, 0x7d, 0xe3, 0x53, 0x27, 0x1d, 0x39,
+	0x61, 0xfa, 0x0f, 0x66, 0x94, 0x1a, 0x96, 0x0f, 0x9f, 0x7f, 0xbd, 0xef, 0x05, 0xdf, 0xee, 0x7b,
+	0xc1, 0x8f, 0xfb, 0x5e, 0xf0, 0xe5, 0x67, 0x6f, 0xe7, 0x23, 0x1c, 0xbf, 0x7a, 0x53, 0xfe, 0x25,
+	0xe6, 0x4d, 0xff, 0xd7, 0x78, 0xfd, 0x3b, 0x00, 0x00, 0xff, 0xff, 0xb9, 0x97, 0x14, 0x85, 0x43,
+	0x04, 0x00, 0x00,
 }
 
 func (m *UserLoginInfo) Marshal() (dAtA []byte, err error) {
@@ -238,14 +677,301 @@ func (m *UserLoginInfo) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i -= len(m.XXX_unrecognized)
 		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	if m.Token == nil {
-		return 0, new(github_com_golang_protobuf_proto.RequiredNotSetError)
-	} else {
-		i -= len(*m.Token)
-		copy(dAtA[i:], *m.Token)
-		i = encodeVarintGame(dAtA, i, uint64(len(*m.Token)))
+	if len(m.Token) > 0 {
+		i -= len(m.Token)
+		copy(dAtA[i:], m.Token)
+		i = encodeVarintGame(dAtA, i, uint64(len(m.Token)))
 		i--
 		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgPlayer) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgPlayer) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgPlayer) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.PosY != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.PosY))
+		i--
+		dAtA[i] = 0x50
+	}
+	if m.PosX != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.PosX))
+		i--
+		dAtA[i] = 0x48
+	}
+	if m.Speed != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Speed))
+		i--
+		dAtA[i] = 0x40
+	}
+	if m.Power != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Power))
+		i--
+		dAtA[i] = 0x38
+	}
+	if m.Maxbomb != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Maxbomb))
+		i--
+		dAtA[i] = 0x30
+	}
+	if m.Curbomb != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Curbomb))
+		i--
+		dAtA[i] = 0x28
+	}
+	if m.Hp != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Hp))
+		i--
+		dAtA[i] = 0x20
+	}
+	if m.Score != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Score))
+		i--
+		dAtA[i] = 0x18
+	}
+	if len(m.Name) > 0 {
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
+		i = encodeVarintGame(dAtA, i, uint64(len(m.Name)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if m.Id != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *BombData) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *BombData) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *BombData) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.ExistTm != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.ExistTm))
+		i--
+		dAtA[i] = 0x30
+	}
+	if m.Owner != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Owner))
+		i--
+		dAtA[i] = 0x28
+	}
+	if m.Power != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Power))
+		i--
+		dAtA[i] = 0x20
+	}
+	if m.PosY != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.PosY))
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.PosX != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.PosX))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.Id != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgMove) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgMove) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgMove) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.Way != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Way))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgPutBomb) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgPutBomb) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgPutBomb) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.None {
+		i--
+		if m.None {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *RetRoleDeath) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *RetRoleDeath) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *RetRoleDeath) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.Score != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Score))
+		i--
+		dAtA[i] = 0x20
+	}
+	if m.LiveTime != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.LiveTime))
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.KillId != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.KillId))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.KillName != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.KillName))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *RetErrorMsgCmd) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *RetErrorMsgCmd) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *RetErrorMsgCmd) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.Params != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.Params))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.RetCode != 0 {
+		i = encodeVarintGame(dAtA, i, uint64(m.RetCode))
+		i--
+		dAtA[i] = 0x8
 	}
 	return len(dAtA) - i, nil
 }
@@ -267,9 +993,154 @@ func (m *UserLoginInfo) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.Token != nil {
-		l = len(*m.Token)
+	l = len(m.Token)
+	if l > 0 {
 		n += 1 + l + sovGame(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *MsgPlayer) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovGame(uint64(m.Id))
+	}
+	l = len(m.Name)
+	if l > 0 {
+		n += 1 + l + sovGame(uint64(l))
+	}
+	if m.Score != 0 {
+		n += 1 + sovGame(uint64(m.Score))
+	}
+	if m.Hp != 0 {
+		n += 1 + sovGame(uint64(m.Hp))
+	}
+	if m.Curbomb != 0 {
+		n += 1 + sovGame(uint64(m.Curbomb))
+	}
+	if m.Maxbomb != 0 {
+		n += 1 + sovGame(uint64(m.Maxbomb))
+	}
+	if m.Power != 0 {
+		n += 1 + sovGame(uint64(m.Power))
+	}
+	if m.Speed != 0 {
+		n += 1 + sovGame(uint64(m.Speed))
+	}
+	if m.PosX != 0 {
+		n += 1 + sovGame(uint64(m.PosX))
+	}
+	if m.PosY != 0 {
+		n += 1 + sovGame(uint64(m.PosY))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *BombData) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovGame(uint64(m.Id))
+	}
+	if m.PosX != 0 {
+		n += 1 + sovGame(uint64(m.PosX))
+	}
+	if m.PosY != 0 {
+		n += 1 + sovGame(uint64(m.PosY))
+	}
+	if m.Power != 0 {
+		n += 1 + sovGame(uint64(m.Power))
+	}
+	if m.Owner != 0 {
+		n += 1 + sovGame(uint64(m.Owner))
+	}
+	if m.ExistTm != 0 {
+		n += 1 + sovGame(uint64(m.ExistTm))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *MsgMove) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Way != 0 {
+		n += 1 + sovGame(uint64(m.Way))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *MsgPutBomb) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.None {
+		n += 2
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *RetRoleDeath) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.KillName != 0 {
+		n += 1 + sovGame(uint64(m.KillName))
+	}
+	if m.KillId != 0 {
+		n += 1 + sovGame(uint64(m.KillId))
+	}
+	if m.LiveTime != 0 {
+		n += 1 + sovGame(uint64(m.LiveTime))
+	}
+	if m.Score != 0 {
+		n += 1 + sovGame(uint64(m.Score))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *RetErrorMsgCmd) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.RetCode != 0 {
+		n += 1 + sovGame(uint64(m.RetCode))
+	}
+	if m.Params != 0 {
+		n += 1 + sovGame(uint64(m.Params))
 	}
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
@@ -284,7 +1155,6 @@ func sozGame(x uint64) (n int) {
 	return sovGame(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
 func (m *UserLoginInfo) Unmarshal(dAtA []byte) error {
-	var hasFields [1]uint64
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -343,10 +1213,8 @@ func (m *UserLoginInfo) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			s := string(dAtA[iNdEx:postIndex])
-			m.Token = &s
+			m.Token = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-			hasFields[0] |= uint64(0x00000001)
 		default:
 			iNdEx = preIndex
 			skippy, err := skipGame(dAtA[iNdEx:])
@@ -363,8 +1231,781 @@ func (m *UserLoginInfo) Unmarshal(dAtA []byte) error {
 			iNdEx += skippy
 		}
 	}
-	if hasFields[0]&uint64(0x00000001) == 0 {
-		return new(github_com_golang_protobuf_proto.RequiredNotSetError)
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgPlayer) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowGame
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgPlayer: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgPlayer: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Name", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthGame
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthGame
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Name = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Score", wireType)
+			}
+			m.Score = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Score |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Hp", wireType)
+			}
+			m.Hp = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Hp |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Curbomb", wireType)
+			}
+			m.Curbomb = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Curbomb |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 6:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Maxbomb", wireType)
+			}
+			m.Maxbomb = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Maxbomb |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 7:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Power", wireType)
+			}
+			m.Power = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Power |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 8:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Speed", wireType)
+			}
+			m.Speed = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Speed |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 9:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PosX", wireType)
+			}
+			m.PosX = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PosX |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 10:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PosY", wireType)
+			}
+			m.PosY = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PosY |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipGame(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthGame
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *BombData) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowGame
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: BombData: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: BombData: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PosX", wireType)
+			}
+			m.PosX = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PosX |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PosY", wireType)
+			}
+			m.PosY = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PosY |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Power", wireType)
+			}
+			m.Power = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Power |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Owner", wireType)
+			}
+			m.Owner = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Owner |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 6:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ExistTm", wireType)
+			}
+			m.ExistTm = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.ExistTm |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipGame(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthGame
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgMove) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowGame
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgMove: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgMove: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Way", wireType)
+			}
+			m.Way = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Way |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipGame(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthGame
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgPutBomb) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowGame
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgPutBomb: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgPutBomb: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field None", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.None = bool(v != 0)
+		default:
+			iNdEx = preIndex
+			skippy, err := skipGame(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthGame
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *RetRoleDeath) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowGame
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: RetRoleDeath: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: RetRoleDeath: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field KillName", wireType)
+			}
+			m.KillName = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.KillName |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field KillId", wireType)
+			}
+			m.KillId = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.KillId |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field LiveTime", wireType)
+			}
+			m.LiveTime = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.LiveTime |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Score", wireType)
+			}
+			m.Score = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Score |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipGame(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthGame
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *RetErrorMsgCmd) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowGame
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: RetErrorMsgCmd: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: RetErrorMsgCmd: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field RetCode", wireType)
+			}
+			m.RetCode = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.RetCode |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Params", wireType)
+			}
+			m.Params = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGame
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Params |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipGame(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthGame
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
 	}
 
 	if iNdEx > l {
