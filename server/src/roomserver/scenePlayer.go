@@ -36,8 +36,7 @@ type ScenePlayer struct {
 	self  *PlayerTask // 用于通信
 	scene *Scene      // 场景指针
 
-	otherScenePlayers []*ScenePlayer // 场景内的其他玩家
-	isMove            bool
+	isMove bool
 }
 
 func NewScenePlayer(player *PlayerTask, scene *Scene) *ScenePlayer {
@@ -55,10 +54,9 @@ func NewScenePlayer(player *PlayerTask, scene *Scene) *ScenePlayer {
 		power:   INIT_POWER,
 		speed:   INIT_SPEED,
 
-		self:              player,
-		scene:             scene,
-		otherScenePlayers: nil,
-		isMove:            false,
+		self:   player,
+		scene:  scene,
+		isMove: false,
 	}
 	return s
 }
