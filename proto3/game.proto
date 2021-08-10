@@ -23,7 +23,7 @@ enum MsgTypeCmd {
     SystemMsg     = 22; // 消息通报
   
     ErrorMsg      = 23;
-  
+    PlayerState   = 72; // 玩家状态
     SceneSync     = 100;
     InitSyncData  = 101;
     AddPlayers    = 102;
@@ -65,6 +65,8 @@ message BombData {
     uint32 existTm  = 6;  // 存在时间
 }
 
+// ---------------------------请求------------------------------ // 
+
 // 请求移动
 message MsgMove {
     int32 way = 1;  // 方向
@@ -75,9 +77,19 @@ message MsgPutBomb {
     bool None = 1;
 }
 
+// ---------------------------返回------------------------------ // 
+
+// 返回玩家场景信息
+message RetRoleScene {
+    int32  posX  = 1;
+    int32  posY  = 2;
+    uint32 hp    = 3;
+    uint32 power = 4;
+}
+
 // 返回死亡
 message RetRoleDeath {
-    uint32 killName = 1;  // 被谁杀了
+    string killName = 1;  // 被谁杀了
     uint64 killId   = 2;  // 被谁杀了id
     uint32 liveTime = 3;  // 存活时间
     uint32 score    = 4;  // 得分
@@ -88,3 +100,37 @@ message RetErrorMsgCmd {
     uint32 RetCode = 1;   // 错误码
     uint32 Params  = 2;   // 参数
 }
+
+// 炸弹信息
+message MsgBomb {
+    uint32 id           = 1;
+    uint64 own          = 3;
+    int32  x            = 6;
+    int32  y            = 7;
+    bool   isDelete     = 10;
+    uint32 createTime   = 12;
+}
+
+// 场景玩家信息
+message ScenePlayer {
+    uint64 id       = 1;
+    uint32 BombNum  = 2;
+    uint32 power    = 3;
+    uint32 speed    = 4;
+    uint32 state    = 5;
+    float  X        = 6;
+    float  Y        = 7;
+    bool   isMove   = 8;
+}
+
+// 返回客户端场景更新信息
+message RetUpdateSceneMsg {
+    uint64 id   = 1;
+    float  X    = 2;
+    float  Y    = 3;
+
+    repeated ScenePlayer players    = 4;
+    repeated MsgBomb     bombs      = 5;
+}
+
+

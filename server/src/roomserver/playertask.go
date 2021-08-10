@@ -10,6 +10,20 @@ import (
 	"github.com/golang/glog"
 )
 
+type PlayerOpType int
+
+const (
+	PlayerNoneOp = PlayerOpType(iota)
+	PlayerMoveOp
+	PlayerPutBombOp
+)
+
+type PlayerOp struct {
+	uid uint64         // 玩家id
+	op  PlayerOpType   // 操作类型
+	msg common.Message // 其他信息
+}
+
 type PlayerTask struct {
 	// udptask *snet.Session
 	tcptask     gonet.TcpTask
@@ -23,6 +37,9 @@ type PlayerTask struct {
 
 	activeTime time.Time
 	onlineTime int64
+
+	moveWay int32 // 移动方向
+	hasMove int32 // 是否移动
 }
 
 func NewPlayerTask(conn net.Conn) *PlayerTask {
@@ -90,15 +107,23 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 
 	switch cmd {
 	case usercmd.MsgTypeCmd_Move: // 移动
-		// TODO
 		revCmd := &usercmd.MsgMove{}
-		common.DecodeGoCmd(data, flag, revCmd)
-
+		if common.DecodeGoCmd(data, flag, revCmd) != nil {
+			return false
+		}
+		if this.room == nil || this.room.IsClosed() {
+			return false
+		}
+		this.room.chan_PlayerOp <- &PlayerOp{uid: this.id, op: PlayerMoveOp, msg: revCmd}
 	case usercmd.MsgTypeCmd_PutBomb: // 放炸弹
-		// TODO
-	case usercmd.MsgTypeCmd_Death: // 死亡
-		// TODO
+		revCmd := &usercmd.MsgPutBomb{}
+		if common.DecodeGoCmd(data, flag, revCmd) != nil {
+			return false
+		}
+		this.room.chan_PlayerOp <- &PlayerOp{uid: this.id, op: PlayerPutBombOp, msg: revCmd}
+
 	default:
+		return false
 	}
 
 	return true

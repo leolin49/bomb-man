@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"paopao/server/usercmd"
 	"sync"
 	"time"
 
@@ -19,7 +20,7 @@ type Room struct {
 	mutex        sync.Mutex
 	id           uint32                 //房间id
 	roomType     uint32                 //房间类型
-	players      map[uint32]*PlayerTask //房间内的玩家
+	players      map[uint64]*PlayerTask //房间内的玩家
 	curPlayerNum uint32                 //当前房间内玩家数
 	bombCount    uint32
 	isStart      bool
@@ -33,6 +34,8 @@ type Room struct {
 	totalTime    uint64 // in second
 	endTime      uint64 // 结束时间
 	endchan      chan bool
+
+	chan_PlayerOp chan *PlayerOp
 }
 
 func NewRoom(roomtype, roomid uint32) *Room {
@@ -59,15 +62,15 @@ func (this *Room) AddPlayer(player *PlayerTask) error {
 	}
 	// 更新房间信息
 	this.curPlayerNum++
+	player.room = this
+	this.players[player.id] = player
+	this.scene.AddPlayer(player) // 将玩家添加到场景
 	// 房间内玩家数量达到最大，自动开始游戏
 	if this.curPlayerNum == this.maxPlayerNum {
-		RoomManager_GetMe().curNum++ // 房间id++
+		RoomManager_GetMe().UpdateNextRoomId() // 房间id++
 		go this.StartGame()
 	}
 	this.mutex.Unlock()
-	this.players[uint32(player.id)] = player
-	// 更新玩家信息
-	player.room = this
 
 	return nil
 }
@@ -77,29 +80,73 @@ func (this *Room) StartGame() {
 	this.GameLoop()
 }
 
+func (this *Room) Update() {
+	this.scene.Update()
+}
+
 func (this *Room) IsFull() bool {
 	return this.curPlayerNum == this.maxPlayerNum
 }
 
+func (this *Room) IsClosed() bool {
+	// return atomic.LoadInt32(&this.isStop) != 0
+	return this.isStop
+}
+
+// 房间结束
 func (this *Room) Close() {
-	this.isStop = true
+	if !this.isStop {
+		// TODO房间结束处理
+		this.isStop = true
+		RoomManager_GetMe().endchan <- this.id
+	}
 }
 
 func (this *Room) GameLoop() {
 	timeTicker := time.NewTicker(time.Millisecond * 20) // 20ms
-	for !this.isStop {
+	stop := false
+	for !stop {
 		select {
+		// 定时同步
 		case <-timeTicker.C:
-			// TODO 游戏状态同步
 			// 0.04s
 			if this.timeloop%2 == 0 {
-
+				this.Update()
 			}
 			// 0.1s
 			if this.timeloop%5 == 0 {
-
+				this.scene.SendRoomMessage()
 			}
+			// TODO 游戏达到最长时间，自动结束
 			this.timeloop++
+			if this.isStop {
+				stop = true
+			}
+		// 玩家主动操作
+		case playerop := <-this.chan_PlayerOp:
+			switch playerop.op {
+			// 移动操作
+			case PlayerMoveOp:
+				req, ok := playerop.msg.(*usercmd.MsgMove)
+				if !ok {
+					glog.Errorln("[Move] move arg error")
+					return
+				}
+				this.scene.players[playerop.uid].Move(req)
+			// 放置炸弹
+			case PlayerPutBombOp:
+				req, ok := playerop.msg.(*usercmd.MsgPutBomb)
+				if !ok {
+					glog.Errorln("[PutBomb] put bomb arg error")
+					return
+				}
+				this.scene.players[playerop.uid].PutBomb(req)
+			}
 		}
 	}
+	this.Close()
+}
+
+func (this *Room) PlayerSceneSync(task *PlayerTask, opts *PlayerOp) {
+
 }

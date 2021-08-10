@@ -1,6 +1,11 @@
 package main
 
-import "sync"
+import (
+	"sync"
+	"sync/atomic"
+
+	"github.com/golang/glog"
+)
 
 type RoomManager struct {
 	mutex   sync.Mutex
@@ -20,9 +25,25 @@ func RoomManager_GetMe() *RoomManager {
 			maxNum:  10,
 			curNum:  1,
 		}
-
+		go roommgr.Start()
 	}
 	return roommgr
+}
+
+func (this *RoomManager) Start() {
+	for {
+		select {
+		case rid := <-this.endchan:
+			this.mutex.Lock()
+			delete(this.roomMap, rid)
+			glog.Infof("[Game] room %v end")
+			this.mutex.Unlock()
+		}
+	}
+}
+
+func (this *RoomManager) UpdateNextRoomId() {
+	atomic.StoreUint32(&this.curNum, 1)
 }
 
 func (this *RoomManager) AddRoom(room *Room) (*Room, bool) {
