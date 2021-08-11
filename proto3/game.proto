@@ -13,6 +13,7 @@ enum MsgTypeCmd {
     Scene         = 5;  // 更新场景数据
     Move          = 6;  // 移动***
     PutBomb       = 7;  // 放炸弹***
+    LoadGameMap   = 8;  // 加载游戏地图***
   
     Death         = 10; // 死亡***
     EndRoom       = 11; 
@@ -116,7 +117,7 @@ message ScenePlayer {
     uint64 id       = 1;
     uint32 BombNum  = 2;
     uint32 power    = 3;
-    uint32 speed    = 4;
+    float  speed    = 4;
     uint32 state    = 5;
     float  X        = 6;
     float  Y        = 7;
@@ -133,4 +134,32 @@ message RetUpdateSceneMsg {
     repeated MsgBomb     bombs      = 5;
 }
 
+// -------------------------------------------- //
 
+// 地图
+message MapGridData {
+    int32 x                 = 1;
+    int32 y                 = 2;
+    bool isBoom             = 4;
+    bool isWall             = 5;
+    bool isCanDestoryWall   = 6;
+}
+
+
+message Map {
+    repeated MapGridData MapGrids = 1;
+}
+
+enum CellType {
+    Space   = 0;    // 空地
+    Wall    = 1;    // 墙体
+    Box     = 2;    // 箱子（可摧毁的墙）
+    Bomb    = 3;    // 炸弹
+}
+
+message MapVector {
+    message Row {
+        repeated CellType x = 1;
+    }
+    repeated Row Col = 1;
+}

@@ -55,7 +55,9 @@ func (this *RoomServer) MainLoop() {
 	if err != nil {
 		return
 	}
-	NewPlayerTask(conn).tcptask.Start()
+	playerTask := NewPlayerTask(conn)
+	PlayerTaskManager_GetMe().Add(playerTask)
+	playerTask.tcptask.Start()
 }
 
 var (

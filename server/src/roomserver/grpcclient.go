@@ -89,7 +89,7 @@ func (this *RoomGrpcClient) TickerSendLoadInfo() {
 		glog.Errorln("[RoomGrpcClient] route client is nil")
 		return
 	}
-	var info usercmd.RoomServerInfo
+	info := &usercmd.RoomServerInfo{}
 	// 固定信息
 	p, _ := strconv.Atoi(*port)
 	info.Ip = "localhost"
@@ -105,7 +105,7 @@ func (this *RoomGrpcClient) TickerSendLoadInfo() {
 		info.PlayerNum = r.curNum * 2 // 粗略计算（待优化）
 		info.CurRoomId = r.curNum
 		//
-		bytes, err := json.Marshal(info) // TODO ???
+		bytes, err := json.Marshal(info)
 		if err != nil {
 			glog.Errorln("[RoomGrpcClient TickerSendLoadInfo] struct to json error: ", err)
 			continue

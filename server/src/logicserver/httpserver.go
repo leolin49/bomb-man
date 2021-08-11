@@ -182,7 +182,7 @@ func StartGameHandler(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	// TODO:rpc请求，获取房间信息
+	// rpc请求，获取房间信息
 	reqData := usercmd.ReqIntoRoom{
 		UId:      &id,
 		UserName: &username,

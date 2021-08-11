@@ -2,19 +2,24 @@ package main
 
 import (
 	"paopao/server/src/common"
+	"paopao/server/usercmd"
 	"sync/atomic"
+
+	"github.com/golang/glog"
 )
 
 type Scene struct {
 	players     map[uint64]*ScenePlayer
 	room        *Room
-	Obstacle    *map[uint32]*common.Obstacle
-	Box         *map[uint32]*common.Box
-	BombMap     *map[uint32]*Bomb
-	sceneWidth  float64
-	sceneHeight float64
+	ObstacleMap map[uint32]*common.Obstacle
+	BoxMap      map[uint32]*common.Box
+	BombMap     map[uint32]*Bomb
+	sceneWidth  uint32
+	sceneHeight uint32
 
 	bombNum uint32 // 炸弹编号
+
+	gameMap *usercmd.MapVector // 游戏地图信息
 }
 
 // 场景信息初始化
@@ -23,12 +28,61 @@ func (this *Scene) Init(room *Room) {
 	this.room = room
 	// 全部玩家列表
 	this.players = make(map[uint64]*ScenePlayer)
+
+	this.ObstacleMap = make(map[uint32]*common.Obstacle)
+	this.BoxMap = make(map[uint32]*common.Box)
+	this.BombMap = make(map[uint32]*Bomb)
+
 	//
 	this.bombNum = 0
+
+	this.gameMap = nil
+}
+
+// 加载地图数据
+func (this *Scene) LoadGameMapData() bool {
+	if this.gameMap == nil {
+		glog.Errorln("[Scene] load game map error")
+		return false
+	}
+	this.sceneHeight = uint32(len(this.gameMap.GetCol()[0].GetX()))
+	this.sceneWidth = uint32(len(this.gameMap.GetCol()))
+	// 纵坐标优先遍历
+	var x, y uint32
+	for y = 0; y < this.sceneWidth; y++ {
+		for x = 0; x < this.sceneHeight; x++ {
+
+			idx := x*this.sceneWidth + y // 二维转一维
+			cellType := this.gameMap.GetCol()[y].GetX()[x]
+			if cellType == usercmd.CellType_Wall {
+				this.ObstacleMap[idx] = &common.Obstacle{
+					Id: idx,
+					Pos: common.GridPos{
+						X: x,
+						Y: y,
+					},
+				}
+			} else if cellType == usercmd.CellType_Box {
+				this.BoxMap[idx] = &common.Box{
+					Id:    idx,
+					Goods: 1, // TODO 宝箱里的物品
+					Pos: common.GridPos{
+						X: x,
+						Y: y,
+					},
+				}
+			}
+
+		}
+	}
+	return true
 }
 
 func (this *Scene) Update() {
 	// TODO
+	for _, player := range this.players {
+		player.Update()
+	}
 }
 
 // 场景内添加一个玩家
@@ -40,12 +94,15 @@ func (this *Scene) AddPlayer(player *PlayerTask) {
 
 // 添加一个炸弹
 func (this *Scene) AddBomb(bomb *Bomb) {
-	// TODO 场景添加炸弹
+	this.BombMap[bomb.id] = bomb
+	this.gameMap.Col[bomb.pos.Y].X[bomb.pos.X] = usercmd.CellType_Bomb
 }
 
 // 删除一个炸弹（炸弹爆炸）
-func (this *Scene) DelBomb() {
-	// TODO 场景删除炸弹
+func (this *Scene) DelBomb(bomb *Bomb) {
+	delete(this.BombMap, bomb.id)
+	this.gameMap.Col[bomb.pos.Y].X[bomb.pos.X] = usercmd.CellType_Space
+	bomb = nil
 }
 
 // 获取下一个炸弹的编号
@@ -53,18 +110,13 @@ func (this *Scene) GetNextBombId() uint32 {
 	return atomic.AddUint32(&this.bombNum, 1)
 }
 
-// 保证位置不超出地图范围
-func (this *Scene) BorderCheck(pos *common.Position) {
-	if pos.X < 0 {
-		pos.X = 0
-	} else if pos.X >= this.sceneWidth {
-		pos.X = this.sceneWidth - 0.01
-	}
-	if pos.Y < 0 {
-		pos.Y = 0
-	} else if pos.Y >= this.sceneHeight {
-		pos.Y = this.sceneHeight - 0.01
-	}
+// 根据坐标返回地图上对应格子的当前类型（空地，墙体）
+func (this *Scene) GetGameMapGridType(x, y int) usercmd.CellType {
+	return this.gameMap.GetCol()[x].GetX()[y]
+}
+
+func (this *Scene) GetGameMapWidth() uint32 {
+	return this.sceneWidth
 }
 
 // 定时发送场景信息，包括各个玩家的信息

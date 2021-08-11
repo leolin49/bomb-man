@@ -1,7 +1,10 @@
 package main
 
 import (
+	"paopao/server/src/common"
+	"runtime/debug"
 	"sync"
+	"time"
 
 	"github.com/golang/glog"
 )
@@ -18,6 +21,7 @@ func PlayerTaskManager_GetMe() *PlayerTaskManager {
 		mPlayerTaskMgr = &PlayerTaskManager{
 			tasks: make(map[uint64]*PlayerTask),
 		}
+		go mPlayerTaskMgr.iTimeAction()
 	}
 	return mPlayerTaskMgr
 }
@@ -46,7 +50,7 @@ func (this *PlayerTaskManager) Remove(task *PlayerTask) bool {
 		glog.Errorln("[PlayerTaskManager Remove] error ")
 		return false
 	}
-	t.scenePlayer = nil
+
 	delete(this.tasks, task.id)
 	return true
 }
@@ -65,4 +69,45 @@ func (this *PlayerTaskManager) GetNum() int32 {
 	this.mutex.Lock()
 	defer this.mutex.Unlock()
 	return int32(len(this.tasks))
+}
+
+// 玩家超时无操作
+func (this *PlayerTaskManager) iTimeAction() {
+	var (
+		timeTicker    = time.NewTicker(time.Second)
+		loop          uint64
+		noActionTasks []*PlayerTask // 无操作玩家列表
+	)
+	defer func() {
+		timeTicker.Stop()
+		if err := recover(); err != nil {
+			glog.Errorln("[异常] 定时线程错误 ", err, "\n", string(debug.Stack()))
+		}
+	}()
+
+	for {
+		select {
+		case <-timeTicker.C:
+			if 0 == loop%5 {
+				now := time.Now()
+
+				this.mutex.Lock()
+				for _, task := range this.tasks {
+					if now.Sub(task.activeTime) > common.PlayerTaskTimeOut*time.Second {
+						noActionTasks = append(noActionTasks, task)
+					}
+				}
+				this.mutex.Unlock()
+				// 删除玩家
+				for _, task := range noActionTasks {
+					if !task.tcptask.IsClosed() {
+						this.Remove(task)
+					}
+					glog.Infof("[iTimeAction] player %v connect timeout", task.id)
+				}
+				noActionTasks = noActionTasks[:0]
+			}
+			loop += 1
+		}
+	}
 }

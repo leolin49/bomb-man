@@ -11,8 +11,8 @@ import (
 
 // 初始数值
 const (
-	INIT_POWER = 1 // 初始炸弹威力
-	INIT_SPEED = 3 // 初始移动速度
+	INIT_POWER = 1   // 初始炸弹威力
+	INIT_SPEED = 0.3 // 初始移动速度
 
 	BOMB_MAXTIME = 4 // 炸弹的持续时间
 
@@ -31,7 +31,7 @@ type ScenePlayer struct {
 	curbomb uint32           // 当前已经放置的炸弹数量
 	maxbomb uint32           // 能放置的最大炸弹数量
 	power   uint32           // 炸弹威力
-	speed   uint32           // 移动速度
+	speed   float64          // 移动速度
 
 	self  *PlayerTask // 用于通信
 	scene *Scene      // 场景指针
@@ -69,7 +69,7 @@ func (this *ScenePlayer) PutBomb(msg *usercmd.MsgPutBomb) bool {
 	if atomic.LoadUint32(&this.curbomb) == this.maxbomb {
 		return false
 	}
-	bomb := NewBomb(this, this.scene.GetNextBombId())
+	bomb := NewBomb(this)
 	this.scene.AddBomb(bomb)
 	go bomb.CountDown()
 
@@ -80,6 +80,7 @@ func (this *ScenePlayer) PutBomb(msg *usercmd.MsgPutBomb) bool {
 
 // 移动
 func (this *ScenePlayer) Move(msg *usercmd.MsgMove) {
+	this.isMove = true
 	// 计算下一个位置
 	this.CaculateNext(float64(msg.Way))
 	// 边界检查
@@ -90,22 +91,62 @@ func (this *ScenePlayer) Move(msg *usercmd.MsgMove) {
 	this.curPos = this.nextPos
 }
 
+// 根据角度移动
 func (this *ScenePlayer) CaculateNext(direct float64) {
 	this.nextPos.X = this.curPos.X + math.Sin(direct*math.Pi/180)*float64(this.speed)
 	this.nextPos.Y = this.curPos.Y + math.Cos(direct*math.Pi/180)*float64(this.speed)
 }
 
+// TODO 上下左右移动
+func (this *ScenePlayer) CaculateNextCell(way int32) {
+	var nXcell, nYcell int
+	var gridType usercmd.CellType
+	// 上1下2左3右4
+	switch common.MoveWay(way) {
+	case common.MoveWay_Up:
+		nXcell = common.Round(this.curPos.X)
+		nYcell = int(math.Ceil(this.curPos.Y + this.speed))
+		gridType = this.scene.GetGameMapGridType(nXcell, nYcell)
+		if gridType == usercmd.CellType_Wall || gridType == usercmd.CellType_Box {
+			return
+		}
+
+	case common.MoveWay_Down:
+		break
+	case common.MoveWay_Left:
+		break
+	case common.MoveWay_Right:
+		nXcell = int(math.Ceil(this.curPos.X + this.speed))
+		nYcell = int(math.Floor(this.curPos.Y))
+		gridType = this.scene.GetGameMapGridType(nXcell, nYcell)
+		if gridType == usercmd.CellType_Wall || gridType == usercmd.CellType_Box {
+			return
+		} else {
+			this.nextPos.X = this.curPos.X + this.speed
+			this.nextPos.Y = this.curPos.Y
+		}
+		break
+	default:
+	}
+}
+
+// 地图边界检查
 func (this *ScenePlayer) BorderCheck(pos *common.Position) {
 	if pos.X < 0 {
 		pos.X = 0
-	} else if w := this.scene.sceneWidth; pos.X >= w {
-		pos.X = w - 0.1
+	} else if w := float64(this.scene.sceneWidth - 1); pos.X >= w {
+		pos.X = w
 	}
 	if pos.Y < 0 {
 		pos.Y = 0
-	} else if h := this.scene.sceneHeight; pos.Y >= h {
-		pos.Y = h - 0.1
+	} else if h := float64(this.scene.sceneHeight - 1); pos.Y >= h {
+		pos.Y = h
 	}
+}
+
+func (this *ScenePlayer) GetCurrentGrid() (uint32, uint32) {
+	return uint32(common.Round(this.curPos.X)),
+		uint32(common.Round(this.curPos.Y))
 }
 
 // 收到伤害
@@ -137,15 +178,16 @@ func (this *ScenePlayer) SendSceneMessage() {
 			Id:      player.id,
 			BombNum: player.curbomb,
 			Power:   player.power,
-			Speed:   player.speed,
+			Speed:   float32(player.speed),
 			State:   uint32(player.hp),
 			X:       float32(player.curPos.X),
 			Y:       float32(player.curPos.Y),
 			IsMove:  player.isMove,
 		})
+
 	}
 	// 场景内所有的炸弹信息
-	for _, bomb := range *this.scene.BombMap {
+	for _, bomb := range this.scene.BombMap {
 		ret.Bombs = append(ret.Bombs, &usercmd.MsgBomb{
 			Id:         bomb.id,
 			Own:        bomb.owner.id,
@@ -159,4 +201,8 @@ func (this *ScenePlayer) SendSceneMessage() {
 	ret.Y = float32(this.curPos.Y)
 
 	this.self.SendCmd(usercmd.MsgTypeCmd_SceneSync, ret)
+}
+
+func (this *ScenePlayer) Update() {
+
 }

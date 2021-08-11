@@ -51,7 +51,13 @@ func NewPlayerTask(conn net.Conn) *PlayerTask {
 	return m
 }
 
+func (this *PlayerTask) Start() {
+	this.tcptask.Start()
+}
+
 func (this *PlayerTask) OnClose() {
+	this.tcptask.Close()
+	PlayerTaskManager_GetMe().Remove(this)
 	this.room = nil
 }
 
@@ -100,9 +106,19 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 		return true
 	}
 
-	// 心跳
+	// 加载地图信息
+	if cmd == usercmd.MsgTypeCmd_NewScene {
+		this.room.scene.gameMap = &usercmd.MapVector{}
+		if common.DecodeGoCmd(data, flag, this.room.scene.gameMap) != nil {
+			return false
+		}
+		glog.Infof("[MsgTypeCmd_NewScene] %v load game map success", this.id)
+		return true
+	}
+
+	// TODO 心跳
 	if cmd == usercmd.MsgTypeCmd_HeartBeat {
-		// TODO
+
 	}
 
 	switch cmd {
