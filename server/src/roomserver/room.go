@@ -40,15 +40,16 @@ type Room struct {
 
 func NewRoom(roomtype, roomid uint32) *Room {
 	room := &Room{
-		id:           roomid,
-		roomType:     roomtype,
-		players:      make(map[uint64]*PlayerTask),
-		curPlayerNum: 0,
-		maxPlayerNum: 2,
-		isStart:      false,
-		isStop:       false,
-		startTime:    uint64(time.Now().Unix()),
-		endchan:      make(chan bool),
+		id:            roomid,
+		roomType:      roomtype,
+		players:       make(map[uint64]*PlayerTask),
+		curPlayerNum:  0,
+		maxPlayerNum:  2,
+		isStart:       false,
+		isStop:        false,
+		startTime:     uint64(time.Now().Unix()),
+		endchan:       make(chan bool),
+		chan_PlayerOp: make(chan *PlayerOp, 500),
 	}
 	room.scene = NewScene(room) // 初始化场景信息
 	glog.Infof("[NewRoom] roomtype:%v, roomid:%v", roomtype, roomid)
@@ -134,7 +135,7 @@ func (this *Room) GameLoop() {
 				this.Update()
 			}
 			// 0.1s
-			if this.timeloop%5 == 0 {
+			if this.timeloop%20 == 0 {
 				this.scene.SendRoomMessage()
 			}
 			// TODO 游戏达到最长时间，自动结束
@@ -147,20 +148,24 @@ func (this *Room) GameLoop() {
 			switch playerop.op {
 			// 移动操作
 			case PlayerMoveOp:
+				glog.Errorf("[%v] execute move cmd", playerop.uid)
 				req, ok := playerop.msg.(*usercmd.MsgMove)
 				if !ok {
 					glog.Errorln("[Move] move arg error")
 					return
 				}
 				this.scene.players[playerop.uid].Move(req)
+				break
 			// 放置炸弹
 			case PlayerPutBombOp:
+				glog.Errorf("[%v] execute put bomb cmd", playerop.uid)
 				req, ok := playerop.msg.(*usercmd.MsgPutBomb)
 				if !ok {
 					glog.Errorln("[PutBomb] put bomb arg error")
 					return
 				}
 				this.scene.players[playerop.uid].PutBomb(req)
+				break
 			}
 		}
 	}

@@ -1,0 +1,22 @@
+Log file created at: 2021/08/12 22:54:14
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0812 22:54:14.796785   39985 roomserver.go:74] [debug] port: 13000
+I0812 22:54:14.819279   39985 roomserver.go:41] [RoomServer] roomserver init success
+I0812 22:54:22.374363   39985 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:40390 success
+I0812 22:54:22.375138   39985 playertask.go:88] [RoomServer Login] recv a login request  127.0.0.1:40390
+I0812 22:54:22.377667   39985 room.go:54] [NewRoom] roomtype:1, roomid:1
+I0812 22:54:22.377750   39985 room.go:68] [房间] 玩家进入房间  username:leo, uid:100006
+I0812 22:54:24.377522   39985 playertask.go:151] [收到请求放炸弹的指令]
+I0812 22:54:32.582828   39985 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:40410 success
+I0812 22:54:32.583430   39985 playertask.go:88] [RoomServer Login] recv a login request  127.0.0.1:40410
+I0812 22:54:32.585337   39985 room.go:68] [房间] 玩家进入房间  username:abc, uid:100005
+I0812 22:54:32.585509   39985 room.go:72] [房间] 玩家数量： 2
+I0812 22:54:32.585537   39985 room.go:73] [游戏开始] 玩家列表：
+I0812 22:54:32.585565   39985 room.go:75] username:leo, uid:100006
+I0812 22:54:32.585592   39985 room.go:75] username:abc, uid:100005
+E0812 22:54:32.585849   39985 scene.go:94] RandGameMapData_AllSpace begin
+E0812 22:54:32.586415   39985 scene.go:100] RandGameMapData_AllSpace end
+I0812 22:54:34.585420   39985 playertask.go:140] [收到请求移动的指令] revCmd.Way =  2
+I0812 22:54:58.007235   39985 service.go:53] [Service] Got Signal  broken pipe

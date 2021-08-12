@@ -6,12 +6,14 @@ import (
 	"paopao/server/usercmd"
 	"sync/atomic"
 	"time"
+
+	"github.com/golang/glog"
 )
 
 // 初始数值
 const (
-	INIT_POWER = 1   // 初始炸弹威力
-	INIT_SPEED = 0.2 // 初始移动速度
+	INIT_POWER = 1 // 初始炸弹威力
+	INIT_SPEED = 1 // 初始移动速度
 
 	BOMB_MAXTIME = 4 // 炸弹的持续时间
 
@@ -46,7 +48,8 @@ func NewScenePlayer(player *PlayerTask, scene *Scene) *ScenePlayer {
 		name:    player.name,
 		key:     player.key,
 		score:   0,
-		curPos:  &common.Position{X: 0, Y: 0},
+		curPos:  &common.Position{X: 4, Y: 4},
+		nextPos: &common.Position{X: 4, Y: 4},
 		hp:      3,
 		curbomb: 0,
 		maxbomb: 5,
@@ -64,6 +67,7 @@ func NewScenePlayer(player *PlayerTask, scene *Scene) *ScenePlayer {
 
 // 放置炸弹
 func (this *ScenePlayer) PutBomb(msg *usercmd.MsgPutBomb) bool {
+	glog.Errorln("[PutBomb] begin")
 	// 达到最大炸弹数
 	if atomic.LoadUint32(&this.curbomb) == this.maxbomb {
 		return false
@@ -72,8 +76,8 @@ func (this *ScenePlayer) PutBomb(msg *usercmd.MsgPutBomb) bool {
 	this.scene.AddBomb(bomb)
 	go bomb.CountDown()
 
-	atomic.StoreUint32(&this.curbomb, 1)
-
+	atomic.StoreUint32(&this.curbomb, this.curbomb+1)
+	glog.Errorln("[PutBomb] end")
 	return true
 }
 
@@ -96,6 +100,7 @@ func (this *ScenePlayer) Move(msg *usercmd.MsgMove) {
 // TODO 上下左右移动
 func (this *ScenePlayer) CaculateNext(way int32) {
 	x, y := this.GetCurrentGrid()
+	glog.Errorf("[GetCurrentGrid] x:%v, y:%v", x, y)
 	// 上1下2左3右4
 	switch common.MoveWay(way) {
 	case common.MoveWay_Up:
@@ -142,6 +147,9 @@ func (this *ScenePlayer) BorderCheck(pos *common.Position) {
 
 // 改格子是否可以通过
 func (this *ScenePlayer) CanPass(x, y uint32) bool {
+	if x >= this.scene.GetGameMapWidth() || y >= this.scene.sceneHeight {
+		return false
+	}
 	t := this.scene.GetGameMapGridType(x, y)
 	return t != usercmd.CellType_Wall && t != usercmd.CellType_Box
 }
@@ -154,8 +162,9 @@ func (this *ScenePlayer) GetCurrentGrid() (uint32, uint32) {
 
 // 收到伤害
 func (this *ScenePlayer) BeHurt(attacker *ScenePlayer) {
-	if atomic.StoreInt32(&this.hp, -1); this.hp <= 0 {
+	if atomic.StoreInt32(&this.hp, this.hp-1); this.hp <= 0 {
 		// TODO 玩家角色死亡
+		glog.Infoln("[玩家死亡] username:", this.name)
 		info := &usercmd.RetRoleDeath{
 			KillName: attacker.name,
 			KillId:   attacker.id,
@@ -168,7 +177,7 @@ func (this *ScenePlayer) BeHurt(attacker *ScenePlayer) {
 
 // 玩家造成伤害或击杀，增加得分
 func (this *ScenePlayer) AddScore(x uint32) {
-	atomic.StoreUint32(&this.score, x)
+	atomic.StoreUint32(&this.score, this.score+x)
 }
 
 // ---------------------------------------------------------- //

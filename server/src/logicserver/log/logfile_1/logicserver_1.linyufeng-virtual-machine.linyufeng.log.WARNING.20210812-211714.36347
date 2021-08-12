@@ -5,3 +5,4 @@ Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
 E0812 21:17:14.429157   36347 logicserver.go:31] [LogicServer Init] Init success
 E0812 21:19:58.349545   36347 httpserver.go:166] [Start Game]  crypto/rsa: decryption error
 E0812 22:01:39.672847   36347 httpserver.go:166] [Start Game]  crypto/rsa: decryption error
+E0812 23:46:06.524276   36347 httpserver.go:166] [Start Game]  crypto/rsa: decryption error

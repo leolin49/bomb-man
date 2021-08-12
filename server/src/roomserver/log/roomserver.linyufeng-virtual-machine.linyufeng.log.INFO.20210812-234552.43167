@@ -1,0 +1,99 @@
+Log file created at: 2021/08/12 23:45:52
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0812 23:45:52.490548   43167 roomserver.go:74] [debug] port: 13000
+I0812 23:45:52.498172   43167 roomserver.go:41] [RoomServer] roomserver init success
+I0812 23:46:00.250362   43167 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:40776 success
+I0812 23:46:00.250731   43167 playertask.go:88] [RoomServer Login] recv a login request  127.0.0.1:40776
+I0812 23:46:00.253067   43167 room.go:55] [NewRoom] roomtype:1, roomid:1
+I0812 23:46:00.253177   43167 room.go:69] [房间] 玩家进入房间  username:leo, uid:100006
+I0812 23:46:02.252917   43167 playertask.go:140] [收到请求移动的指令] revCmd.Way =  1
+I0812 23:46:04.255715   43167 playertask.go:151] [收到请求放炸弹的指令]
+I0812 23:46:06.257945   43167 playertask.go:151] [收到请求放炸弹的指令]
+I0812 23:46:08.260040   43167 playertask.go:140] [收到请求移动的指令] revCmd.Way =  1
+I0812 23:46:10.261582   43167 playertask.go:151] [收到请求放炸弹的指令]
+I0812 23:46:12.263495   43167 playertask.go:151] [收到请求放炸弹的指令]
+I0812 23:46:14.265283   43167 playertask.go:151] [收到请求放炸弹的指令]
+I0812 23:46:15.633197   43167 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:40806 success
+I0812 23:46:15.633585   43167 playertask.go:88] [RoomServer Login] recv a login request  127.0.0.1:40806
+I0812 23:46:15.635025   43167 room.go:69] [房间] 玩家进入房间  username:abc, uid:100005
+I0812 23:46:15.635122   43167 room.go:73] [房间] 玩家数量： 2
+I0812 23:46:15.635352   43167 room.go:74] [游戏开始] 玩家列表：
+I0812 23:46:15.635400   43167 room.go:76] username:abc, uid:100005
+I0812 23:46:15.635429   43167 room.go:76] username:leo, uid:100006
+E0812 23:46:15.635972   43167 scene.go:95] RandGameMapData_AllSpace begin
+E0812 23:46:15.636443   43167 scene.go:101] RandGameMapData_AllSpace end
+E0812 23:46:15.636562   43167 room.go:151] [100006] execute move cmd
+E0812 23:46:15.636590   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0812 23:46:15.636617   43167 scene.go:140] [GetGameMapGridType] x:4, y:5
+E0812 23:46:15.636645   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:15.636672   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:15.636810   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:15.636841   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:15.636868   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:15.636904   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:15.636932   43167 room.go:151] [100006] execute move cmd
+E0812 23:46:15.637006   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:5
+E0812 23:46:15.637093   43167 scene.go:140] [GetGameMapGridType] x:4, y:6
+E0812 23:46:15.637120   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:15.637147   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:15.637182   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:15.637210   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:15.637265   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:15.637297   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:15.637326   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:15.637353   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:15.637380   43167 scenePlayer.go:80] [PutBomb] end
+I0812 23:46:16.265813   43167 playertask.go:151] [收到请求放炸弹的指令]
+E0812 23:46:16.266100   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:16.266380   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:16.266651   43167 scenePlayer.go:80] [PutBomb] end
+I0812 23:46:17.636642   43167 playertask.go:151] [收到请求放炸弹的指令]
+E0812 23:46:17.636982   43167 room.go:161] [100005] execute put bomb cmd
+E0812 23:46:17.638395   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:17.639408   43167 scenePlayer.go:80] [PutBomb] end
+I0812 23:46:18.266753   43167 playertask.go:151] [收到请求放炸弹的指令]
+E0812 23:46:18.266915   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:18.266944   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:18.266974   43167 scenePlayer.go:80] [PutBomb] end
+I0812 23:46:19.637323   43167 playertask.go:151] [收到请求放炸弹的指令]
+E0812 23:46:19.637375   43167 room.go:161] [100005] execute put bomb cmd
+E0812 23:46:19.637405   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:19.637434   43167 scenePlayer.go:80] [PutBomb] end
+I0812 23:46:20.268308   43167 playertask.go:151] [收到请求放炸弹的指令]
+E0812 23:46:20.268404   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:20.268434   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:20.268463   43167 scenePlayer.go:80] [PutBomb] end
+I0812 23:46:21.641024   43167 playertask.go:140] [收到请求移动的指令] revCmd.Way =  1
+E0812 23:46:21.641144   43167 room.go:151] [100005] execute move cmd
+E0812 23:46:21.641175   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0812 23:46:21.641230   43167 scene.go:140] [GetGameMapGridType] x:4, y:5
+I0812 23:46:22.271883   43167 playertask.go:140] [收到请求移动的指令] revCmd.Way =  3
+E0812 23:46:22.272253   43167 room.go:151] [100006] execute move cmd
+E0812 23:46:22.272286   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:6
+E0812 23:46:22.272314   43167 scene.go:140] [GetGameMapGridType] x:3, y:6
+I0812 23:46:23.641484   43167 playertask.go:140] [收到请求移动的指令] revCmd.Way =  2
+E0812 23:46:23.641991   43167 room.go:151] [100005] execute move cmd
+E0812 23:46:23.642020   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:5
+E0812 23:46:23.642046   43167 scene.go:140] [GetGameMapGridType] x:4, y:4
+I0812 23:46:24.272547   43167 playertask.go:140] [收到请求移动的指令] revCmd.Way =  3
+E0812 23:46:24.272677   43167 room.go:151] [100006] execute move cmd
+E0812 23:46:24.272707   43167 scenePlayer.go:103] [GetCurrentGrid] x:3, y:6
+E0812 23:46:24.272735   43167 scene.go:140] [GetGameMapGridType] x:2, y:6
+I0812 23:46:25.644534   43167 playertask.go:140] [收到请求移动的指令] revCmd.Way =  2
+E0812 23:46:25.644701   43167 room.go:151] [100005] execute move cmd
+E0812 23:46:25.644731   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0812 23:46:25.644758   43167 scene.go:140] [GetGameMapGridType] x:4, y:3
+I0812 23:46:26.272895   43167 playertask.go:140] [收到请求移动的指令] revCmd.Way =  1
+E0812 23:46:26.273062   43167 room.go:151] [100006] execute move cmd
+E0812 23:46:26.273092   43167 scenePlayer.go:103] [GetCurrentGrid] x:2, y:6
+E0812 23:46:26.273119   43167 scene.go:140] [GetGameMapGridType] x:2, y:7
+I0812 23:46:27.647395   43167 playertask.go:151] [收到请求放炸弹的指令]
+E0812 23:46:27.648114   43167 room.go:161] [100005] execute put bomb cmd
+E0812 23:46:27.648145   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:27.648174   43167 scenePlayer.go:80] [PutBomb] end
+I0812 23:46:29.648508   43167 playertask.go:140] [收到请求移动的指令] revCmd.Way =  0
+E0812 23:46:29.648807   43167 room.go:151] [100005] execute move cmd
+E0812 23:46:29.648896   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:3
+I0812 23:55:52.563250   43167 service.go:53] [Service] Got Signal  interrupt

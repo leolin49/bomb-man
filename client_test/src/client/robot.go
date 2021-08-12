@@ -140,15 +140,18 @@ func (this *Robot) PutBomb() {
 
 func (this *Robot) StartRandOperate() {
 	for {
-		x := rand.Int31() % 2
+		x := rand.Int31() % 3
 		switch x {
 		case 0:
+		case 1:
 			w := rand.Int31() % 4
 			this.Move(w)
 			glog.Infoln("[move] way:", w)
-		case 1:
+			break
+		case 2:
 			this.PutBomb()
 			glog.Infoln("[put bomb]")
+			break
 		}
 		time.Sleep(time.Second * 2)
 	}
@@ -204,7 +207,7 @@ func main() {
 				return
 			}
 			robot.SendRoomToken(roomtoken)
-			time.Sleep(2 * time.Second)
+			time.Sleep(3 * time.Second)
 			go robot.StartRandOperate()
 			for {
 			}

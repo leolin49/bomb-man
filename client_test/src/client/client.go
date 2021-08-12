@@ -61,6 +61,15 @@ func (this *LogicClient) ParseMsg(data []byte, flag byte) bool {
 				v.Id, v.X, v.Y, v.Own)
 			fmt.Println(info)
 		}
+	case usercmd.MsgTypeCmd_Death:
+		revCmd := &usercmd.RetRoleDeath{}
+		if common.DecodeGoCmd(data, flag, revCmd) != nil {
+			return false
+		}
+		glog.Infoln("===============[收到玩家死亡信息]===============")
+		fmt.Printf("killerid:%v\nkillername:%v\nsorce:%v\n",
+			revCmd.KillId, revCmd.KillName, revCmd.Score)
+		this.Close()
 	}
 	return true
 }

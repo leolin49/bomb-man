@@ -46,13 +46,13 @@ func (this *Bomb) Explode() {
 	down := this.pos.Y - this.owner.power
 	left := this.pos.X - this.owner.power
 	right := this.pos.X + this.owner.power
-	// 遍历所有炸弹，判断是否在当前炸弹的范围内
+	// 遍历所有炸弹，判断是否在当前炸弹的范围内(一颗炸弹引爆另一颗炸弹)
 	for _, b := range this.scene.BombMap {
 		if b.pos.Y == this.pos.Y && left <= b.pos.X && b.pos.X <= right {
-			b.Explode()
+			// b.Explode()
 		}
 		if b.pos.X == this.pos.X && down <= b.pos.Y && b.pos.Y <= up {
-			b.Explode()
+			// b.Explode()
 		}
 	}
 	// 遍历所有角色，判断是否在当前炸弹的范围内

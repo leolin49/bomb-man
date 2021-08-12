@@ -34,3 +34,108 @@ I0812 22:01:38.372424   36347 httpserver.go:92] [User Register] username [lin] e
 E0812 22:01:39.672847   36347 httpserver.go:166] [Start Game]  crypto/rsa: decryption error
 I0812 22:03:13.511587   36347 httpserver.go:138] [User Login] login success, username: abc
 I0812 22:03:14.664936   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 22:18:48.368167   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 22:18:49.840887   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 22:18:59.798917   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 22:19:04.281080   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 22:26:04.468259   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 22:26:05.978210   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 22:26:23.568956   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 22:26:25.265886   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 22:39:08.069089   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 22:39:15.658819   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 22:39:17.451423   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 22:39:22.378901   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 22:52:45.351825   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 22:52:46.433994   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 22:52:53.591736   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 22:52:54.736343   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 22:54:21.035637   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 22:54:22.372546   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 22:54:31.426616   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 22:54:32.580431   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 23:00:53.015444   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 23:00:54.074620   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 23:01:02.055197   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 23:01:03.080476   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 23:08:22.297073   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 23:08:24.341843   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 23:08:38.911028   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 23:08:39.935283   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 23:13:57.223707   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 23:13:58.815353   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 23:14:10.693783   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 23:14:11.798932   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 23:15:28.579574   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 23:15:29.700764   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 23:15:37.424304   36347 httpserver.go:124] [User Login] password error  132456
+I0812 23:15:44.486091   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 23:15:45.905055   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 23:17:12.231339   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 23:17:14.132589   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 23:17:22.748952   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 23:17:24.654143   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 23:19:09.830833   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 23:19:10.710468   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 23:19:18.350795   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 23:19:19.105235   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 23:21:12.505091   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 23:21:14.217651   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 23:21:20.912222   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 23:21:22.167325   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 23:29:52.500782   36347 httpserver.go:118] [User Login] user not exist  user1
+I0812 23:29:56.671072   36347 httpserver.go:118] [User Login] user not exist  user
+I0812 23:30:01.052840   36347 httpserver.go:118] [User Login] user not exist  admin
+I0812 23:30:09.925804   36347 httpserver.go:105] [Register success]admin, 100009, 123, 2021-08-12 23:30:09
+I0812 23:30:12.673494   36347 httpserver.go:138] [User Login] login success, username: admin
+I0812 23:37:15.312991   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 23:37:16.065751   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 23:37:25.848363   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 23:37:26.705160   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 23:43:38.473311   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 23:43:40.136119   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 23:43:49.197454   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 23:43:50.365518   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 23:45:59.766570   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 23:46:00.247813   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 23:46:01.104612   36347 httpserver.go:92] [User Register] username [xzw] existed
+E0812 23:46:06.524276   36347 httpserver.go:166] [Start Game]  crypto/rsa: decryption error
+I0812 23:46:06.583146   36347 httpserver.go:105] [Register success]xzw1, 100010, 1234, 2021-08-12 23:46:06
+I0812 23:46:13.902697   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 23:46:15.630838   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 23:46:20.134028   36347 httpserver.go:124] [User Login] password error  123
+I0812 23:46:25.618248   36347 httpserver.go:138] [User Login] login success, username: xzw1
+I0812 23:52:56.015750   36347 httpserver.go:138] [User Login] login success, username: xzw1
+I0812 23:53:01.317708   36347 httpserver.go:138] [User Login] login success, username: xzw1
+I0812 23:53:19.462435   36347 httpserver.go:138] [User Login] login success, username: xzw1
+I0812 23:54:03.832915   36347 httpserver.go:138] [User Login] login success, username: xzw1
+I0812 23:55:44.643901   36347 httpserver.go:138] [User Login] login success, username: xzw1
+I0812 23:56:00.561884   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 23:56:02.195060   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 23:56:11.016658   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 23:56:12.075003   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 00:00:30.915614   36347 httpserver.go:124] [User Login] password error  132
+I0813 00:00:36.266208   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 00:00:38.093825   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 00:00:46.883606   36347 httpserver.go:138] [User Login] login success, username: abc
+I0813 00:00:47.972545   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 00:01:18.145619   36347 httpserver.go:105] [Register success]qqq, 100011, qqq, 2021-08-13 00:01:18
+I0813 00:04:07.875733   36347 httpserver.go:105] [Register success]mmm, 100012, mmm, 2021-08-13 00:04:07
+I0813 00:08:33.283148   36347 httpserver.go:124] [User Login] password error  13
+I0813 00:08:36.633645   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 00:08:37.804185   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 00:08:45.528530   36347 httpserver.go:138] [User Login] login success, username: abc
+I0813 00:08:46.586670   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 00:12:59.814154   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 00:13:00.727866   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 00:13:08.603560   36347 httpserver.go:138] [User Login] login success, username: abc
+I0813 00:13:10.221474   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 00:14:12.750456   36347 httpserver.go:105] [Register success]bbb, 100014, bbb, 2021-08-13 00:14:12
+I0813 00:16:17.554448   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 00:16:18.572419   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 00:16:26.295504   36347 httpserver.go:138] [User Login] login success, username: abc
+I0813 00:16:27.417536   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 00:23:28.083504   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 00:23:29.180764   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 00:23:37.898120   36347 httpserver.go:138] [User Login] login success, username: abc
+I0813 00:23:39.555660   36347 httpserver.go:223] [用户请求开始游戏] username: abc

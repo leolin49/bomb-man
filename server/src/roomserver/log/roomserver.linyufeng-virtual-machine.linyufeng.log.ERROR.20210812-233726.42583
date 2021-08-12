@@ -1,0 +1,34 @@
+Log file created at: 2021/08/12 23:37:26
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0812 23:37:26.712424   42583 scene.go:95] RandGameMapData_AllSpace begin
+E0812 23:37:26.712944   42583 scene.go:101] RandGameMapData_AllSpace end
+E0812 23:37:26.713115   42583 room.go:161] [100006] execute put bomb cmd
+E0812 23:37:26.713145   42583 scenePlayer.go:70] [PutBomb] begin
+E0812 23:37:26.713277   42583 scenePlayer.go:80] [PutBomb] end
+E0812 23:37:26.713447   42583 room.go:151] [100006] execute move cmd
+E0812 23:37:26.713601   42583 scenePlayer.go:103] [GetCurrentGrid] x:0, y:0
+E0812 23:37:26.713781   42583 scene.go:140] [GetGameMapGridType] x:0, y:1
+E0812 23:37:26.713960   42583 room.go:151] [100006] execute move cmd
+E0812 23:37:26.714332   42583 scenePlayer.go:103] [GetCurrentGrid] x:0, y:0
+E0812 23:37:26.714496   42583 room.go:151] [100006] execute move cmd
+E0812 23:37:26.714644   42583 scenePlayer.go:103] [GetCurrentGrid] x:0, y:0
+E0812 23:37:26.715162   42583 room.go:161] [100006] execute put bomb cmd
+E0812 23:37:26.715516   42583 scenePlayer.go:70] [PutBomb] begin
+E0812 23:37:26.715681   42583 scenePlayer.go:80] [PutBomb] end
+E0812 23:37:28.082876   42583 room.go:161] [100006] execute put bomb cmd
+E0812 23:37:28.082921   42583 scenePlayer.go:70] [PutBomb] begin
+E0812 23:37:28.082968   42583 scenePlayer.go:80] [PutBomb] end
+E0812 23:37:28.710687   42583 room.go:151] [100005] execute move cmd
+E0812 23:37:28.711247   42583 scenePlayer.go:103] [GetCurrentGrid] x:0, y:0
+E0812 23:37:30.083917   42583 room.go:161] [100006] execute put bomb cmd
+E0812 23:37:30.083973   42583 scenePlayer.go:70] [PutBomb] begin
+E0812 23:37:30.084015   42583 scenePlayer.go:80] [PutBomb] end
+E0812 23:37:30.713221   42583 room.go:151] [100005] execute move cmd
+E0812 23:37:30.713379   42583 scenePlayer.go:103] [GetCurrentGrid] x:0, y:0
+E0812 23:37:30.713534   42583 scene.go:140] [GetGameMapGridType] x:0, y:1
+E0812 23:37:32.085261   42583 room.go:151] [100006] execute move cmd
+E0812 23:37:32.085345   42583 scenePlayer.go:103] [GetCurrentGrid] x:0, y:0
+E0812 23:37:32.716473   42583 room.go:151] [100005] execute move cmd
+E0812 23:37:32.716839   42583 scenePlayer.go:103] [GetCurrentGrid] x:0, y:0

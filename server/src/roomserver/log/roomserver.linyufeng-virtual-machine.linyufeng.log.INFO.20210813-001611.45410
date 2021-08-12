@@ -1,0 +1,51 @@
+Log file created at: 2021/08/13 00:16:11
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0813 00:16:11.828092   45410 roomserver.go:74] [debug] port: 13000
+I0813 00:16:11.840051   45410 roomserver.go:41] [RoomServer] roomserver init success
+I0813 00:16:18.574723   45410 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:41030 success
+I0813 00:16:18.575828   45410 playertask.go:88] [RoomServer Login] recv a login request  127.0.0.1:41030
+I0813 00:16:18.578155   45410 room.go:55] [NewRoom] roomtype:1, roomid:1
+I0813 00:16:18.578292   45410 room.go:69] [房间] 玩家进入房间  username:leo, uid:100006
+I0813 00:16:23.582879   45410 playertask.go:140] [收到请求移动的指令] revCmd.Way =  1
+I0813 00:16:27.421151   45410 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:41042 success
+I0813 00:16:27.421416   45410 playertask.go:88] [RoomServer Login] recv a login request  127.0.0.1:41042
+I0813 00:16:27.423128   45410 room.go:69] [房间] 玩家进入房间  username:abc, uid:100005
+I0813 00:16:27.423233   45410 room.go:73] [房间] 玩家数量： 2
+I0813 00:16:27.423261   45410 room.go:74] [游戏开始] 玩家列表：
+I0813 00:16:27.423305   45410 room.go:76] username:leo, uid:100006
+I0813 00:16:27.423535   45410 room.go:76] username:abc, uid:100005
+E0813 00:16:27.423836   45410 scene.go:95] RandGameMapData_AllSpace begin
+E0813 00:16:27.424498   45410 scene.go:101] RandGameMapData_AllSpace end
+E0813 00:16:27.424752   45410 room.go:151] [100006] execute move cmd
+E0813 00:16:27.424783   45410 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0813 00:16:27.424823   45410 scene.go:140] [GetGameMapGridType] x:4, y:5
+I0813 00:16:27.583428   45410 playertask.go:151] [收到请求放炸弹的指令]
+E0813 00:16:27.583589   45410 room.go:161] [100006] execute put bomb cmd
+E0813 00:16:27.583813   45410 scenePlayer.go:70] [PutBomb] begin
+E0813 00:16:27.583851   45410 scenePlayer.go:80] [PutBomb] end
+I0813 00:16:29.584346   45410 playertask.go:140] [收到请求移动的指令] revCmd.Way =  0
+E0813 00:16:29.584580   45410 room.go:151] [100006] execute move cmd
+E0813 00:16:29.584611   45410 scenePlayer.go:103] [GetCurrentGrid] x:4, y:5
+I0813 00:16:30.425235   45410 playertask.go:151] [收到请求放炸弹的指令]
+E0813 00:16:30.425771   45410 room.go:161] [100005] execute put bomb cmd
+E0813 00:16:30.425925   45410 scenePlayer.go:70] [PutBomb] begin
+E0813 00:16:30.426075   45410 scenePlayer.go:80] [PutBomb] end
+I0813 00:16:32.426505   45410 playertask.go:140] [收到请求移动的指令] revCmd.Way =  1
+E0813 00:16:32.426814   45410 room.go:151] [100005] execute move cmd
+E0813 00:16:32.427028   45410 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0813 00:16:32.427684   45410 scene.go:140] [GetGameMapGridType] x:4, y:5
+I0813 00:16:33.590263   45410 playertask.go:151] [收到请求放炸弹的指令]
+E0813 00:16:33.590450   45410 room.go:161] [100006] execute put bomb cmd
+E0813 00:16:33.590611   45410 scenePlayer.go:70] [PutBomb] begin
+E0813 00:16:33.591033   45410 scenePlayer.go:80] [PutBomb] end
+I0813 00:16:34.427114   45410 scenePlayer.go:167] [玩家死亡] username: leo
+I0813 00:16:34.429837   45410 playertask.go:140] [收到请求移动的指令] revCmd.Way =  3
+E0813 00:16:34.431271   45410 room.go:151] [100005] execute move cmd
+E0813 00:16:34.433069   45410 scenePlayer.go:103] [GetCurrentGrid] x:4, y:5
+E0813 00:16:34.433104   45410 scene.go:140] [GetGameMapGridType] x:3, y:5
+I0813 00:16:37.592989   45410 scenePlayer.go:167] [玩家死亡] username: leo
+I0813 00:16:37.593098   45410 scenePlayer.go:167] [玩家死亡] username: leo
+I0813 00:16:37.593127   45410 scenePlayer.go:167] [玩家死亡] username: abc
+I0813 00:23:18.124211   45410 service.go:53] [Service] Got Signal  interrupt

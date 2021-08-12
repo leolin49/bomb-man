@@ -1,0 +1,65 @@
+Log file created at: 2021/08/12 23:46:15
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0812 23:46:15.635972   43167 scene.go:95] RandGameMapData_AllSpace begin
+E0812 23:46:15.636443   43167 scene.go:101] RandGameMapData_AllSpace end
+E0812 23:46:15.636562   43167 room.go:151] [100006] execute move cmd
+E0812 23:46:15.636590   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0812 23:46:15.636617   43167 scene.go:140] [GetGameMapGridType] x:4, y:5
+E0812 23:46:15.636645   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:15.636672   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:15.636810   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:15.636841   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:15.636868   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:15.636904   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:15.636932   43167 room.go:151] [100006] execute move cmd
+E0812 23:46:15.637006   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:5
+E0812 23:46:15.637093   43167 scene.go:140] [GetGameMapGridType] x:4, y:6
+E0812 23:46:15.637120   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:15.637147   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:15.637182   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:15.637210   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:15.637265   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:15.637297   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:15.637326   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:15.637353   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:15.637380   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:16.266100   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:16.266380   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:16.266651   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:17.636982   43167 room.go:161] [100005] execute put bomb cmd
+E0812 23:46:17.638395   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:17.639408   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:18.266915   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:18.266944   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:18.266974   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:19.637375   43167 room.go:161] [100005] execute put bomb cmd
+E0812 23:46:19.637405   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:19.637434   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:20.268404   43167 room.go:161] [100006] execute put bomb cmd
+E0812 23:46:20.268434   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:20.268463   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:21.641144   43167 room.go:151] [100005] execute move cmd
+E0812 23:46:21.641175   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0812 23:46:21.641230   43167 scene.go:140] [GetGameMapGridType] x:4, y:5
+E0812 23:46:22.272253   43167 room.go:151] [100006] execute move cmd
+E0812 23:46:22.272286   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:6
+E0812 23:46:22.272314   43167 scene.go:140] [GetGameMapGridType] x:3, y:6
+E0812 23:46:23.641991   43167 room.go:151] [100005] execute move cmd
+E0812 23:46:23.642020   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:5
+E0812 23:46:23.642046   43167 scene.go:140] [GetGameMapGridType] x:4, y:4
+E0812 23:46:24.272677   43167 room.go:151] [100006] execute move cmd
+E0812 23:46:24.272707   43167 scenePlayer.go:103] [GetCurrentGrid] x:3, y:6
+E0812 23:46:24.272735   43167 scene.go:140] [GetGameMapGridType] x:2, y:6
+E0812 23:46:25.644701   43167 room.go:151] [100005] execute move cmd
+E0812 23:46:25.644731   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0812 23:46:25.644758   43167 scene.go:140] [GetGameMapGridType] x:4, y:3
+E0812 23:46:26.273062   43167 room.go:151] [100006] execute move cmd
+E0812 23:46:26.273092   43167 scenePlayer.go:103] [GetCurrentGrid] x:2, y:6
+E0812 23:46:26.273119   43167 scene.go:140] [GetGameMapGridType] x:2, y:7
+E0812 23:46:27.648114   43167 room.go:161] [100005] execute put bomb cmd
+E0812 23:46:27.648145   43167 scenePlayer.go:70] [PutBomb] begin
+E0812 23:46:27.648174   43167 scenePlayer.go:80] [PutBomb] end
+E0812 23:46:29.648807   43167 room.go:151] [100005] execute move cmd
+E0812 23:46:29.648896   43167 scenePlayer.go:103] [GetCurrentGrid] x:4, y:3

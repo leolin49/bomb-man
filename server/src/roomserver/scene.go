@@ -28,6 +28,7 @@ func NewScene(room *Room) *Scene {
 		players:     make(map[uint64]*ScenePlayer),
 		ObstacleMap: make(map[uint32]*common.Obstacle),
 		BoxMap:      make(map[uint32]*common.Box),
+		BombMap:     make(map[uint32]*Bomb),
 		bombNum:     0,
 		gameMap:     nil,
 	}
@@ -81,12 +82,23 @@ func (this *Scene) LoadGameMapData() bool {
 // 自定义地图信息
 func (this *Scene) RandGameMapData_AllSpace() {
 	this.sceneHeight, this.sceneWidth = 10, 10
-	var x, y uint32
+	var x, y, i uint32
+	// 初始化
+	this.gameMap = &usercmd.MapVector{}
+	this.gameMap.Col = make([]*usercmd.MapVector_Row, this.sceneWidth)
+	for i = 0; i < this.sceneWidth; i++ {
+		this.gameMap.Col[i] = &usercmd.MapVector_Row{}
+		this.gameMap.Col[i].X = make([]usercmd.CellType, this.sceneHeight)
+	}
+
+	// 赋值
+	glog.Errorln("RandGameMapData_AllSpace begin")
 	for y = 0; y < this.sceneWidth; y++ {
 		for x = 0; x < this.sceneHeight; x++ {
 			this.gameMap.GetCol()[y].GetX()[x] = usercmd.CellType_Space
 		}
 	}
+	glog.Errorln("RandGameMapData_AllSpace end")
 }
 
 func (this *Scene) Update() {
@@ -125,6 +137,7 @@ func (this *Scene) GetNextBombId() uint32 {
 
 // 根据坐标返回地图上对应格子的当前类型（空地，墙体）
 func (this *Scene) GetGameMapGridType(x, y uint32) usercmd.CellType {
+	glog.Errorf("[GetGameMapGridType] x:%v, y:%v", x, y)
 	return this.gameMap.GetCol()[x].GetX()[y]
 }
 
