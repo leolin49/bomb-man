@@ -18,29 +18,39 @@ type RpcRoomService struct {
 
 func (r *RpcRoomService) RetRoom(request *usercmd.ReqIntoRoom, reply *usercmd.RetIntoRoom) error {
 	uid, username := request.GetUId(), request.GetUserName()
-
 	glog.Infof("[Rpc get room]uid:%v, username:%v", uid, username)
-	rpError := uint32(0)
-	var rpAddr string
+
+	var (
+		rpError  uint32
+		rpAddr   string
+		rpRoomId uint32
+	)
+	rpError = 0 // 错误码
+
 	// TODO根据负载选择roomserver
 	for k, v := range server.roomMap {
 		_ = v
+		// glog.Infoln("[debug] roomMap key:", k)
 		rpAddr = k
-		break
+		// break
 	}
+
 	// 匹配成功后，rcenterserver会选择（如何选择？）一个roomserver并生成一个room id和一个token，
 	// 而后将对应roomserver的地址以及token返回给logicserver，最后返回给用户
 	var info common.RoomTokenInfo
-	info.UserId = uint32(uid) // uint64->uint32
+	info.UserId = uid
 	info.UserName = username
 	info.RoomId = server.roomMap[rpAddr].CurRoomId ////////////////////////////
+
 	token, err := common.CreateRoomToken(info)
+	// username_roomtoken
 	if err != nil {
 		glog.Errorln("[Rpc get room] create token error")
 		return err
 	}
 
-	reply.Err, reply.Addr, reply.Key = &rpError, &rpAddr, &token
+	rpRoomId = info.RoomId
+	reply.Err, reply.Addr, reply.Key, reply.RoomId = &rpError, &rpAddr, &token, &rpRoomId
 
 	return nil
 }

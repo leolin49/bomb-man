@@ -111,7 +111,7 @@ func (this *Scene) GetNextBombId() uint32 {
 }
 
 // 根据坐标返回地图上对应格子的当前类型（空地，墙体）
-func (this *Scene) GetGameMapGridType(x, y int) usercmd.CellType {
+func (this *Scene) GetGameMapGridType(x, y uint32) usercmd.CellType {
 	return this.gameMap.GetCol()[x].GetX()[y]
 }
 

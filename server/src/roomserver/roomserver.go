@@ -27,7 +27,6 @@ func RoomServer_GetMe() *RoomServer {
 }
 
 func (this *RoomServer) Init() bool {
-
 	if !RoomGrpcClient_GetMe().Init() {
 		glog.Errorln("[RoomServer] room grpc client init error")
 		return false
@@ -61,13 +60,14 @@ func (this *RoomServer) MainLoop() {
 }
 
 var (
-	port   = flag.String("port", "13000", "logicserver listen port")
+	port   = flag.String("port", "13000", "roomserver listen port")
 	config = flag.String("config", "", "config json file path")
 )
 
 func main() {
 	flag.Parse()
 	env.Load(*config)
+	// glog.Infoln("[debug] port:", *port)
 	defer glog.Flush()
 	RoomServer_GetMe().Main()
 }

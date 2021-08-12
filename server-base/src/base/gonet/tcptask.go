@@ -18,7 +18,7 @@ type ITcpTask interface {
 const (
 	cmd_max_size    = 128 * 1024
 	cmd_header_size = 4 // 3字节指令长度 1字节是否压缩
-	cmd_verify_time = 10
+	cmd_verify_time = 100
 )
 
 type TcpTask struct {

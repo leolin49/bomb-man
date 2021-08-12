@@ -70,7 +70,7 @@ func (this *RCenterServer) AddRoomServer(ip string, port uint32) {
 	this.roomMap[key] = &RoomServerInfo{}
 }
 
-func (this *RCenterServer) UpdateRoomServer(info usercmd.RoomServerInfo) {
+func (this *RCenterServer) UpdateRoomServer(info *usercmd.RoomServerInfo) {
 	key := fmt.Sprintf("%v:%v", info.Ip, info.Port)
 	this.roomMap[key].RoomNum = info.RoomNum
 	this.roomMap[key].PlayerNum = info.PlayerNum

@@ -93,7 +93,6 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 			return false
 		}
 		this.tcptask.Verify() // 验证通过
-
 		room := RoomManager_GetMe().GetRoomById(info.RoomId)
 		if room == nil { // 当前玩家为房间的第一位玩家，创建房间
 			room = RoomManager_GetMe().NewRoom(ROOMTYPE_1V1, info.RoomId)
@@ -118,7 +117,8 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 
 	// TODO 心跳
 	if cmd == usercmd.MsgTypeCmd_HeartBeat {
-
+		this.AsyncSend(data, flag)
+		return true
 	}
 
 	switch cmd {
@@ -127,13 +127,20 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 		if common.DecodeGoCmd(data, flag, revCmd) != nil {
 			return false
 		}
+		glog.Infoln("[收到请求移动的指令] revCmd.Way = ", revCmd.Way)
 		if this.room == nil || this.room.IsClosed() {
+			glog.Infoln("[收到请求移动的指令] 房间不存在")
 			return false
 		}
 		this.room.chan_PlayerOp <- &PlayerOp{uid: this.id, op: PlayerMoveOp, msg: revCmd}
 	case usercmd.MsgTypeCmd_PutBomb: // 放炸弹
 		revCmd := &usercmd.MsgPutBomb{}
 		if common.DecodeGoCmd(data, flag, revCmd) != nil {
+			return false
+		}
+		glog.Infoln("[收到请求放炸弹的指令]")
+		if this.room == nil || this.room.IsClosed() {
+			glog.Infoln("[收到请求放炸弹的指令] 房间不存在")
 			return false
 		}
 		this.room.chan_PlayerOp <- &PlayerOp{uid: this.id, op: PlayerPutBombOp, msg: revCmd}

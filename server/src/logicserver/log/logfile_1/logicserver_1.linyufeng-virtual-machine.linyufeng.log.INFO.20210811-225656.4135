@@ -1,0 +1,19 @@
+Log file created at: 2021/08/11 22:56:56
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0811 22:56:56.296353    4135 httpserver.go:55] [InitHttpServer] Listen port  8001
+I0811 22:56:56.296842    4135 httpserver.go:67] [InitHttpServer] Service start success
+E0811 22:56:56.297103    4135 logicserver.go:32] [LogicServer Init] Init success
+I0811 23:03:18.017264    4135 httpserver.go:105] [Register success], 100020, , 2021-08-11 23:03:18
+I0811 23:06:12.386836    4135 httpserver.go:92] [User Register] username existed
+I0811 23:08:24.786256    4135 httpserver.go:92] [User Register] username existed
+I0811 23:09:10.969948    4135 httpserver.go:92] [User Register] username existed
+I0811 23:09:41.380466    4135 httpserver.go:92] [User Register] username existed
+I0811 23:09:46.637598    4135 httpserver.go:92] [User Register] username existed
+I0811 23:09:50.825820    4135 httpserver.go:92] [User Register] username existed
+I0811 23:09:53.809109    4135 httpserver.go:92] [User Register] username existed
+I0811 23:10:00.765582    4135 httpserver.go:92] [User Register] username existed
+I0811 23:12:05.739382    4135 httpserver.go:92] [User Register] username existed
+I0811 23:16:50.482073    4135 httpserver.go:92] [User Register] username existed
+I0811 23:16:53.142818    4135 service.go:53] [Service] Got Signal  interrupt

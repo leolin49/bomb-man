@@ -1,7 +1,6 @@
 package main
 
 import (
-	"math"
 	"math/rand"
 	"paopao/server/src/common"
 	"paopao/server/usercmd"
@@ -12,7 +11,7 @@ import (
 // 初始数值
 const (
 	INIT_POWER = 1   // 初始炸弹威力
-	INIT_SPEED = 0.3 // 初始移动速度
+	INIT_SPEED = 0.2 // 初始移动速度
 
 	BOMB_MAXTIME = 4 // 炸弹的持续时间
 
@@ -81,49 +80,46 @@ func (this *ScenePlayer) PutBomb(msg *usercmd.MsgPutBomb) bool {
 // 移动
 func (this *ScenePlayer) Move(msg *usercmd.MsgMove) {
 	this.isMove = true
-	// 计算下一个位置
-	this.CaculateNext(float64(msg.Way))
-	// 边界检查
-	this.BorderCheck(this.nextPos)
-	// TODO 障碍物(墙体，...)检查
-	// ...
+
+	this.CaculateNext(msg.Way)     // 计算下一个位置
+	this.BorderCheck(this.nextPos) // 边界检查
 
 	this.curPos = this.nextPos
 }
 
 // 根据角度移动
-func (this *ScenePlayer) CaculateNext(direct float64) {
-	this.nextPos.X = this.curPos.X + math.Sin(direct*math.Pi/180)*float64(this.speed)
-	this.nextPos.Y = this.curPos.Y + math.Cos(direct*math.Pi/180)*float64(this.speed)
-}
+// func (this *ScenePlayer) CaculateNext(direct float64) {
+// 	this.nextPos.X = this.curPos.X + math.Sin(direct*math.Pi/180)*float64(this.speed)
+// 	this.nextPos.Y = this.curPos.Y + math.Cos(direct*math.Pi/180)*float64(this.speed)
+// }
 
 // TODO 上下左右移动
-func (this *ScenePlayer) CaculateNextCell(way int32) {
-	var nXcell, nYcell int
-	var gridType usercmd.CellType
+func (this *ScenePlayer) CaculateNext(way int32) {
+	x, y := this.GetCurrentGrid()
 	// 上1下2左3右4
 	switch common.MoveWay(way) {
 	case common.MoveWay_Up:
-		nXcell = common.Round(this.curPos.X)
-		nYcell = int(math.Ceil(this.curPos.Y + this.speed))
-		gridType = this.scene.GetGameMapGridType(nXcell, nYcell)
-		if gridType == usercmd.CellType_Wall || gridType == usercmd.CellType_Box {
-			return
+		if this.CanPass(x, y+1) {
+			this.nextPos.X = float64(x) // 如果在格子边缘，自动调整到格子中央
+			this.nextPos.Y = this.curPos.Y + this.speed
 		}
-
+		break
 	case common.MoveWay_Down:
+		if this.CanPass(x, y-1) {
+			this.nextPos.X = float64(x)
+			this.nextPos.Y = this.curPos.Y - this.speed
+		}
 		break
 	case common.MoveWay_Left:
+		if this.CanPass(x-1, y) {
+			this.nextPos.X = this.curPos.X - this.speed
+			this.nextPos.Y = float64(y)
+		}
 		break
 	case common.MoveWay_Right:
-		nXcell = int(math.Ceil(this.curPos.X + this.speed))
-		nYcell = int(math.Floor(this.curPos.Y))
-		gridType = this.scene.GetGameMapGridType(nXcell, nYcell)
-		if gridType == usercmd.CellType_Wall || gridType == usercmd.CellType_Box {
-			return
-		} else {
+		if this.CanPass(x+1, y) {
 			this.nextPos.X = this.curPos.X + this.speed
-			this.nextPos.Y = this.curPos.Y
+			this.nextPos.Y = float64(y)
 		}
 		break
 	default:
@@ -144,6 +140,13 @@ func (this *ScenePlayer) BorderCheck(pos *common.Position) {
 	}
 }
 
+// 改格子是否可以通过
+func (this *ScenePlayer) CanPass(x, y uint32) bool {
+	t := this.scene.GetGameMapGridType(x, y)
+	return t != usercmd.CellType_Wall && t != usercmd.CellType_Box
+}
+
+// 判断该玩家当前属于哪一个格子
 func (this *ScenePlayer) GetCurrentGrid() (uint32, uint32) {
 	return uint32(common.Round(this.curPos.X)),
 		uint32(common.Round(this.curPos.Y))

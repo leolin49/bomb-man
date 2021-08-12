@@ -15,8 +15,8 @@ import (
 )
 
 const (
-	USER_ID_BASENUM     = 100000 // 用户ID基数
-	TOKEN_EXPIRE_TIME_S = 300    // token过期时间（s）
+	UserIdBaseNumber = 100000 // 用户ID基数
+	TokenExpireTime  = 300    // token过期时间（s）
 )
 
 const ( // http状态码
@@ -89,12 +89,12 @@ func RegisterHandler(writer http.ResponseWriter, request *http.Request) {
 	}
 	// 用户名已存在
 	if common.RedisMgr.Exist(key) {
-		glog.Infoln("[User Register] username existed")
+		glog.Infof("[User Register] username [%v] existed", key)
 		writer.Write(JustRetCodeJson(common.ErrorCodeUserNameRepeat))
 		return
 	}
 	count++
-	uid := USER_ID_BASENUM + count
+	uid := UserIdBaseNumber + count
 	common.RedisMgr.HMSet(key, UserInfo{
 		Id:           strconv.Itoa(uid),
 		Password:     pwd,
@@ -132,16 +132,16 @@ func LoginHandler(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 	// token存入数据库，设置过期时间
-	tokenKey := key + "_token"
+	tokenKey := key + "_logintoken"
 	common.RedisMgr.Set(tokenKey, token)
 	conn := common.RedisMgr.RedisPool.Get()
 	defer conn.Close()
-	conn.Do("EXPIRE", tokenKey, TOKEN_EXPIRE_TIME_S)
+	conn.Do("EXPIRE", tokenKey, TokenExpireTime)
 	glog.Infoln("[User Login] login success, username:", key)
 	// 登录成功
 	tmp := struct {
 		ResultCode int    `json:"result_code"`
-		Token      string `json:"token"`
+		Token      string `json:"login_token"`
 	}{
 		common.ErrorCodeSuccess,
 		token,
@@ -150,8 +150,84 @@ func LoginHandler(writer http.ResponseWriter, request *http.Request) {
 	writer.Write(res)
 }
 
-// 开始游戏请求，将玩家信息通过rpc给到rcenterserver
 func StartGameHandler(writer http.ResponseWriter, request *http.Request) {
+	req := struct {
+		Token string `json:"login_token"`
+	}{}
+	if err := json.NewDecoder(request.Body).Decode(&req); err != nil {
+		body, _ := ioutil.ReadAll(request.Body)
+		glog.Errorln("[Start Game] json parse error: ", string(body))
+		return
+	}
+	// 解析token
+	username, err := common.ParseLoginToken(req.Token)
+	if err != nil {
+		glog.Errorln("[Start Game] ", err)
+		writer.Write(JustRetCodeJson(common.ErrorUnknow))
+		return
+	}
+	// 验证token是否正确，是否过期
+	if t := common.RedisMgr.Get(username + "_logintoken"); t != req.Token {
+		glog.Errorln("[Start Game] token error or expired")
+		glog.Errorln("[Start Game] redis token: ", t)
+		glog.Errorln("[Start Game] request token: ", req.Token)
+		writer.Write(JustRetCodeJson(common.ErrorCodeInvalidToken))
+		writer.WriteHeader(Unauthorized)
+		return
+	}
+
+	id, err := strconv.ParseUint(common.RedisMgr.HGet(username, "Id"), 10, 64)
+	if err != nil {
+		glog.Errorln("[Start Game] uid empty, username:", username)
+		writer.Write(JustRetCodeJson(common.ErrorUnknow))
+		return
+	}
+
+	// rpc请求，获取房间信息
+	reqData := usercmd.ReqIntoRoom{
+		UId:      &id,
+		UserName: &username,
+	}
+	var rspData *usercmd.RetIntoRoom
+	rspData = RequestRpcService(&reqData)
+
+	// 根据返回的roomserver_addr和roomid生成roomtoken，用于客户端连接roomserver
+	roomid := *rspData.RoomId
+	token, err := common.CreateRoomToken(common.RoomTokenInfo{
+		UserId:   id,
+		UserName: username,
+		RoomId:   roomid,
+	})
+	// roomtoken存入redis，key:username_roomtoken
+	tokenKey := fmt.Sprintf("%v_roomtoken", username)
+	common.RedisMgr.Set(tokenKey, token)
+	conn := common.RedisMgr.RedisPool.Get()
+	defer conn.Close()
+	conn.Do("EXPIRE", tokenKey, TokenExpireTime)
+
+	if err != nil {
+		glog.Errorln("[HttpServer] 生成roomtoken失败, ", err)
+		writer.Write(JustRetCodeJson(common.ErrorCodeServer))
+		return
+	}
+	rspData.Key = &token
+
+	res, _ := json.Marshal(struct {
+		ResultCode int    `json:"result_code"`
+		Token      string `json:"room_token"`
+		Address    string `json:"room_address"`
+	}{
+		common.ErrorCodeSuccess,
+		token,
+		*rspData.Addr,
+	})
+
+	// 将房间信息返回给用户
+	writer.Write(res)
+}
+
+// 开始游戏请求，将玩家信息通过rpc给到rcenterserver (token在recenterserver生成)
+func StartGameHandler_bak(writer http.ResponseWriter, request *http.Request) {
 	req := struct {
 		Token string `json:"token"`
 	}{}

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+port=$1
 logPath="./log/"
 configFile="../../bin/config/config.json"
 serverName="roomserver"
@@ -12,7 +13,7 @@ if [ $? -eq 0 ];then
     else
         echo "$logPath""already exsit"
     fi
-    ./"$serverName" -config "$configFile" -log_dir="$logPath" -alsologtostderr
+    ./"$serverName" -port "$port" -config "$configFile" -log_dir="$logPath" -alsologtostderr
 else
     echo "$serverName""compile failed"
 fi

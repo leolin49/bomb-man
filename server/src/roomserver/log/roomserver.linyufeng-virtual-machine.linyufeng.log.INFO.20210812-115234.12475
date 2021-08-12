@@ -1,0 +1,6 @@
+Log file created at: 2021/08/12 11:52:34
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0812 11:52:34.739506   12475 roomserver.go:71] [debug] port: 13000
+I0812 11:52:36.525231   12475 service.go:53] [Service] Got Signal  interrupt

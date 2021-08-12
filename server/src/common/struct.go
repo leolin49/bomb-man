@@ -20,7 +20,7 @@ const (
 )
 
 type RoomTokenInfo struct {
-	UserId   uint32
+	UserId   uint64
 	UserName string
 	RoomId   uint32
 }

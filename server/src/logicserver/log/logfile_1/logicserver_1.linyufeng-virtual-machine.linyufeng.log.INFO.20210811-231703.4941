@@ -1,0 +1,28 @@
+Log file created at: 2021/08/11 23:17:03
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0811 23:17:03.728915    4941 httpserver.go:55] [InitHttpServer] Listen port  8001
+I0811 23:17:03.729387    4941 httpserver.go:67] [InitHttpServer] Service start success
+E0811 23:17:03.729490    4941 logicserver.go:32] [LogicServer Init] Init success
+I0811 23:18:01.777548    4941 httpserver.go:92] [User Register] username [] existed
+I0811 23:18:45.122916    4941 httpserver.go:105] [Register success]aaa, 100021, 123, 2021-08-11 23:18:45
+I0811 23:18:52.918463    4941 httpserver.go:92] [User Register] username [aaa] existed
+I0811 23:19:13.514102    4941 httpserver.go:105] [Register success]bbb, 100022, 123, 2021-08-11 23:19:13
+I0811 23:23:26.056083    4941 httpserver.go:92] [User Register] username [bbb] existed
+I0811 23:23:27.967342    4941 httpserver.go:92] [User Register] username [bbb] existed
+I0811 23:23:28.927224    4941 httpserver.go:92] [User Register] username [bbb] existed
+I0811 23:23:32.894913    4941 httpserver.go:92] [User Register] username [aaa] existed
+I0811 23:23:43.377314    4941 httpserver.go:92] [User Register] username [] existed
+I0811 23:26:15.835613    4941 httpserver.go:92] [User Register] username [] existed
+I0811 23:26:22.350717    4941 httpserver.go:92] [User Register] username [] existed
+I0811 23:26:27.634929    4941 httpserver.go:92] [User Register] username [] existed
+I0811 23:27:59.480418    4941 httpserver.go:92] [User Register] username [] existed
+I0811 23:29:58.181949    4941 httpserver.go:92] [User Register] username [] existed
+I0811 23:31:17.329628    4941 httpserver.go:105] [Register success]123, 100023, 123, 2021-08-11 23:31:17
+I0811 23:42:57.036484    4941 httpserver.go:105] [Register success]user1, 100024, 123, 2021-08-11 23:42:57
+I0811 23:43:02.225588    4941 httpserver.go:140] [User Login] login success, username: user1
+I0811 23:46:43.641693    4941 httpserver.go:105] [Register success]user2, 100025, 123, 2021-08-11 23:46:43
+I0811 23:46:51.887442    4941 httpserver.go:140] [User Login] login success, username: user2
+I0812 09:13:50.901590    4941 httpserver.go:140] [User Login] login success, username: user1
+I0812 11:06:00.040586    4941 service.go:53] [Service] Got Signal  interrupt

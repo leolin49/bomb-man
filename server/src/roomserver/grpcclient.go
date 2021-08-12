@@ -94,7 +94,7 @@ func (this *RoomGrpcClient) TickerSendLoadInfo() {
 	p, _ := strconv.Atoi(*port)
 	info.Ip = "localhost"
 	info.Port = uint32(p)
-	//
+
 	r := RoomManager_GetMe()
 
 	ticker := time.NewTicker(2 * time.Second)
