@@ -86,9 +86,9 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 			return false
 		}
 		key := info.UserName + "_roomtoken"
-		token := common.RedisMgr.Get(key)
+		token := RedisManager_GetMe().Get(key)
 		if len(token) == 0 { // token不存在或者token过期
-			glog.Errorln("[MsgTypeCmd_Login] token expired")
+			glog.Errorln("[MsgTypeCmd_Login] token错误或者已经过期")
 			PlayerTaskManager_GetMe().Remove(this) // 将playertask从manager中移除
 			this.retErrorMsg(common.ErrorCodeInvalidToken)
 			return false
@@ -99,6 +99,7 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 			room = RoomManager_GetMe().NewRoom(ROOMTYPE_1V1, info.RoomId)
 		}
 		err = room.AddPlayer(this)
+		glog.Errorln("111111111111111111111111111111111")
 		if err != nil {
 			glog.Errorln("[Enter Room] need retry")
 		}

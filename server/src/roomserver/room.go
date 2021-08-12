@@ -49,7 +49,7 @@ func NewRoom(roomtype, roomid uint32) *Room {
 		startTime:    uint64(time.Now().Unix()),
 		endchan:      make(chan bool),
 	}
-	room.scene.Init(room) // 初始化场景信息
+	room.scene = NewScene(room) // 初始化场景信息
 	glog.Infof("[NewRoom] roomtype:%v, roomid:%v", roomtype, roomid)
 	return room
 }
@@ -62,14 +62,23 @@ func (this *Room) AddPlayer(player *PlayerTask) error {
 	}
 	// 更新房间信息
 	this.curPlayerNum++
+	glog.Errorln("111111111111111111111111111111111")
 	player.room = this
+	glog.Errorln("111111111111111111111111111111111")
 	this.players[player.id] = player
+	glog.Errorln("111111111111111111111111111111111")
 	this.scene.AddPlayer(player) // 将玩家添加到场景
+	glog.Errorln("111111111111111111111111111111111")
 	// 房间内玩家数量达到最大，自动开始游戏
 	if this.curPlayerNum == this.maxPlayerNum {
+		glog.Infoln("[游戏开始] 玩家列表：")
+		for _, v := range this.players {
+			glog.Infoln("username:%v, uid:%v", v.scenePlayer.name, v.scenePlayer.id)
+		}
 		RoomManager_GetMe().UpdateNextRoomId() // 房间id++
 		go this.StartGame()
 	}
+	glog.Errorln("111111111111111111111111111111111")
 	this.mutex.Unlock()
 
 	return nil
@@ -103,6 +112,10 @@ func (this *Room) Close() {
 }
 
 func (this *Room) GameLoop() {
+
+	// TODO 加载地图信息
+	this.scene.RandGameMapData_AllSpace()
+
 	timeTicker := time.NewTicker(time.Millisecond * 20) // 20ms
 	stop := false
 	for !stop {

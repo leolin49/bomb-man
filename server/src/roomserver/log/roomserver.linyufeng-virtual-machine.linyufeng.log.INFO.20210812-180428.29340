@@ -1,0 +1,12 @@
+Log file created at: 2021/08/12 18:04:28
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0812 18:04:28.065762   29340 roomserver.go:74] [debug] port: 13000
+I0812 18:04:28.077820   29340 roomserver.go:41] [RoomServer] roomserver init success
+I0812 18:04:32.666499   29340 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:39616 success
+I0812 18:04:32.668195   29340 playertask.go:81] [RoomServer Login] recv a login request  127.0.0.1:39616
+E0812 18:04:32.668997   29340 playertask.go:89] 111111111111111111111111111111111
+E0812 18:04:32.673497   29340 playertask.go:91] 111111111111111111111111111111111
+E0812 18:04:32.673665   29340 playertask.go:98] 111111111111111111111111111111111
+I0812 18:05:18.270916   29340 service.go:53] [Service] Got Signal  interrupt

@@ -44,6 +44,7 @@ func (this *RoomServer) Init() bool {
 
 func (this *RoomServer) Final() bool {
 	this.tcpser.Close()
+	RedisManager_GetMe().Stop()
 	RoomGrpcClient_GetMe().RemoveRoomServer()
 	return true
 }

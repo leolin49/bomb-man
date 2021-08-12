@@ -4,7 +4,6 @@ import (
 	"flag"
 	"paopao/server-base/src/base/env"
 	"paopao/server-base/src/base/gonet"
-	"paopao/server/src/common"
 	"time"
 
 	"github.com/golang/glog"
@@ -25,7 +24,7 @@ func LogicServer_GetMe() *LogicServer {
 }
 
 func (this *LogicServer) Init() bool {
-	if !common.RedisMgr.NewRedisManager() || !InitHttpServer() {
+	if RedisManager_GetMe() == nil || !InitHttpServer() {
 		glog.Errorln("[LogicServer Init] Init error")
 		return false
 	}
@@ -42,7 +41,7 @@ func (this *LogicServer) MainLoop() {
 }
 
 func (this *LogicServer) Final() bool {
-	common.RedisMgr.RedisPool.Close()
+	RedisManager_GetMe().Stop()
 	return true
 }
 

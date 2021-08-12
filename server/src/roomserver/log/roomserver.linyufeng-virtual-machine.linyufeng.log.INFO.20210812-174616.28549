@@ -1,0 +1,21 @@
+Log file created at: 2021/08/12 17:46:16
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0812 17:46:16.671528   28549 roomserver.go:74] [debug] port: 13000
+I0812 17:46:16.680755   28549 roomserver.go:41] [RoomServer] roomserver init success
+I0812 17:46:29.164869   28549 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:39568 success
+I0812 17:46:29.166531   28549 playertask.go:81] [RoomServer Login] recv a login request  127.0.0.1:39568
+E0812 17:46:29.168647   28549 redisclient.go:40] [Redis] Get Error:  redigo: nil returned
+E0812 17:46:29.169053   28549 playertask.go:91] [MsgTypeCmd_Login] token expired
+E0812 17:46:29.169837   28549 playertask.go:73] [RoomServer Login] not a login instruction %!(EXTRA string=127.0.0.1:39568)
+E0812 17:46:31.169858   28549 playertask.go:73] [RoomServer Login] not a login instruction %!(EXTRA string=127.0.0.1:39568)
+E0812 17:46:33.174202   28549 playertask.go:73] [RoomServer Login] not a login instruction %!(EXTRA string=127.0.0.1:39568)
+E0812 17:46:35.176112   28549 playertask.go:73] [RoomServer Login] not a login instruction %!(EXTRA string=127.0.0.1:39568)
+E0812 17:46:37.179427   28549 playertask.go:73] [RoomServer Login] not a login instruction %!(EXTRA string=127.0.0.1:39568)
+E0812 17:46:39.180555   28549 playertask.go:73] [RoomServer Login] not a login instruction %!(EXTRA string=127.0.0.1:39568)
+E0812 17:46:41.183503   28549 playertask.go:73] [RoomServer Login] not a login instruction %!(EXTRA string=127.0.0.1:39568)
+E0812 17:46:43.184438   28549 playertask.go:73] [RoomServer Login] not a login instruction %!(EXTRA string=127.0.0.1:39568)
+E0812 17:46:45.186833   28549 playertask.go:73] [RoomServer Login] not a login instruction %!(EXTRA string=127.0.0.1:39568)
+E0812 17:46:47.188149   28549 playertask.go:73] [RoomServer Login] not a login instruction %!(EXTRA string=127.0.0.1:39568)
+I0812 17:46:48.800409   28549 service.go:53] [Service] Got Signal  interrupt

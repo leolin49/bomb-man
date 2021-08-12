@@ -12,7 +12,7 @@ type RedisManager struct {
 	RedisPool *redis.Pool
 }
 
-var RedisMgr RedisManager
+var RedsisMgr RedisManager
 
 func newPool(addr string) *redis.Pool {
 	return &redis.Pool{

@@ -94,10 +94,15 @@ func ParseRoomToken(token string) (*RoomTokenInfo, error) {
 	// rsa
 	res, err := RSADecrypt(bytes, prikey)
 	if err != nil {
+		glog.Errorln("[RSADecrypt]", err)
 		return nil, err
 	}
 	var info RoomTokenInfo
 	err = json.Unmarshal(res, &info)
+	if err != nil {
+		glog.Errorln("[json.Unmarshal]", err)
+		return nil, err
+	}
 	return &info, nil
 }
 

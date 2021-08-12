@@ -22,21 +22,21 @@ type Scene struct {
 	gameMap *usercmd.MapVector // 游戏地图信息
 }
 
+func NewScene(room *Room) *Scene {
+	scene := &Scene{
+		room:        room,
+		players:     make(map[uint64]*ScenePlayer),
+		ObstacleMap: make(map[uint32]*common.Obstacle),
+		BoxMap:      make(map[uint32]*common.Box),
+		bombNum:     0,
+		gameMap:     nil,
+	}
+	return scene
+}
+
 // 场景信息初始化
 func (this *Scene) Init(room *Room) {
-	// 房间指针
-	this.room = room
-	// 全部玩家列表
-	this.players = make(map[uint64]*ScenePlayer)
 
-	this.ObstacleMap = make(map[uint32]*common.Obstacle)
-	this.BoxMap = make(map[uint32]*common.Box)
-	this.BombMap = make(map[uint32]*Bomb)
-
-	//
-	this.bombNum = 0
-
-	this.gameMap = nil
 }
 
 // 加载地图数据
@@ -78,6 +78,17 @@ func (this *Scene) LoadGameMapData() bool {
 	return true
 }
 
+// 自定义地图信息
+func (this *Scene) RandGameMapData_AllSpace() {
+	this.sceneHeight, this.sceneWidth = 10, 10
+	var x, y uint32
+	for y = 0; y < this.sceneWidth; y++ {
+		for x = 0; x < this.sceneHeight; x++ {
+			this.gameMap.GetCol()[y].GetX()[x] = usercmd.CellType_Space
+		}
+	}
+}
+
 func (this *Scene) Update() {
 	// TODO
 	for _, player := range this.players {
@@ -88,7 +99,9 @@ func (this *Scene) Update() {
 // 场景内添加一个玩家
 func (this *Scene) AddPlayer(player *PlayerTask) {
 	if player != nil {
-		this.players[player.id] = NewScenePlayer(player, this)
+		sp := NewScenePlayer(player, this)
+		this.players[player.id] = sp
+		player.scenePlayer = sp
 	}
 }
 

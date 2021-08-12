@@ -1,0 +1,38 @@
+Log file created at: 2021/08/12 17:03:09
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0812 17:03:09.708572   25358 rpcserver.go:64] [RpcServerStart] address:  localhost:11111
+I0812 17:03:09.711586   25358 rpcserver.go:80] [RpcServerStart] rpc service start success
+I0812 17:03:09.711667   25358 grpcserver.go:77] [GrpcServerStart] address:  localhost:11112
+I0812 17:03:09.711736   25358 grpcserver.go:86] [GrpcServerStart] grpc service start success
+I0812 17:03:15.083274   25358 grpcserver.go:32] [RoomGrpcServer] get one <RoomServerMsgType_Register> message
+I0812 17:03:15.083332   25358 grpcserver.go:42] [注册房间服务器] ip: localhost, port: 13000
+I0812 17:03:17.086183   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:19.085554   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:21.086153   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:23.085635   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:25.086215   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:27.086595   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:29.086478   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:31.086113   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:33.086322   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:35.086076   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:37.086304   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:39.086683   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:41.085210   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:43.086174   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:45.084842   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:47.086255   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:49.085923   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:51.085953   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:53.086406   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:55.085568   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:57.086525   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:03:59.086396   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:04:01.086160   25358 grpcserver.go:46] [RoomGrpcServer] get one <RoomServerMsgType_Update> message
+I0812 17:04:02.242247   25358 grpcserver.go:56] [RoomGrpcServer] get one <RoomServerMsgType_Remove> message
+I0812 17:04:02.242332   25358 grpcserver.go:66] [删除房间服务器] ip: localhost, port: 13000
+E0812 17:04:02.245197   25358 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+I0812 17:46:07.578194   25358 service.go:53] [Service] Got Signal  interrupt
+I0812 17:46:08.000922   25358 rcenterserver.go:63] [Close] RCenterServer closed.

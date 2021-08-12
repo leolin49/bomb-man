@@ -82,26 +82,26 @@ func RegisterHandler(writer http.ResponseWriter, request *http.Request) {
 	key := request.Form.Get("username")
 	pwd := request.Form.Get("password")
 	curtime := GetCurrentTime()
-	count, err := strconv.Atoi(common.RedisMgr.Get("PlayerNumber"))
+	count, err := strconv.Atoi(RedisManager_GetMe().Get("PlayerNumber"))
 	if err != nil { // key 'PlayerNumber' 不存在
 		writer.WriteHeader(Internal_Server_Error)
 		return
 	}
 	// 用户名已存在
-	if common.RedisMgr.Exist(key) {
+	if RedisManager_GetMe().Exist(key) {
 		glog.Infof("[User Register] username [%v] existed", key)
 		writer.Write(JustRetCodeJson(common.ErrorCodeUserNameRepeat))
 		return
 	}
 	count++
 	uid := UserIdBaseNumber + count
-	common.RedisMgr.HMSet(key, UserInfo{
+	RedisManager_GetMe().HMSet(key, UserInfo{
 		Id:           strconv.Itoa(uid),
 		Password:     pwd,
 		Registertime: curtime,
 	})
 	// 更新用户数量
-	common.RedisMgr.Set("PlayerNumber", strconv.Itoa(count))
+	RedisManager_GetMe().Set("PlayerNumber", strconv.Itoa(count))
 	glog.Infof("[Register success]%v, %v, %v, %v", key, uid, pwd, curtime)
 	// 注册成功
 	writer.Write(JustRetCodeJson(common.ErrorCodeSuccess))
@@ -114,13 +114,13 @@ func LoginHandler(writer http.ResponseWriter, request *http.Request) {
 	key := request.Form.Get("username")
 	pwd := request.Form.Get("password")
 	// 验证1：用户名不存在
-	if !common.RedisMgr.Exist(key) {
+	if !RedisManager_GetMe().Exist(key) {
 		glog.Infoln("[User Login] user not exist ", key)
 		writer.Write(JustRetCodeJson(common.ErrorCodeUserNotExist))
 		return
 	}
 	// 验证2：密码错误
-	if pwd != common.RedisMgr.HGet(key, "PassWord") {
+	if pwd != RedisManager_GetMe().HGet(key, "PassWord") {
 		glog.Infoln("[User Login] password error ", pwd)
 		writer.Write(JustRetCodeJson(common.ErrorCodePassWordWrong))
 		return
@@ -133,10 +133,8 @@ func LoginHandler(writer http.ResponseWriter, request *http.Request) {
 	}
 	// token存入数据库，设置过期时间
 	tokenKey := key + "_logintoken"
-	common.RedisMgr.Set(tokenKey, token)
-	conn := common.RedisMgr.RedisPool.Get()
-	defer conn.Close()
-	conn.Do("EXPIRE", tokenKey, TokenExpireTime)
+	RedisManager_GetMe().Set(tokenKey, token)
+	RedisManager_GetMe().conn.Do("EXPIRE", tokenKey, TokenExpireTime)
 	glog.Infoln("[User Login] login success, username:", key)
 	// 登录成功
 	tmp := struct {
@@ -167,7 +165,7 @@ func StartGameHandler(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 	// 验证token是否正确，是否过期
-	if t := common.RedisMgr.Get(username + "_logintoken"); t != req.Token {
+	if t := RedisManager_GetMe().Get(username + "_logintoken"); t != req.Token {
 		glog.Errorln("[Start Game] token error or expired")
 		glog.Errorln("[Start Game] redis token: ", t)
 		glog.Errorln("[Start Game] request token: ", req.Token)
@@ -176,7 +174,7 @@ func StartGameHandler(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	id, err := strconv.ParseUint(common.RedisMgr.HGet(username, "Id"), 10, 64)
+	id, err := strconv.ParseUint(RedisManager_GetMe().HGet(username, "Id"), 10, 64)
 	if err != nil {
 		glog.Errorln("[Start Game] uid empty, username:", username)
 		writer.Write(JustRetCodeJson(common.ErrorUnknow))
@@ -200,10 +198,8 @@ func StartGameHandler(writer http.ResponseWriter, request *http.Request) {
 	})
 	// roomtoken存入redis，key:username_roomtoken
 	tokenKey := fmt.Sprintf("%v_roomtoken", username)
-	common.RedisMgr.Set(tokenKey, token)
-	conn := common.RedisMgr.RedisPool.Get()
-	defer conn.Close()
-	conn.Do("EXPIRE", tokenKey, TokenExpireTime)
+	RedisManager_GetMe().Set(tokenKey, token)
+	RedisManager_GetMe().conn.Do("EXPIRE", tokenKey, TokenExpireTime)
 
 	if err != nil {
 		glog.Errorln("[HttpServer] 生成roomtoken失败, ", err)
@@ -243,7 +239,7 @@ func StartGameHandler_bak(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 	// 验证token是否正确，是否过期
-	if t := common.RedisMgr.Get(username + "_token"); t != req.Token {
+	if t := RedisManager_GetMe().Get(username + "_token"); t != req.Token {
 		glog.Errorln("[Start Game] token error or expired")
 		glog.Errorln("[Start Game] redis token: ", t)
 		glog.Errorln("[Start Game] request token: ", req.Token)
@@ -252,7 +248,7 @@ func StartGameHandler_bak(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	id, err := strconv.ParseUint(common.RedisMgr.HGet(username, "Id"), 10, 64)
+	id, err := strconv.ParseUint(RedisManager_GetMe().HGet(username, "Id"), 10, 64)
 	if err != nil {
 		glog.Errorln("[Start Game] uid empty, username:", username)
 		return
