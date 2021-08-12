@@ -38,11 +38,13 @@ func (this *RoomServer) Init() bool {
 			return
 		}
 	}()
+	glog.Infof("[RoomServer] roomserver init success")
 	return true
 }
 
 func (this *RoomServer) Final() bool {
 	this.tcpser.Close()
+	RoomGrpcClient_GetMe().RemoveRoomServer()
 	return true
 }
 
@@ -56,7 +58,8 @@ func (this *RoomServer) MainLoop() {
 	}
 	playerTask := NewPlayerTask(conn)
 	PlayerTaskManager_GetMe().Add(playerTask)
-	playerTask.tcptask.Start()
+	glog.Infof("[RoomServer] NewPlayerTask %v success", conn.RemoteAddr().String())
+	playerTask.Start()
 }
 
 var (
@@ -67,7 +70,7 @@ var (
 func main() {
 	flag.Parse()
 	env.Load(*config)
-	// glog.Infoln("[debug] port:", *port)
+	glog.Infoln("[debug] port:", *port)
 	defer glog.Flush()
 	RoomServer_GetMe().Main()
 }

@@ -1,5 +1,0 @@
-Log file created at: 2021/08/11 17:25:41
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I0811 17:25:41.773658  110914 service.go:53] [Service] Got Signal  interrupt

@@ -1,7 +1,0 @@
-Log file created at: 2021/08/12 11:43:56
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I0812 11:43:56.845367   11720 grpcclient.go:94] [房间服务器端口string] port =  13000
-I0812 11:43:56.845863   11720 grpcclient.go:98] [房间服务器端口int] port =  13000
-I0812 11:46:42.575105   11720 service.go:53] [Service] Got Signal  interrupt

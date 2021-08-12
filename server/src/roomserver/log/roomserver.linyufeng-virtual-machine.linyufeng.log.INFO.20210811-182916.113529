@@ -1,9 +1,0 @@
-Log file created at: 2021/08/11 18:29:16
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I0811 18:29:16.606099  113529 playertask.go:129] [收到请求移动的指令] revCmd.Way =  3
-I0811 18:29:16.606639  113529 playertask.go:131] [收到请求移动的指令] 房间不存在
-I0811 18:29:18.606662  113529 playertask.go:129] [收到请求移动的指令] revCmd.Way =  0
-I0811 18:29:18.606743  113529 playertask.go:131] [收到请求移动的指令] 房间不存在
-I0811 18:29:34.009369  113529 service.go:53] [Service] Got Signal  interrupt

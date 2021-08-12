@@ -28,11 +28,11 @@ func (r *RpcRoomService) RetRoom(request *usercmd.ReqIntoRoom, reply *usercmd.Re
 	rpError = 0 // 错误码
 
 	// TODO根据负载选择roomserver
-	for k, v := range server.roomMap {
+	for k, v := range RoomServerManager_GetMe().roomMap {
 		_ = v
 		// glog.Infoln("[debug] roomMap key:", k)
 		rpAddr = k
-		// break
+		break
 	}
 
 	// 匹配成功后，rcenterserver会选择（如何选择？）一个roomserver并生成一个room id和一个token，
@@ -40,7 +40,7 @@ func (r *RpcRoomService) RetRoom(request *usercmd.ReqIntoRoom, reply *usercmd.Re
 	var info common.RoomTokenInfo
 	info.UserId = uid
 	info.UserName = username
-	info.RoomId = server.roomMap[rpAddr].CurRoomId ////////////////////////////
+	info.RoomId = RoomServerManager_GetMe().roomMap[rpAddr].CurRoomId ////////////////////////////
 
 	token, err := common.CreateRoomToken(info)
 	// username_roomtoken

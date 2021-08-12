@@ -89,6 +89,7 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 		token := common.RedisMgr.Get(key)
 		if len(token) == 0 { // token不存在或者token过期
 			glog.Errorln("[MsgTypeCmd_Login] token expired")
+			PlayerTaskManager_GetMe().Remove(this) // 将playertask从manager中移除
 			this.retErrorMsg(common.ErrorCodeInvalidToken)
 			return false
 		}
@@ -109,6 +110,7 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 	if cmd == usercmd.MsgTypeCmd_NewScene {
 		this.room.scene.gameMap = &usercmd.MapVector{}
 		if common.DecodeGoCmd(data, flag, this.room.scene.gameMap) != nil {
+			glog.Infof("[解析游戏地图失败] %v load game map failed", this.id)
 			return false
 		}
 		glog.Infof("[MsgTypeCmd_NewScene] %v load game map success", this.id)

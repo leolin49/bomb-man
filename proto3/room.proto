@@ -12,14 +12,15 @@ message RoomServerInfo {
 	uint32 CurRoomId  = 5;  // 当前的房间id
 }
 
-enum RoomMsgType {
-    RegisterRoom    = 0;    // 注册房间信息
-    UpdateRoom      = 1;    // 更新房间信息
+enum RoomServerMsgType {
+    Register    = 0;    // 房间服务器注册房间信息
+    Update      = 1;    // 房间服务器更新房间信息
+    Remove      = 2;    // 房间服务器结束信息
 }
 
 message RoomRequest {
-    RoomMsgType type = 1;
-    bytes       data = 2;
+    RoomServerMsgType type = 1;
+    bytes             data = 2;
 }
 
 message RoomResponse {

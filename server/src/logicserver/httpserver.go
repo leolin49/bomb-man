@@ -221,7 +221,7 @@ func StartGameHandler(writer http.ResponseWriter, request *http.Request) {
 		token,
 		*rspData.Addr,
 	})
-
+	glog.Infoln("[用户请求开始游戏] username:", username)
 	// 将房间信息返回给用户
 	writer.Write(res)
 }

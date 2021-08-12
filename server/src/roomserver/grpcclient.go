@@ -26,6 +26,31 @@ func RoomGrpcClient_GetMe() *RoomGrpcClient {
 	return mRoomGrpcClient
 }
 
+func (this *RoomGrpcClient) InitRetry() bool {
+	var err error
+	for i := 0; i < 10; i++ {
+		this.conn, err = grpc.Dial(env.Get("room", "grpc_server"), grpc.WithInsecure())
+		if err != nil {
+			glog.Errorln("[RoomGrpcClient] connect failed:", err)
+			time.Sleep(2 * time.Second)
+			continue
+		} else {
+			break
+		}
+	}
+	if this.conn == nil {
+		return false
+	}
+	if !this.InitGrpcClient() {
+		glog.Errorln("[RoomGrpcClient] init grpc client error:", err)
+		return false
+	}
+	this.SendRegist()
+	// 定时发送服务器信息给rcenterserver
+	go this.TickerSendLoadInfo()
+	return true
+}
+
 func (this *RoomGrpcClient) Init() bool {
 	var err error
 	this.conn, err = grpc.Dial(env.Get("room", "grpc_server"), grpc.WithInsecure())
@@ -77,7 +102,7 @@ func (this *RoomGrpcClient) SendRegist() bool {
 		return false
 	}
 	this.mRouteClient.Send(&usercmd.RoomRequest{
-		Type: usercmd.RoomMsgType_RegisterRoom,
+		Type: usercmd.RoomServerMsgType_Register,
 		Data: bytes,
 	})
 	return true
@@ -111,8 +136,33 @@ func (this *RoomGrpcClient) TickerSendLoadInfo() {
 			continue
 		}
 		this.mRouteClient.Send(&usercmd.RoomRequest{
-			Type: usercmd.RoomMsgType_UpdateRoom,
+			Type: usercmd.RoomServerMsgType_Update,
 			Data: bytes,
 		})
 	}
+}
+
+// 房间服务器结束后，向rcenterserver发送信息
+func (this *RoomGrpcClient) RemoveRoomServer() bool {
+	if this.mRouteClient == nil {
+		glog.Errorln("[RoomGrpcClient] route client is nil")
+		return false
+	}
+	p, _ := strconv.Atoi(*port)
+	bytes, err := json.Marshal(struct {
+		Ip   string `json:"ip"`
+		Port int    `json:"port"`
+	}{
+		"localhost",
+		p,
+	})
+	if err != nil {
+		glog.Errorln("[RoomGrpcClient] struct to json error: ", err)
+		return false
+	}
+	this.mRouteClient.Send(&usercmd.RoomRequest{
+		Type: usercmd.RoomServerMsgType_Remove,
+		Data: bytes,
+	})
+	return true
 }

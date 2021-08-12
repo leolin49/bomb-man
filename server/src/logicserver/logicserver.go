@@ -54,6 +54,7 @@ var (
 func main() {
 	flag.Parse()
 	env.Load(*config)
+	glog.Infoln("[debug] port", *port)
 	defer glog.Flush()
 	// 从命令行参数获取指定端口号
 

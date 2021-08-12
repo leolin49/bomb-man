@@ -28,8 +28,8 @@ func (this *RoomGrpcService) Route(conn usercmd.StreamRoomService_RouteServer) e
 		}
 
 		switch stream.Type {
-		case usercmd.RoomMsgType_RegisterRoom:
-			glog.Infoln("[RoomGrpcServer] get one <RoomMsgType_RegisterRoom> message")
+		case usercmd.RoomServerMsgType_Register:
+			glog.Infoln("[RoomGrpcServer] get one <RoomServerMsgType_Register> message")
 			var info struct {
 				Ip   string `json:"ip"`
 				Port uint32 `json:"port"`
@@ -40,19 +40,34 @@ func (this *RoomGrpcService) Route(conn usercmd.StreamRoomService_RouteServer) e
 				return err
 			}
 			glog.Infof("[注册房间服务器] ip: %v, port: %v", info.Ip, info.Port)
-			RCenterServer_GetMe().AddRoomServer(info.Ip, info.Port)
+			RoomServerManager_GetMe().AddRoomServer(info.Ip, info.Port)
 			break
-		case usercmd.RoomMsgType_UpdateRoom:
-			glog.Infoln("[RoomGrpcServer] get one <RoomMsgType_UpdateRoom> message")
+		case usercmd.RoomServerMsgType_Update:
+			glog.Infoln("[RoomGrpcServer] get one <RoomServerMsgType_Update> message")
 			info := &usercmd.RoomServerInfo{}
 			err := json.Unmarshal(stream.Data, info)
 			if err != nil {
 				glog.Errorln("[RoomGrpcServer] json to struct error: ", err)
 				return err
 			}
-			RCenterServer_GetMe().UpdateRoomServer(info)
+			RoomServerManager_GetMe().UpdateRoomServer(info)
+			break
+		case usercmd.RoomServerMsgType_Remove:
+			glog.Infoln("[RoomGrpcServer] get one <RoomServerMsgType_Remove> message")
+			var info struct {
+				Ip   string `json:"ip"`
+				Port uint32 `json:"port"`
+			}
+			err := json.Unmarshal(stream.Data, &info)
+			if err != nil {
+				glog.Errorln("[RoomGrpcServer] json to struct error: ", err)
+				return err
+			}
+			glog.Infof("[删除房间服务器] ip: %v, port: %v", info.Ip, info.Port)
+			RoomServerManager_GetMe().DeleteRoomServer(info.Ip, info.Port)
 			break
 		}
+
 	}
 }
 
