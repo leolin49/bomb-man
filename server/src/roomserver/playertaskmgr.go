@@ -21,7 +21,7 @@ func PlayerTaskManager_GetMe() *PlayerTaskManager {
 		mPlayerTaskMgr = &PlayerTaskManager{
 			tasks: make(map[uint64]*PlayerTask),
 		}
-		go mPlayerTaskMgr.iTimeAction()
+		// go mPlayerTaskMgr.iTimeAction()
 	}
 	return mPlayerTaskMgr
 }

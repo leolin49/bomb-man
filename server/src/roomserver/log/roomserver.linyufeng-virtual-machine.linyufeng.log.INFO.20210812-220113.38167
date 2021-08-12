@@ -1,0 +1,11 @@
+Log file created at: 2021/08/12 22:01:13
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0812 22:01:13.539473   38167 roomserver.go:74] [debug] port: 13000
+I0812 22:01:13.548169   38167 roomserver.go:41] [RoomServer] roomserver init success
+I0812 22:01:21.810276   38167 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:40168 success
+I0812 22:01:21.812135   38167 playertask.go:88] [RoomServer Login] recv a login request  127.0.0.1:40168
+I0812 22:01:21.815048   38167 room.go:54] [NewRoom] roomtype:1, roomid:1
+I0812 22:01:21.815121   38167 room.go:68] [房间] 玩家进入房间  username:leo, uid:100006
+I0812 22:01:23.813893   38167 playertask.go:140] [收到请求移动的指令] revCmd.Way =  3

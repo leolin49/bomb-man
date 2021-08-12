@@ -1,7 +1,13 @@
 package main
 
 import (
+	"encoding/json"
+	"flag"
+	"fmt"
+	"io/ioutil"
 	"math/rand"
+	"net/http"
+	"net/url"
 	"paopao/server/src/common"
 	"paopao/server/usercmd"
 	"time"
@@ -10,7 +16,7 @@ import (
 )
 
 const (
-	RoomLoginToken = "FegiEcsOLtnSCSNp/lzofyl3tRGyl6asHEvYBAlMnv1MKgyE/r53/nInU0ae0yu8ay2T+6o5xztgtGIW38Q07Cs2/uNi79GIb0Po+/yz8NDInV9EvJm6PGqQlT4+TojxYGrsp+DTuYbeqf6txwRUmQWHhN8Eg0x6aAT4rmW53Mk="
+	LogicServerUrl = "http://localhost:9000/"
 )
 
 type Robot struct {
@@ -45,6 +51,72 @@ func Robot_GetMe() *Robot {
 		}
 	}
 	return robot
+}
+
+func (this *Robot) RegisterAccount(username, password string) {
+	rsp, err := http.PostForm(LogicServerUrl+"register", url.Values{
+		"username": {username},
+		"password": {password},
+	})
+	if err != nil {
+		glog.Errorln("[http请求失败] ", err)
+		return
+	}
+	body, err := ioutil.ReadAll(rsp.Body)
+	if err != nil {
+		glog.Errorln("[http body 读取失败] ", err)
+		return
+	}
+	glog.Infoln("[http respon body] ", string(body))
+}
+
+func (this *Robot) UserLogin(username, password string) string {
+	rsp, err := http.PostForm(LogicServerUrl+"login", url.Values{
+		"username": {username},
+		"password": {password},
+	})
+	body, err := ioutil.ReadAll(rsp.Body)
+	if err != nil {
+		glog.Errorln("[http body 读取失败] ", err)
+		return ""
+	}
+	glog.Infoln("[http respon body] ", string(body))
+	info := struct {
+		Code  int    `json:"result_code"`
+		Token string `json:"login_token"`
+	}{}
+	if err := json.Unmarshal(body, &info); err != nil {
+		glog.Errorln("[http json 解析失败] ", err)
+	}
+	// if err := json.NewDecoder(rsp.Body).Decode(&info); err != nil {
+	// 	glog.Errorln("[http json 解析失败] ", err)
+	// }
+	glog.Errorln(info)
+	return info.Token
+}
+
+func (this *Robot) RequestStartGame(token string) (string, string) {
+	rsp, err := http.PostForm(LogicServerUrl+"start", url.Values{
+		"logintoken": {token},
+	})
+	body, err := ioutil.ReadAll(rsp.Body)
+	if err != nil {
+		glog.Errorln("[http body 读取失败] ", err)
+		return "", ""
+	}
+	glog.Infoln("[http respon body] ", string(body))
+	info := struct {
+		Code    int    `json:"result_code"`
+		Token   string `json:"room_token"`
+		Address string `json:"room_address"`
+	}{}
+	if err := json.Unmarshal(body, &info); err != nil {
+		glog.Errorln("[http json 解析失败] ", err)
+	}
+	// if err := json.NewDecoder(rsp.Body).Decode(&info); err != nil {
+	// 	glog.Errorln("[http json 解析失败] ", err)
+	// }
+	return info.Token, info.Address
 }
 
 func (this *Robot) Connect(addr string) bool {
@@ -94,16 +166,48 @@ func main() {
 
 	rand.Seed(time.Now().Unix())
 
+	flag.Parse()
+	defer glog.Flush()
+
 	robot := Robot_GetMe()
-	if !robot.Connect("127.0.0.1:13000") {
-		glog.Errorln("[无法连接房间服务器]")
-		return
-	}
-	robot.SendRoomToken(RoomLoginToken)
 
-	go robot.StartRandOperate()
+	var (
+		username   string
+		password   string
+		logintoken string
+		roomtoken  string
+		address    string
+	)
 
+	var cmd int
 	for {
-
+		fmt.Print("--rigister 1\n--login 2\n--start game 3\n")
+		fmt.Println("cmd:")
+		fmt.Scanln(&cmd)
+		switch cmd {
+		case 1:
+			fmt.Println("用户名：")
+			fmt.Scanln(&username)
+			fmt.Println("密码：")
+			fmt.Scanln(&password)
+			robot.RegisterAccount(username, password)
+		case 2:
+			fmt.Println("用户名：")
+			fmt.Scanln(&username)
+			fmt.Println("密码：")
+			fmt.Scanln(&password)
+			logintoken = robot.UserLogin(username, password)
+		case 3:
+			roomtoken, address = robot.RequestStartGame(logintoken)
+			if !robot.Connect(address) {
+				glog.Errorln("[无法连接房间服务器]")
+				return
+			}
+			robot.SendRoomToken(roomtoken)
+			time.Sleep(2 * time.Second)
+			go robot.StartRandOperate()
+			for {
+			}
+		}
 	}
 }

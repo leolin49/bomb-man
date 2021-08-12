@@ -1,0 +1,10 @@
+Log file created at: 2021/08/12 18:38:02
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0812 18:38:02.224615   32028 roomserver.go:74] [debug] port: 13000
+I0812 18:38:02.234814   32028 roomserver.go:41] [RoomServer] roomserver init success
+I0812 21:20:40.297665   32028 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:39992 success
+I0812 21:20:40.298140   32028 playertask.go:81] [RoomServer Login] recv a login request  127.0.0.1:39992
+I0812 21:20:40.300847   32028 room.go:54] [NewRoom] roomtype:1, roomid:1
+I0812 21:20:42.301242   32028 playertask.go:143] [收到请求放炸弹的指令]

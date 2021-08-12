@@ -42,6 +42,7 @@ func NewRoom(roomtype, roomid uint32) *Room {
 	room := &Room{
 		id:           roomid,
 		roomType:     roomtype,
+		players:      make(map[uint64]*PlayerTask),
 		curPlayerNum: 0,
 		maxPlayerNum: 2,
 		isStart:      false,
@@ -62,25 +63,31 @@ func (this *Room) AddPlayer(player *PlayerTask) error {
 	}
 	// 更新房间信息
 	this.curPlayerNum++
-	glog.Errorln("111111111111111111111111111111111")
 	player.room = this
-	glog.Errorln("111111111111111111111111111111111")
 	this.players[player.id] = player
-	glog.Errorln("111111111111111111111111111111111")
+	glog.Infof("[房间] 玩家进入房间  username:%v, uid:%v", player.name, player.id)
 	this.scene.AddPlayer(player) // 将玩家添加到场景
-	glog.Errorln("111111111111111111111111111111111")
 	// 房间内玩家数量达到最大，自动开始游戏
 	if this.curPlayerNum == this.maxPlayerNum {
+		glog.Infoln("[房间] 玩家数量：", len(this.players))
 		glog.Infoln("[游戏开始] 玩家列表：")
 		for _, v := range this.players {
-			glog.Infoln("username:%v, uid:%v", v.scenePlayer.name, v.scenePlayer.id)
+			glog.Infof("username:%v, uid:%v", v.scenePlayer.name, v.scenePlayer.id)
 		}
 		RoomManager_GetMe().UpdateNextRoomId() // 房间id++
 		go this.StartGame()
 	}
-	glog.Errorln("111111111111111111111111111111111")
 	this.mutex.Unlock()
 
+	return nil
+}
+
+// 将玩家移除出房间
+func (this *Room) RemovePlayer(player *PlayerTask) error {
+	this.mutex.Lock()
+	defer this.mutex.Unlock()
+	delete(this.players, player.id)
+	this.curPlayerNum--
 	return nil
 }
 

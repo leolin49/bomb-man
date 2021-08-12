@@ -1,0 +1,36 @@
+Log file created at: 2021/08/12 21:17:14
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0812 21:17:14.422770   36347 logicserver.go:56] [debug] port 8001
+I0812 21:17:14.429031   36347 httpserver.go:55] [InitHttpServer] Listen port  8001
+I0812 21:17:14.429128   36347 httpserver.go:67] [InitHttpServer] Service start success
+E0812 21:17:14.429157   36347 logicserver.go:31] [LogicServer Init] Init success
+I0812 21:17:59.784213   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 21:18:02.383803   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+E0812 21:19:58.349545   36347 httpserver.go:166] [Start Game]  crypto/rsa: decryption error
+I0812 21:20:27.621980   36347 httpserver.go:124] [User Login] password error  lin
+I0812 21:20:37.383615   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 21:20:40.294790   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 21:21:06.808986   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 21:21:07.438744   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 21:27:28.867476   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 21:27:30.164275   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 21:28:08.942746   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 21:28:10.448918   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 21:42:53.131467   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 21:42:56.266085   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 21:43:08.009654   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 21:43:09.082849   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 21:43:58.526577   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 21:43:59.870927   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 21:44:13.222115   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 21:44:14.174918   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0812 21:53:11.018181   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 21:53:11.953275   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 22:01:20.558775   36347 httpserver.go:138] [User Login] login success, username: leo
+I0812 22:01:21.808070   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0812 22:01:38.372424   36347 httpserver.go:92] [User Register] username [lin] existed
+E0812 22:01:39.672847   36347 httpserver.go:166] [Start Game]  crypto/rsa: decryption error
+I0812 22:03:13.511587   36347 httpserver.go:138] [User Login] login success, username: abc
+I0812 22:03:14.664936   36347 httpserver.go:223] [用户请求开始游戏] username: abc

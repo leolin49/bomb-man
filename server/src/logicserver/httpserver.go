@@ -149,26 +149,29 @@ func LoginHandler(writer http.ResponseWriter, request *http.Request) {
 }
 
 func StartGameHandler(writer http.ResponseWriter, request *http.Request) {
-	req := struct {
-		Token string `json:"login_token"`
-	}{}
-	if err := json.NewDecoder(request.Body).Decode(&req); err != nil {
-		body, _ := ioutil.ReadAll(request.Body)
-		glog.Errorln("[Start Game] json parse error: ", string(body))
-		return
-	}
+	writer.Header().Set("content-type", "text/json")
+	request.ParseForm()
+	logintoken := request.Form.Get("logintoken")
+	// req := struct {
+	// 	Token string `json:"login_token"`
+	// }{}
+	// if err := json.NewDecoder(request.Body).Decode(&req); err != nil {
+	// 	body, _ := ioutil.ReadAll(request.Body)
+	// 	glog.Errorln("[Start Game] json parse error: ", string(body))
+	// 	return
+	// }
 	// 解析token
-	username, err := common.ParseLoginToken(req.Token)
+	username, err := common.ParseLoginToken(logintoken)
 	if err != nil {
 		glog.Errorln("[Start Game] ", err)
 		writer.Write(JustRetCodeJson(common.ErrorUnknow))
 		return
 	}
 	// 验证token是否正确，是否过期
-	if t := RedisManager_GetMe().Get(username + "_logintoken"); t != req.Token {
+	if t := RedisManager_GetMe().Get(username + "_logintoken"); t != logintoken {
 		glog.Errorln("[Start Game] token error or expired")
 		glog.Errorln("[Start Game] redis token: ", t)
-		glog.Errorln("[Start Game] request token: ", req.Token)
+		glog.Errorln("[Start Game] request token: ", logintoken)
 		writer.Write(JustRetCodeJson(common.ErrorCodeInvalidToken))
 		writer.WriteHeader(Unauthorized)
 		return

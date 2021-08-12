@@ -49,7 +49,7 @@ func NewScenePlayer(player *PlayerTask, scene *Scene) *ScenePlayer {
 		curPos:  &common.Position{X: 0, Y: 0},
 		hp:      3,
 		curbomb: 0,
-		maxbomb: 1,
+		maxbomb: 5,
 		power:   INIT_POWER,
 		speed:   INIT_SPEED,
 

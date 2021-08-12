@@ -51,13 +51,20 @@ func NewPlayerTask(conn net.Conn) *PlayerTask {
 	return m
 }
 
+func (this *PlayerTask) SetUserInfo(info common.RoomTokenInfo) {
+	this.id = info.UserId
+	this.name = info.UserName
+}
+
 func (this *PlayerTask) Start() {
 	this.tcptask.Start()
 }
 
 func (this *PlayerTask) OnClose() {
 	this.tcptask.Close()
+	this.room.RemovePlayer(this)
 	PlayerTaskManager_GetMe().Remove(this)
+
 	this.room = nil
 }
 
@@ -93,13 +100,13 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 			this.retErrorMsg(common.ErrorCodeInvalidToken)
 			return false
 		}
-		this.tcptask.Verify() // 验证通过
+		this.tcptask.Verify()   // 验证通过
+		this.SetUserInfo(*info) // 初始化playertask中的玩家信息
 		room := RoomManager_GetMe().GetRoomById(info.RoomId)
 		if room == nil { // 当前玩家为房间的第一位玩家，创建房间
 			room = RoomManager_GetMe().NewRoom(ROOMTYPE_1V1, info.RoomId)
 		}
 		err = room.AddPlayer(this)
-		glog.Errorln("111111111111111111111111111111111")
 		if err != nil {
 			glog.Errorln("[Enter Room] need retry")
 		}
