@@ -1,0 +1,61 @@
+Log file created at: 2021/08/13 03:56:18
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0813 03:56:18.188004   50490 roomserver.go:74] [debug] port: 13000
+I0813 03:56:18.199367   50490 roomserver.go:41] [RoomServer] roomserver init success
+I0813 03:56:32.846683   50490 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:41504 success
+I0813 03:56:32.847562   50490 playertask.go:97] [RoomServer Login] recv a login request  127.0.0.1:41504
+I0813 03:56:32.849924   50490 room.go:55] [NewRoom] roomtype:1, roomid:1
+I0813 03:56:32.850196   50490 room.go:69] [房间] 玩家进入房间  username:leo, uid:100006
+I0813 03:56:35.852049   50490 playertask.go:163] [收到请求放炸弹的指令]
+I0813 03:56:39.852517   50490 playertask.go:163] [收到请求放炸弹的指令]
+I0813 03:56:41.855949   50490 playertask.go:163] [收到请求放炸弹的指令]
+I0813 03:56:44.795979   50490 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:41524 success
+I0813 03:56:44.796959   50490 playertask.go:97] [RoomServer Login] recv a login request  127.0.0.1:41524
+I0813 03:56:44.798989   50490 room.go:69] [房间] 玩家进入房间  username:abc, uid:100005
+I0813 03:56:44.799234   50490 room.go:73] [房间] 玩家数量： 2
+I0813 03:56:44.799262   50490 room.go:74] [游戏开始] 玩家列表：
+I0813 03:56:44.799290   50490 room.go:76] username:leo, uid:100006
+I0813 03:56:44.799317   50490 room.go:76] username:abc, uid:100005
+E0813 03:56:44.799597   50490 scene.go:95] RandGameMapData_AllSpace begin
+E0813 03:56:44.800167   50490 scene.go:101] RandGameMapData_AllSpace end
+E0813 03:56:44.800780   50490 room.go:161] [100006] execute put bomb cmd
+E0813 03:56:44.800904   50490 room.go:161] [100006] execute put bomb cmd
+E0813 03:56:44.800934   50490 room.go:161] [100006] execute put bomb cmd
+I0813 03:56:48.801889   50490 bomb.go:45] [炸弹爆炸] x:4, y:4
+I0813 03:56:48.801960   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt leo
+I0813 03:56:48.801988   50490 scenePlayer.go:175] [玩家当前剩余血量] leo hp: 2
+I0813 03:56:48.802015   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt leo
+I0813 03:56:48.802041   50490 scenePlayer.go:175] [玩家当前剩余血量] leo hp: 1
+I0813 03:56:48.802068   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt abc
+I0813 03:56:48.802094   50490 scenePlayer.go:175] [玩家当前剩余血量] abc hp: 2
+I0813 03:56:48.802897   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt abc
+I0813 03:56:48.803636   50490 scenePlayer.go:175] [玩家当前剩余血量] abc hp: 1
+I0813 03:56:48.802804   50490 bomb.go:45] [炸弹爆炸] x:4, y:4
+I0813 03:56:48.803698   50490 scenePlayer.go:165] [玩家死亡] username: leo
+I0813 03:56:48.803789   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt leo
+I0813 03:56:48.803816   50490 scenePlayer.go:175] [玩家当前剩余血量] leo hp: 0
+I0813 03:56:48.803843   50490 scenePlayer.go:165] [玩家死亡] username: leo
+I0813 03:56:48.803853   50490 bomb.go:45] [炸弹爆炸] x:4, y:4
+I0813 03:56:48.803873   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt leo
+I0813 03:56:48.803888   50490 scenePlayer.go:165] [玩家死亡] username: leo
+I0813 03:56:48.803899   50490 scenePlayer.go:175] [玩家当前剩余血量] leo hp: -2
+I0813 03:56:48.803926   50490 scenePlayer.go:165] [玩家死亡] username: abc
+I0813 03:56:48.803932   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt leo
+I0813 03:56:48.803955   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt abc
+I0813 03:56:48.803959   50490 scenePlayer.go:175] [玩家当前剩余血量] leo hp: -2
+I0813 03:56:48.803981   50490 scenePlayer.go:175] [玩家当前剩余血量] abc hp: 0
+I0813 03:56:48.803987   50490 scenePlayer.go:165] [玩家死亡] username: leo
+I0813 03:56:48.804007   50490 scenePlayer.go:165] [玩家死亡] username: abc
+I0813 03:56:48.804016   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt leo
+I0813 03:56:48.804036   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt abc
+I0813 03:56:48.804043   50490 scenePlayer.go:175] [玩家当前剩余血量] leo hp: -3
+I0813 03:56:48.804063   50490 scenePlayer.go:175] [玩家当前剩余血量] abc hp: -1
+I0813 03:56:48.804070   50490 scenePlayer.go:165] [玩家死亡] username: abc
+I0813 03:56:48.804099   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt abc
+I0813 03:56:48.804126   50490 scenePlayer.go:175] [玩家当前剩余血量] abc hp: -2
+I0813 03:56:48.804153   50490 scenePlayer.go:165] [玩家死亡] username: abc
+I0813 03:56:48.804182   50490 scenePlayer.go:174] [玩家收到伤害] leo hurt abc
+I0813 03:56:48.804208   50490 scenePlayer.go:175] [玩家当前剩余血量] abc hp: -3
+I0813 03:58:21.548912   50490 service.go:53] [Service] Got Signal  interrupt

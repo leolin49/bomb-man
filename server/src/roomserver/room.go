@@ -88,7 +88,14 @@ func (this *Room) RemovePlayer(player *PlayerTask) error {
 	this.mutex.Lock()
 	defer this.mutex.Unlock()
 	delete(this.players, player.id)
-	this.curPlayerNum--
+	// 当前房间内只剩一个玩家，游戏胜利，房间计算
+	if this.curPlayerNum--; this.curPlayerNum == 1 {
+		for _, v := range this.players {
+			glog.Infof("[游戏结束] winner:%v, 得分:%v",
+				v.name, v.scenePlayer.score)
+			v.OnClose()
+		}
+	}
 	return nil
 }
 
@@ -135,7 +142,7 @@ func (this *Room) GameLoop() {
 				this.Update()
 			}
 			// 0.1s
-			if this.timeloop%20 == 0 {
+			if this.timeloop%5 == 0 {
 				this.scene.SendRoomMessage()
 			}
 			// TODO 游戏达到最长时间，自动结束
@@ -148,24 +155,22 @@ func (this *Room) GameLoop() {
 			switch playerop.op {
 			// 移动操作
 			case PlayerMoveOp:
-				glog.Errorf("[%v] execute move cmd", playerop.uid)
+				// glog.Errorf("[%v] execute move cmd", playerop.uid)
 				req, ok := playerop.msg.(*usercmd.MsgMove)
 				if !ok {
 					glog.Errorln("[Move] move arg error")
 					return
 				}
 				this.scene.players[playerop.uid].Move(req)
-				break
 			// 放置炸弹
 			case PlayerPutBombOp:
-				glog.Errorf("[%v] execute put bomb cmd", playerop.uid)
+				// glog.Errorf("[%v] execute put bomb cmd", playerop.uid)
 				req, ok := playerop.msg.(*usercmd.MsgPutBomb)
 				if !ok {
 					glog.Errorln("[PutBomb] put bomb arg error")
 					return
 				}
 				this.scene.players[playerop.uid].PutBomb(req)
-				break
 			}
 		}
 	}

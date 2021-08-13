@@ -3,7 +3,9 @@ package common
 import (
 	"bytes"
 	"compress/zlib"
+	"encoding/json"
 	"io"
+	"paopao/server/usercmd"
 
 	"github.com/golang/glog"
 )
@@ -74,6 +76,19 @@ func EncodeCmd(cmd uint16, msg Message) ([]byte, byte, error) {
 	return p, 0, nil
 }
 
+// 生成二进制数据,返回数据和是否压缩标识(json)
+func EncodeCmdByJson(cmd uint16, msg Message) ([]byte, byte, error) {
+
+	txt, _ := json.Marshal(msg)
+	info := usercmd.CmdHeader{
+		Cmd:  usercmd.MsgTypeCmd(cmd),
+		Data: string(txt),
+	}
+	res, _ := json.Marshal(&info)
+
+	return res, 0, nil
+}
+
 func EncodeToBytes(cmd uint16, msg Message) ([]byte, bool) {
 	data := make([]byte, CmdHeaderSize+msg.Size())
 	_, err := msg.MarshalTo(data[CmdHeaderSize:])
@@ -84,6 +99,18 @@ func EncodeToBytes(cmd uint16, msg Message) ([]byte, bool) {
 	data[0] = byte(cmd)
 	data[1] = byte(cmd >> 8)
 	return data, true
+}
+
+func EncodeToBytesJson(cmd uint16, msg Message) ([]byte, bool) {
+
+	txt, _ := json.Marshal(msg)
+	info := usercmd.CmdHeader{
+		Cmd:  usercmd.MsgTypeCmd(cmd),
+		Data: string(txt),
+	}
+	res, _ := json.Marshal(&info)
+
+	return res, true
 }
 
 // protobuf解码数据

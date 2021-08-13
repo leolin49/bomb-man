@@ -140,20 +140,20 @@ func (this *Robot) PutBomb() {
 
 func (this *Robot) StartRandOperate() {
 	for {
-		x := rand.Int31() % 3
+		x := rand.Int31() % 7
+		// fmt.Println("[随机数] x = ", x)
 		switch x {
-		case 0:
-		case 1:
+		case 0, 1, 2, 3, 4, 5:
 			w := rand.Int31() % 4
-			this.Move(w)
-			glog.Infoln("[move] way:", w)
+			this.Move(w + 1)
+			glog.Infoln("[move] way:", w+1)
 			break
-		case 2:
+		case 6:
 			this.PutBomb()
 			glog.Infoln("[put bomb]")
 			break
 		}
-		time.Sleep(time.Second * 2)
+		time.Sleep(time.Second * 1)
 	}
 }
 

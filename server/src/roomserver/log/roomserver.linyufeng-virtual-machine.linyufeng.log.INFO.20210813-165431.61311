@@ -1,0 +1,10 @@
+Log file created at: 2021/08/13 16:54:31
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0813 16:54:31.873480   61311 roomserver.go:74] [debug] port: 13000
+I0813 16:54:31.882377   61311 roomserver.go:41] [RoomServer] roomserver init success
+I0813 16:55:05.942280   61311 roomserver.go:62] [RoomServer] NewPlayerTask 192.168.96.248:64511 success
+I0813 16:55:06.335528   61311 playertask.go:97] [RoomServer Login] recv a login request  192.168.96.248:64511
+E0813 16:55:06.336019   61311 token.go:97] [RSADecrypt] crypto/rsa: decryption error
+E0813 16:55:06.336557   61311 playertask.go:101] [MsgTypeCmd_Login] parse room token error: crypto/rsa: decryption error

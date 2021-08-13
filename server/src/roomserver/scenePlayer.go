@@ -12,13 +12,16 @@ import (
 
 // 初始数值
 const (
-	INIT_POWER = 1 // 初始炸弹威力
-	INIT_SPEED = 1 // 初始移动速度
-
-	BOMB_MAXTIME = 4 // 炸弹的持续时间
+	BombMaxTime = 4 // 炸弹的持续时间
 
 	HurtScore = 1 // 造成伤害得分
 	KillScore = 3 // 击杀得分
+
+	RoleInitBombPower = 1 // 初始炸弹威力
+	RoleInitSpeed     = 1 // 初始移动速度
+	RoleInitHp        = 3 // 玩家初始血量
+	RoleInitPosX      = 7 // 玩家初始位置x
+	RoleInitPosY      = 7 // 玩家初始位置y
 )
 
 type ScenePlayer struct {
@@ -48,13 +51,13 @@ func NewScenePlayer(player *PlayerTask, scene *Scene) *ScenePlayer {
 		name:    player.name,
 		key:     player.key,
 		score:   0,
-		curPos:  &common.Position{X: 4, Y: 4},
-		nextPos: &common.Position{X: 4, Y: 4},
-		hp:      3,
+		curPos:  &common.Position{X: RoleInitPosX, Y: RoleInitPosY},
+		nextPos: &common.Position{X: RoleInitPosX, Y: RoleInitPosY},
+		hp:      RoleInitHp,
 		curbomb: 0,
 		maxbomb: 5,
-		power:   INIT_POWER,
-		speed:   INIT_SPEED,
+		power:   RoleInitBombPower,
+		speed:   RoleInitSpeed,
 
 		self:   player,
 		scene:  scene,
@@ -67,7 +70,6 @@ func NewScenePlayer(player *PlayerTask, scene *Scene) *ScenePlayer {
 
 // 放置炸弹
 func (this *ScenePlayer) PutBomb(msg *usercmd.MsgPutBomb) bool {
-	glog.Errorln("[PutBomb] begin")
 	// 达到最大炸弹数
 	if atomic.LoadUint32(&this.curbomb) == this.maxbomb {
 		return false
@@ -77,7 +79,8 @@ func (this *ScenePlayer) PutBomb(msg *usercmd.MsgPutBomb) bool {
 	go bomb.CountDown()
 
 	atomic.StoreUint32(&this.curbomb, this.curbomb+1)
-	glog.Errorln("[PutBomb] end")
+	glog.Infof("[%v 放置炸弹] 炸弹位置{%v, %v}, 已放炸弹:%v, 剩余炸弹:%v",
+		bomb.owner.name, bomb.pos.X, bomb.pos.Y, this.curbomb, this.maxbomb-this.curbomb)
 	return true
 }
 
@@ -89,6 +92,8 @@ func (this *ScenePlayer) Move(msg *usercmd.MsgMove) {
 	this.BorderCheck(this.nextPos) // 边界检查
 
 	this.curPos = this.nextPos
+	glog.Infof("[%v 移动]当前位置为 x:%v, y:%v",
+		this.name, this.nextPos.X, this.nextPos.Y)
 }
 
 // 根据角度移动
@@ -100,7 +105,7 @@ func (this *ScenePlayer) Move(msg *usercmd.MsgMove) {
 // TODO 上下左右移动
 func (this *ScenePlayer) CaculateNext(way int32) {
 	x, y := this.GetCurrentGrid()
-	glog.Errorf("[GetCurrentGrid] x:%v, y:%v", x, y)
+	// glog.Errorf("[GetCurrentGrid] x:%v, y:%v", x, y)
 	// 上1下2左3右4
 	switch common.MoveWay(way) {
 	case common.MoveWay_Up:
@@ -145,7 +150,7 @@ func (this *ScenePlayer) BorderCheck(pos *common.Position) {
 	}
 }
 
-// 改格子是否可以通过
+// 该格子是否可以通过
 func (this *ScenePlayer) CanPass(x, y uint32) bool {
 	if x >= this.scene.GetGameMapWidth() || y >= this.scene.sceneHeight {
 		return false
@@ -171,8 +176,12 @@ func (this *ScenePlayer) BeHurt(attacker *ScenePlayer) {
 			LiveTime: 0,
 			Score:    this.score,
 		}
+		// 向客户端发送玩家死亡信息
 		this.self.SendCmd(usercmd.MsgTypeCmd_Death, info)
+		// 玩家死亡房间/场景处理
+		this.Death()
 	}
+	glog.Infof("[%v收到伤害] 当前血量hp:%v", this.name, this.hp)
 }
 
 // 玩家造成伤害或击杀，增加得分
@@ -182,6 +191,7 @@ func (this *ScenePlayer) AddScore(x uint32) {
 
 // ---------------------------------------------------------- //
 
+// 发送场景同步信息
 func (this *ScenePlayer) SendSceneMessage() {
 	ret := &usercmd.RetUpdateSceneMsg{}
 	// 场景内所有的玩家信息
@@ -216,5 +226,12 @@ func (this *ScenePlayer) SendSceneMessage() {
 }
 
 func (this *ScenePlayer) Update() {
+
+}
+
+// 玩家死亡处理
+func (this *ScenePlayer) Death() {
+	this.scene.DelPlayer(this)             // 场景中删除
+	this.self.room.RemovePlayer(this.self) // 把玩家从房间中删除
 
 }

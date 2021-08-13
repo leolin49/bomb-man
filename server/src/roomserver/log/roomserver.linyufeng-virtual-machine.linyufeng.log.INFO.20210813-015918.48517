@@ -1,0 +1,17 @@
+Log file created at: 2021/08/13 01:59:18
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0813 01:59:18.415606   48517 roomserver.go:74] [debug] port: 13000
+I0813 01:59:18.429879   48517 roomserver.go:41] [RoomServer] roomserver init success
+I0813 01:59:28.716016   48517 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:41356 success
+I0813 01:59:28.718496   48517 playertask.go:88] [RoomServer Login] recv a login request  127.0.0.1:41356
+I0813 01:59:28.721547   48517 room.go:55] [NewRoom] roomtype:1, roomid:1
+I0813 01:59:28.721613   48517 room.go:69] [房间] 玩家进入房间  username:leo, uid:100006
+I0813 01:59:28.721698   48517 protocol.go:91] ---------------{"RetCode":1000}
+I0813 01:59:31.721678   48517 playertask.go:151] [收到请求放炸弹的指令]
+I0813 01:59:33.724649   48517 playertask.go:140] [收到请求移动的指令] revCmd.Way =  0
+I0813 01:59:35.726766   48517 playertask.go:140] [收到请求移动的指令] revCmd.Way =  1
+I0813 01:59:37.728116   48517 playertask.go:151] [收到请求放炸弹的指令]
+I0813 01:59:45.736248   48517 playertask.go:151] [收到请求放炸弹的指令]
+I0813 01:59:47.950670   48517 service.go:53] [Service] Got Signal  interrupt

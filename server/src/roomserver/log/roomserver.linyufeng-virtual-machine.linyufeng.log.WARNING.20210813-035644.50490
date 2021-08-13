@@ -1,0 +1,9 @@
+Log file created at: 2021/08/13 03:56:44
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0813 03:56:44.799597   50490 scene.go:95] RandGameMapData_AllSpace begin
+E0813 03:56:44.800167   50490 scene.go:101] RandGameMapData_AllSpace end
+E0813 03:56:44.800780   50490 room.go:161] [100006] execute put bomb cmd
+E0813 03:56:44.800904   50490 room.go:161] [100006] execute put bomb cmd
+E0813 03:56:44.800934   50490 room.go:161] [100006] execute put bomb cmd

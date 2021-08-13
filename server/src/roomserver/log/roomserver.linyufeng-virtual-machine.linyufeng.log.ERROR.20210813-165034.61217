@@ -1,0 +1,12 @@
+Log file created at: 2021/08/13 16:50:34
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0813 16:50:34.678111   61217 token.go:97] [RSADecrypt] crypto/rsa: decryption error
+E0813 16:50:34.678508   61217 playertask.go:101] [MsgTypeCmd_Login] parse room token error: crypto/rsa: decryption error
+E0813 16:51:05.475344   61217 playertask.go:86] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:64425)
+E0813 16:51:05.521412   61217 playertask.go:86] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:64425)
+E0813 16:51:05.568218   61217 playertask.go:86] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:64425)
+E0813 16:51:12.902640   61217 playertask.go:86] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:64425)
+E0813 16:51:12.949511   61217 playertask.go:86] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:64425)
+E0813 16:51:12.995991   61217 playertask.go:86] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:64425)

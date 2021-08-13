@@ -1,0 +1,57 @@
+Log file created at: 2021/08/13 01:07:18
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0813 01:07:18.133939   46511 roomserver.go:74] [debug] port: 13000
+I0813 01:07:18.144239   46511 roomserver.go:41] [RoomServer] roomserver init success
+I0813 01:07:25.292097   46511 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:41192 success
+I0813 01:07:25.292686   46511 playertask.go:88] [RoomServer Login] recv a login request  127.0.0.1:41192
+I0813 01:07:25.295075   46511 room.go:55] [NewRoom] roomtype:1, roomid:1
+I0813 01:07:25.295151   46511 room.go:69] [房间] 玩家进入房间  username:leo, uid:100006
+I0813 01:07:28.296303   46511 playertask.go:140] [收到请求移动的指令] revCmd.Way =  3
+I0813 01:07:38.303549   46511 playertask.go:140] [收到请求移动的指令] revCmd.Way =  2
+I0813 01:07:39.623302   46511 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:41212 success
+I0813 01:07:39.623653   46511 playertask.go:88] [RoomServer Login] recv a login request  127.0.0.1:41212
+I0813 01:07:39.625568   46511 room.go:69] [房间] 玩家进入房间  username:abc, uid:100005
+I0813 01:07:39.625669   46511 room.go:73] [房间] 玩家数量： 2
+I0813 01:07:39.625696   46511 room.go:74] [游戏开始] 玩家列表：
+I0813 01:07:39.625722   46511 room.go:76] username:leo, uid:100006
+I0813 01:07:39.625749   46511 room.go:76] username:abc, uid:100005
+E0813 01:07:39.626044   46511 scene.go:95] RandGameMapData_AllSpace begin
+E0813 01:07:39.626887   46511 scene.go:101] RandGameMapData_AllSpace end
+E0813 01:07:39.627209   46511 room.go:151] [100006] execute move cmd
+E0813 01:07:39.627323   46511 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0813 01:07:39.627352   46511 scene.go:140] [GetGameMapGridType] x:3, y:4
+E0813 01:07:39.627380   46511 room.go:151] [100006] execute move cmd
+E0813 01:07:39.627406   46511 scenePlayer.go:103] [GetCurrentGrid] x:3, y:4
+E0813 01:07:39.627446   46511 scene.go:140] [GetGameMapGridType] x:3, y:3
+I0813 01:07:40.305401   46511 playertask.go:151] [收到请求放炸弹的指令]
+E0813 01:07:40.305581   46511 room.go:161] [100006] execute put bomb cmd
+E0813 01:07:40.305836   46511 scenePlayer.go:70] [PutBomb] begin
+E0813 01:07:40.305877   46511 scenePlayer.go:80] [PutBomb] end
+I0813 01:07:42.306181   46511 playertask.go:140] [收到请求移动的指令] revCmd.Way =  1
+E0813 01:07:42.307517   46511 room.go:151] [100006] execute move cmd
+E0813 01:07:42.308216   46511 scenePlayer.go:103] [GetCurrentGrid] x:3, y:3
+E0813 01:07:42.309049   46511 scene.go:140] [GetGameMapGridType] x:3, y:4
+I0813 01:07:44.306375   46511 scenePlayer.go:165] [玩家收到伤害] %v hurt %v leo leo
+I0813 01:07:44.625456   46511 playertask.go:151] [收到请求放炸弹的指令]
+E0813 01:07:44.625796   46511 room.go:161] [100005] execute put bomb cmd
+E0813 01:07:44.625965   46511 scenePlayer.go:70] [PutBomb] begin
+E0813 01:07:44.626122   46511 scenePlayer.go:80] [PutBomb] end
+I0813 01:07:46.308497   46511 playertask.go:140] [收到请求移动的指令] revCmd.Way =  0
+E0813 01:07:46.308664   46511 room.go:151] [100006] execute move cmd
+E0813 01:07:46.308758   46511 scenePlayer.go:103] [GetCurrentGrid] x:3, y:4
+I0813 01:07:48.310306   46511 playertask.go:151] [收到请求放炸弹的指令]
+E0813 01:07:48.310551   46511 room.go:161] [100006] execute put bomb cmd
+E0813 01:07:48.310639   46511 scenePlayer.go:70] [PutBomb] begin
+E0813 01:07:48.310671   46511 scenePlayer.go:80] [PutBomb] end
+I0813 01:07:48.628349   46511 scenePlayer.go:165] [玩家收到伤害] %v hurt %v abc leo
+I0813 01:07:48.628432   46511 scenePlayer.go:165] [玩家收到伤害] %v hurt %v abc abc
+I0813 01:07:48.628473   46511 scenePlayer.go:165] [玩家收到伤害] %v hurt %v abc abc
+I0813 01:07:52.311542   46511 scenePlayer.go:165] [玩家收到伤害] %v hurt %v leo leo
+I0813 01:07:52.311626   46511 scenePlayer.go:168] [玩家死亡] username: leo
+I0813 01:07:52.311656   46511 scenePlayer.go:165] [玩家收到伤害] %v hurt %v leo leo
+I0813 01:07:52.311682   46511 scenePlayer.go:168] [玩家死亡] username: leo
+I0813 01:07:52.311710   46511 scenePlayer.go:165] [玩家收到伤害] %v hurt %v leo abc
+I0813 01:07:52.311735   46511 scenePlayer.go:168] [玩家死亡] username: abc
+I0813 01:08:04.457790   46511 service.go:53] [Service] Got Signal  interrupt

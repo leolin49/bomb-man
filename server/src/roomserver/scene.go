@@ -81,7 +81,7 @@ func (this *Scene) LoadGameMapData() bool {
 
 // 自定义地图信息
 func (this *Scene) RandGameMapData_AllSpace() {
-	this.sceneHeight, this.sceneWidth = 10, 10
+	this.sceneHeight, this.sceneWidth = 15, 15
 	var x, y, i uint32
 	// 初始化
 	this.gameMap = &usercmd.MapVector{}
@@ -92,13 +92,13 @@ func (this *Scene) RandGameMapData_AllSpace() {
 	}
 
 	// 赋值
-	glog.Errorln("RandGameMapData_AllSpace begin")
+	glog.Errorln("[游戏地图初始化] 初始化开始")
 	for y = 0; y < this.sceneWidth; y++ {
 		for x = 0; x < this.sceneHeight; x++ {
 			this.gameMap.GetCol()[y].GetX()[x] = usercmd.CellType_Space
 		}
 	}
-	glog.Errorln("RandGameMapData_AllSpace end")
+	glog.Errorln("[游戏地图初始化] 初始化完成")
 }
 
 func (this *Scene) Update() {
@@ -111,9 +111,19 @@ func (this *Scene) Update() {
 // 场景内添加一个玩家
 func (this *Scene) AddPlayer(player *PlayerTask) {
 	if player != nil {
+		glog.Infoln("[场景添加玩家] username: ", player.name)
 		sp := NewScenePlayer(player, this)
 		this.players[player.id] = sp
 		player.scenePlayer = sp
+	}
+}
+
+// 场景内删除一个玩家
+func (this *Scene) DelPlayer(player *ScenePlayer) {
+	if player != nil {
+		glog.Infoln("[场景删除玩家] username: ", player.name)
+		delete(this.players, player.id)
+		player = nil
 	}
 }
 
@@ -137,7 +147,7 @@ func (this *Scene) GetNextBombId() uint32 {
 
 // 根据坐标返回地图上对应格子的当前类型（空地，墙体）
 func (this *Scene) GetGameMapGridType(x, y uint32) usercmd.CellType {
-	glog.Errorf("[GetGameMapGridType] x:%v, y:%v", x, y)
+	// glog.Errorf("[GetGameMapGridType] x:%v, y:%v", x, y)
 	return this.gameMap.GetCol()[x].GetX()[y]
 }
 

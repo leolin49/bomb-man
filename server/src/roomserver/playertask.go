@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"net"
 	"paopao/server-base/src/base/gonet"
 	"paopao/server/src/common"
@@ -72,7 +73,12 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 
 	this.activeTime = time.Now()
 
-	cmd := usercmd.MsgTypeCmd(common.GetCmd(data))
+	info := usercmd.CmdHeader{}
+	err := json.Unmarshal(data, &info)
+	if err != nil {
+		glog.Errorln("[json解析失败] ", err)
+	}
+	cmd := info.Cmd
 
 	// 验证登录
 	if !this.tcptask.IsVerified() {
@@ -80,13 +86,18 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 			glog.Errorf("[RoomServer Login] not a login instruction ", this.RemoteAddr())
 			return false
 		}
-		revCmd, ok := common.DecodeCmd(data, flag, &usercmd.UserLoginInfo{}).(*usercmd.UserLoginInfo)
-		if !ok {
-			this.retErrorMsg(common.ErrorCodeRoom)
+		// revCmd, ok := common.DecodeCmd(data, flag, &usercmd.UserLoginInfo{}).(*usercmd.UserLoginInfo)
+		revCmd := &usercmd.UserLoginInfo{}
+		err := json.Unmarshal([]byte(info.Data), revCmd)
+		if err != nil {
+			glog.Errorln(err)
+			// this.retErrorMsg(common.ErrorCodeRoom)
 			return false
 		}
+
 		glog.Infoln("[RoomServer Login] recv a login request ", this.RemoteAddr())
 		// 解析token
+		glog.Infoln(revCmd.Token)
 		info, err := common.ParseRoomToken(revCmd.Token)
 		if err != nil {
 			glog.Errorln("[MsgTypeCmd_Login] parse room token error:", err)
@@ -117,6 +128,7 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 	// 加载地图信息
 	if cmd == usercmd.MsgTypeCmd_NewScene {
 		this.room.scene.gameMap = &usercmd.MapVector{}
+
 		if common.DecodeGoCmd(data, flag, this.room.scene.gameMap) != nil {
 			glog.Infof("[解析游戏地图失败] %v load game map failed", this.id)
 			return false
@@ -134,21 +146,24 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 	switch cmd {
 	case usercmd.MsgTypeCmd_Move: // 移动
 		revCmd := &usercmd.MsgMove{}
-		if common.DecodeGoCmd(data, flag, revCmd) != nil {
-			return false
-		}
-		glog.Infoln("[收到请求移动的指令] revCmd.Way = ", revCmd.Way)
+		json.Unmarshal([]byte(info.Data), revCmd)
+		// if common.DecodeGoCmd(data, flag, revCmd) != nil {
+		// 	return false
+		// }
+		glog.Infof("[%v收到请求移动的指令] revCmd.Way=%v", this.name, revCmd.Way)
 		if this.room == nil || this.room.IsClosed() {
 			glog.Infoln("[收到请求移动的指令] 房间不存在")
 			return false
 		}
 		this.room.chan_PlayerOp <- &PlayerOp{uid: this.id, op: PlayerMoveOp, msg: revCmd}
+
 	case usercmd.MsgTypeCmd_PutBomb: // 放炸弹
 		revCmd := &usercmd.MsgPutBomb{}
-		if common.DecodeGoCmd(data, flag, revCmd) != nil {
-			return false
-		}
-		glog.Infoln("[收到请求放炸弹的指令]")
+		json.Unmarshal([]byte(info.Data), revCmd)
+		// if common.DecodeGoCmd(data, flag, revCmd) != nil {
+		// 	return false
+		// }
+		glog.Infof("[%v收到请求放炸弹的指令]", this.name)
 		if this.room == nil || this.room.IsClosed() {
 			glog.Infoln("[收到请求放炸弹的指令] 房间不存在")
 			return false
@@ -163,7 +178,7 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 }
 
 func (this *PlayerTask) SendCmd(cmd usercmd.MsgTypeCmd, msg common.Message) {
-	data, ok := common.EncodeToBytes(uint16(cmd), msg)
+	data, ok := common.EncodeToBytesJson(uint16(cmd), msg)
 	if !ok {
 		glog.Errorf("[PlayerTask] send error cmd: %v, len: %v", cmd, len(data))
 		return

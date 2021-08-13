@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"paopao/server-base/src/base/gonet"
 	"paopao/server/src/common"
@@ -38,14 +39,21 @@ func (this *LogicClient) Connect(addr string) bool {
 
 func (this *LogicClient) ParseMsg(data []byte, flag byte) bool {
 
-	cmd := usercmd.MsgTypeCmd(common.GetCmd(data))
+	// cmd := usercmd.MsgTypeCmd(common.GetCmd(data))
+	info := usercmd.CmdHeader{}
+	err := json.Unmarshal(data, &info)
+	if err != nil {
+		glog.Errorln("[json解析失败] ", err)
+	}
+	cmd := info.Cmd
 
 	switch cmd {
 	case usercmd.MsgTypeCmd_SceneSync:
 		revCmd := &usercmd.RetUpdateSceneMsg{}
-		if common.DecodeGoCmd(data, flag, revCmd) != nil {
-			return false
-		}
+		json.Unmarshal([]byte(info.Data), revCmd)
+		// if common.DecodeGoCmd(data, flag, revCmd) != nil {
+		// 	return false
+		// }
 		glog.Infoln("===============[收到场景同步信息]===============")
 		// 玩家信息
 		fmt.Println("--------------[玩家信息]-------------")
@@ -63,9 +71,10 @@ func (this *LogicClient) ParseMsg(data []byte, flag byte) bool {
 		}
 	case usercmd.MsgTypeCmd_Death:
 		revCmd := &usercmd.RetRoleDeath{}
-		if common.DecodeGoCmd(data, flag, revCmd) != nil {
-			return false
-		}
+		json.Unmarshal([]byte(info.Data), revCmd)
+		// if common.DecodeGoCmd(data, flag, revCmd) != nil {
+		// 	return false
+		// }
 		glog.Infoln("===============[收到玩家死亡信息]===============")
 		fmt.Printf("killerid:%v\nkillername:%v\nsorce:%v\n",
 			revCmd.KillId, revCmd.KillName, revCmd.Score)
@@ -75,7 +84,7 @@ func (this *LogicClient) ParseMsg(data []byte, flag byte) bool {
 }
 
 func (this *LogicClient) SendCmd(cmd usercmd.MsgTypeCmd, msg common.Message) bool {
-	data, flag, err := common.EncodeCmd(uint16(cmd), msg)
+	data, flag, err := common.EncodeCmdByJson(uint16(cmd), msg)
 	if err != nil {
 		fmt.Println("[服务] 发送失败 cmd:", cmd, ",len:", len(data), ",err:", err)
 		return false

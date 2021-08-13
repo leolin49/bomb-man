@@ -139,3 +139,28 @@ I0813 00:23:28.083504   36347 httpserver.go:138] [User Login] login success, use
 I0813 00:23:29.180764   36347 httpserver.go:223] [用户请求开始游戏] username: leo
 I0813 00:23:37.898120   36347 httpserver.go:138] [User Login] login success, username: abc
 I0813 00:23:39.555660   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 01:03:59.225979   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 01:04:00.724178   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 01:04:12.668039   36347 httpserver.go:138] [User Login] login success, username: abc
+I0813 01:04:13.794822   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 01:05:54.959864   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 01:05:56.182263   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 01:06:17.708365   36347 httpserver.go:138] [User Login] login success, username: abc
+I0813 01:06:18.860992   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 01:07:24.072468   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 01:07:25.289749   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 01:07:38.503978   36347 httpserver.go:138] [User Login] login success, username: abc
+I0813 01:07:39.620373   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 01:42:29.866842   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 01:42:32.083326   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 01:42:43.969574   36347 httpserver.go:138] [User Login] login success, username: abc
+I0813 01:42:45.995144   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 01:46:55.060424   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 01:46:56.693618   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 01:47:04.127427   36347 httpserver.go:138] [User Login] login success, username: abc
+I0813 01:47:05.126271   36347 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 01:58:45.392673   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 01:58:46.592905   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 01:59:27.654233   36347 httpserver.go:138] [User Login] login success, username: leo
+I0813 01:59:28.713047   36347 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 03:03:36.578007   36347 service.go:53] [Service] Got Signal  interrupt

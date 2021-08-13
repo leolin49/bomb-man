@@ -32,7 +32,7 @@ func (this *RoomServer) Init() bool {
 		return false
 	}
 	go func() {
-		err := this.tcpser.Bind("localhost:" + *port)
+		err := this.tcpser.Bind(":" + *port)
 		if err != nil {
 			glog.Errorln("[RoomServer] Binding port failed")
 			return

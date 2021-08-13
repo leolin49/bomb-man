@@ -1,0 +1,73 @@
+Log file created at: 2021/08/13 04:29:41
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0813 04:29:41.343280   52265 roomserver.go:74] [debug] port: 13000
+I0813 04:29:41.352919   52265 roomserver.go:41] [RoomServer] roomserver init success
+I0813 04:29:48.073340   52265 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:41724 success
+I0813 04:29:48.074516   52265 playertask.go:97] [RoomServer Login] recv a login request  127.0.0.1:41724
+I0813 04:29:48.076703   52265 room.go:55] [NewRoom] roomtype:1, roomid:1
+I0813 04:29:48.076776   52265 room.go:69] [房间] 玩家进入房间  username:leo, uid:100006
+I0813 04:29:58.072595   52265 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:41744 success
+I0813 04:29:58.073532   52265 playertask.go:97] [RoomServer Login] recv a login request  127.0.0.1:41744
+I0813 04:29:58.075598   52265 room.go:69] [房间] 玩家进入房间  username:abc, uid:100005
+I0813 04:29:58.075719   52265 room.go:73] [房间] 玩家数量： 2
+I0813 04:29:58.075761   52265 room.go:74] [游戏开始] 玩家列表：
+I0813 04:29:58.075866   52265 room.go:76] username:leo, uid:100006
+I0813 04:29:58.075896   52265 room.go:76] username:abc, uid:100005
+E0813 04:29:58.076208   52265 scene.go:95] RandGameMapData_AllSpace begin
+E0813 04:29:58.076669   52265 scene.go:101] RandGameMapData_AllSpace end
+I0813 04:29:59.084329   52265 playertask.go:151] [leo收到请求移动的指令] revCmd.Way=0
+I0813 04:30:03.076449   52265 playertask.go:151] [abc收到请求移动的指令] revCmd.Way=3
+I0813 04:30:03.085613   52265 playertask.go:163] [leo收到请求放炸弹的指令]
+I0813 04:30:03.085814   52265 scenePlayer.go:76] [leo 放置炸弹] x:4 y:4
+I0813 04:30:05.077700   52265 playertask.go:151] [abc收到请求移动的指令] revCmd.Way=2
+I0813 04:30:05.087655   52265 playertask.go:151] [leo收到请求移动的指令] revCmd.Way=0
+I0813 04:30:07.077747   52265 playertask.go:151] [abc收到请求移动的指令] revCmd.Way=0
+I0813 04:30:07.088667   52265 playertask.go:163] [leo收到请求放炸弹的指令]
+I0813 04:30:07.088838   52265 scenePlayer.go:76] [leo 放置炸弹] x:4 y:4
+I0813 04:30:08.087058   52265 bomb.go:46] [炸弹爆炸] x:4, y:4
+I0813 04:30:08.087337   52265 bomb.go:66] [炸弹爆炸时leo位置] x:4, y:4
+I0813 04:30:08.088266   52265 scenePlayer.go:175] [玩家收到伤害] leo hurt leo
+I0813 04:30:08.088543   52265 scenePlayer.go:176] [玩家当前剩余血量] leo hp: 2
+I0813 04:30:08.088771   52265 bomb.go:66] [炸弹爆炸时abc位置] x:3, y:3
+I0813 04:30:09.088872   52265 playertask.go:151] [leo收到请求移动的指令] revCmd.Way=3
+I0813 04:30:11.088971   52265 playertask.go:163] [leo收到请求放炸弹的指令]
+I0813 04:30:11.089346   52265 scenePlayer.go:76] [leo 放置炸弹] x:3 y:4
+I0813 04:30:12.090168   52265 bomb.go:46] [炸弹爆炸] x:4, y:4
+I0813 04:30:12.090246   52265 bomb.go:66] [炸弹爆炸时abc位置] x:3, y:3
+I0813 04:30:12.090274   52265 bomb.go:66] [炸弹爆炸时leo位置] x:3, y:4
+I0813 04:30:12.090302   52265 scenePlayer.go:175] [玩家收到伤害] leo hurt leo
+I0813 04:30:12.090385   52265 scenePlayer.go:176] [玩家当前剩余血量] leo hp: 1
+I0813 04:30:15.080867   52265 playertask.go:163] [abc收到请求放炸弹的指令]
+I0813 04:30:15.081056   52265 scenePlayer.go:76] [abc 放置炸弹] x:3 y:3
+I0813 04:30:16.090105   52265 bomb.go:46] [炸弹爆炸] x:3, y:4
+I0813 04:30:16.090930   52265 bomb.go:66] [炸弹爆炸时leo位置] x:3, y:4
+I0813 04:30:16.091725   52265 scenePlayer.go:166] [玩家死亡] username: leo
+I0813 04:30:16.092726   52265 scenePlayer.go:175] [玩家收到伤害] leo hurt leo
+I0813 04:30:16.093610   52265 scenePlayer.go:176] [玩家当前剩余血量] leo hp: 0
+I0813 04:30:16.093645   52265 bomb.go:66] [炸弹爆炸时abc位置] x:3, y:3
+I0813 04:30:16.093740   52265 scenePlayer.go:175] [玩家收到伤害] leo hurt abc
+I0813 04:30:16.093769   52265 scenePlayer.go:176] [玩家当前剩余血量] abc hp: 2
+I0813 04:30:17.083203   52265 playertask.go:151] [abc收到请求移动的指令] revCmd.Way=0
+I0813 04:30:20.081230   52265 bomb.go:46] [炸弹爆炸] x:3, y:3
+I0813 04:30:20.081346   52265 bomb.go:66] [炸弹爆炸时leo位置] x:3, y:4
+I0813 04:30:20.081375   52265 scenePlayer.go:166] [玩家死亡] username: leo
+I0813 04:30:20.081413   52265 scenePlayer.go:175] [玩家收到伤害] abc hurt leo
+I0813 04:30:20.081440   52265 scenePlayer.go:176] [玩家当前剩余血量] leo hp: -1
+I0813 04:30:20.081467   52265 bomb.go:66] [炸弹爆炸时abc位置] x:3, y:3
+I0813 04:30:20.081494   52265 scenePlayer.go:175] [玩家收到伤害] abc hurt abc
+I0813 04:30:20.081520   52265 scenePlayer.go:176] [玩家当前剩余血量] abc hp: 1
+I0813 04:30:21.085525   52265 playertask.go:151] [abc收到请求移动的指令] revCmd.Way=0
+I0813 04:30:25.086963   52265 playertask.go:163] [abc收到请求放炸弹的指令]
+I0813 04:30:25.087137   52265 scenePlayer.go:76] [abc 放置炸弹] x:3 y:3
+I0813 04:30:30.087980   52265 bomb.go:46] [炸弹爆炸] x:3, y:3
+I0813 04:30:30.088055   52265 bomb.go:66] [炸弹爆炸时leo位置] x:3, y:4
+I0813 04:30:30.088084   52265 scenePlayer.go:166] [玩家死亡] username: leo
+I0813 04:30:30.088122   52265 scenePlayer.go:175] [玩家收到伤害] abc hurt leo
+I0813 04:30:30.088149   52265 scenePlayer.go:176] [玩家当前剩余血量] leo hp: -2
+I0813 04:30:30.088176   52265 bomb.go:66] [炸弹爆炸时abc位置] x:3, y:3
+I0813 04:30:30.088413   52265 scenePlayer.go:166] [玩家死亡] username: abc
+I0813 04:30:30.089182   52265 scenePlayer.go:175] [玩家收到伤害] abc hurt abc
+I0813 04:30:30.089273   52265 scenePlayer.go:176] [玩家当前剩余血量] abc hp: 0
+I0813 04:31:20.890803   52265 service.go:53] [Service] Got Signal  interrupt

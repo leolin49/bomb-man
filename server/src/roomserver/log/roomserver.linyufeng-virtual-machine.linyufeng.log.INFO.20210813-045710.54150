@@ -1,0 +1,58 @@
+Log file created at: 2021/08/13 04:57:10
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0813 04:57:10.100283   54150 roomserver.go:74] [debug] port: 13000
+I0813 04:57:10.113544   54150 roomserver.go:41] [RoomServer] roomserver init success
+I0813 04:57:17.401222   54150 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:41944 success
+I0813 04:57:17.404152   54150 playertask.go:97] [RoomServer Login] recv a login request  127.0.0.1:41944
+I0813 04:57:17.406374   54150 room.go:55] [NewRoom] roomtype:1, roomid:1
+I0813 04:57:17.406460   54150 room.go:69] [房间] 玩家进入房间  username:leo, uid:100006
+I0813 04:57:20.405088   54150 playertask.go:164] [leo收到请求放炸弹的指令]
+I0813 04:57:22.406263   54150 playertask.go:151] [leo收到请求移动的指令] revCmd.Way=2
+I0813 04:57:28.545128   54150 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:41964 success
+I0813 04:57:28.547736   54150 playertask.go:97] [RoomServer Login] recv a login request  127.0.0.1:41964
+I0813 04:57:28.549229   54150 room.go:69] [房间] 玩家进入房间  username:abc, uid:100005
+I0813 04:57:28.549338   54150 room.go:73] [房间] 玩家数量： 2
+I0813 04:57:28.549366   54150 room.go:74] [游戏开始] 玩家列表：
+I0813 04:57:28.549436   54150 room.go:76] username:leo, uid:100006
+I0813 04:57:28.549488   54150 room.go:76] username:abc, uid:100005
+E0813 04:57:28.549925   54150 scene.go:95] RandGameMapData_AllSpace begin
+E0813 04:57:28.550840   54150 scene.go:101] RandGameMapData_AllSpace end
+E0813 04:57:28.551014   54150 room.go:160] [100006] execute put bomb cmd
+I0813 04:57:28.551046   54150 scenePlayer.go:76] [leo 放置炸弹] x:4 y:4
+E0813 04:57:28.551165   54150 room.go:151] [100006] execute move cmd
+I0813 04:57:32.415662   54150 playertask.go:164] [leo收到请求放炸弹的指令]
+E0813 04:57:32.415847   54150 room.go:160] [100006] execute put bomb cmd
+I0813 04:57:32.416010   54150 scenePlayer.go:76] [leo 放置炸弹] x:4 y:3
+I0813 04:57:33.551915   54150 bomb.go:46] [炸弹爆炸] x:4, y:4
+I0813 04:57:33.552385   54150 bomb.go:66] [炸弹爆炸时leo位置] x:4, y:3
+I0813 04:57:33.552898   54150 scenePlayer.go:175] [玩家收到伤害] leo hurt leo
+I0813 04:57:33.553051   54150 scenePlayer.go:176] [玩家当前剩余血量] leo hp: 2
+I0813 04:57:33.553205   54150 bomb.go:66] [炸弹爆炸时abc位置] x:4, y:4
+I0813 04:57:33.554698   54150 scenePlayer.go:175] [玩家收到伤害] leo hurt abc
+I0813 04:57:33.555184   54150 scenePlayer.go:176] [玩家当前剩余血量] abc hp: 2
+I0813 04:57:37.417179   54150 bomb.go:46] [炸弹爆炸] x:4, y:3
+I0813 04:57:37.417254   54150 bomb.go:66] [炸弹爆炸时leo位置] x:4, y:3
+I0813 04:57:37.417283   54150 scenePlayer.go:175] [玩家收到伤害] leo hurt leo
+I0813 04:57:37.417310   54150 scenePlayer.go:176] [玩家当前剩余血量] leo hp: 1
+I0813 04:57:37.417338   54150 bomb.go:66] [炸弹爆炸时abc位置] x:4, y:4
+I0813 04:57:37.417409   54150 scenePlayer.go:175] [玩家收到伤害] leo hurt abc
+I0813 04:57:37.417435   54150 scenePlayer.go:176] [玩家当前剩余血量] abc hp: 1
+I0813 04:57:42.422732   54150 playertask.go:164] [leo收到请求放炸弹的指令]
+E0813 04:57:42.423088   54150 room.go:160] [100006] execute put bomb cmd
+I0813 04:57:42.423978   54150 scenePlayer.go:76] [leo 放置炸弹] x:4 y:3
+I0813 04:57:43.557275   54150 playertask.go:151] [abc收到请求移动的指令] revCmd.Way=0
+E0813 04:57:43.557464   54150 room.go:151] [100005] execute move cmd
+I0813 04:57:44.424872   54150 playertask.go:151] [leo收到请求移动的指令] revCmd.Way=1
+E0813 04:57:44.425580   54150 room.go:151] [100006] execute move cmd
+I0813 04:57:47.426533   54150 bomb.go:46] [炸弹爆炸] x:4, y:3
+I0813 04:57:47.426711   54150 bomb.go:66] [炸弹爆炸时leo位置] x:4, y:4
+I0813 04:57:47.426743   54150 scenePlayer.go:166] [玩家死亡] username: leo
+I0813 04:57:47.427185   54150 scenePlayer.go:175] [玩家收到伤害] leo hurt leo
+I0813 04:57:47.427213   54150 scenePlayer.go:176] [玩家当前剩余血量] leo hp: 0
+I0813 04:57:47.427241   54150 bomb.go:66] [炸弹爆炸时abc位置] x:4, y:4
+I0813 04:57:47.427268   54150 scenePlayer.go:166] [玩家死亡] username: abc
+I0813 04:57:47.427300   54150 scenePlayer.go:175] [玩家收到伤害] leo hurt abc
+I0813 04:57:47.427326   54150 scenePlayer.go:176] [玩家当前剩余血量] abc hp: 0
+I0813 04:57:51.150265   54150 service.go:53] [Service] Got Signal  interrupt

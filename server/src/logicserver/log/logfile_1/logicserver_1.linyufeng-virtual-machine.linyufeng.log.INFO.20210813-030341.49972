@@ -1,0 +1,114 @@
+Log file created at: 2021/08/13 03:03:41
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0813 03:03:41.755029   49972 logicserver.go:56] [debug] port 8001
+I0813 03:03:41.761797   49972 httpserver.go:55] [InitHttpServer] Listen port  8001
+I0813 03:03:41.762139   49972 httpserver.go:67] [InitHttpServer] Service start success
+E0813 03:03:41.762823   49972 logicserver.go:31] [LogicServer Init] Init success
+I0813 03:03:52.640444   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 03:03:53.736695   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 03:04:06.568219   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 03:04:07.898406   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 03:56:31.460453   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 03:56:32.844402   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 03:56:43.185096   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 03:56:44.793765   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:02:25.535636   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:02:26.648633   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:02:36.906174   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:02:37.999399   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:11:28.059730   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:11:29.522362   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:11:37.476102   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:11:39.188721   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:15:11.818039   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:15:12.994605   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:15:22.241543   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:15:23.386250   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:18:15.394067   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:18:16.555786   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:18:25.656443   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:18:26.929560   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:21:03.791373   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:21:04.329959   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:21:09.224241   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:21:10.537718   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:29:47.046599   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:29:48.070277   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:29:56.422902   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:29:58.070165   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:31:35.536395   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:31:36.547758   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:31:44.704184   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:31:45.856685   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:38:58.865388   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:39:00.624095   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:39:17.106610   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:39:18.617375   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:45:19.517729   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:45:20.712975   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:45:33.555928   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:45:34.757388   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:46:59.817779   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:47:00.793664   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:47:08.984264   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:47:09.899834   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:54:20.952487   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:54:22.216508   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:54:33.071734   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:54:34.119861   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 04:57:16.336868   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 04:57:17.399700   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 04:57:27.358569   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 04:57:28.541900   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 05:10:26.903560   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 05:10:28.419205   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 05:10:36.140437   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 05:10:37.201918   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 13:32:21.405485   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 13:32:22.709924   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 13:32:34.204786   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 13:32:35.493393   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 13:50:24.713623   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 13:50:25.873770   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 13:50:36.973685   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 13:50:37.790044   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 13:52:24.113311   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 13:52:25.042928   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 13:52:34.225179   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 13:52:34.983901   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 13:57:00.825373   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 13:57:01.923822   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 13:57:12.257920   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 13:57:12.947318   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 14:26:24.669015   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 14:26:25.433046   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 14:26:33.117427   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 14:26:34.069624   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 14:28:26.013620   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 14:28:26.935076   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 14:28:34.871533   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 14:28:35.687462   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 14:35:30.583133   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 14:35:32.042875   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 14:35:39.265183   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 14:35:40.111602   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 14:43:00.347348   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 14:43:01.624584   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 14:43:08.769362   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 14:43:09.833472   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 14:44:43.770780   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 14:44:44.868452   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 14:44:53.009334   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 14:44:53.531869   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 16:14:43.489133   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 16:14:44.455005   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 16:14:53.143392   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 16:14:54.392651   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 16:17:11.833436   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 16:17:12.512632   49972 httpserver.go:223] [用户请求开始游戏] username: leo
+I0813 16:17:20.328872   49972 httpserver.go:138] [User Login] login success, username: abc
+I0813 16:17:20.894612   49972 httpserver.go:223] [用户请求开始游戏] username: abc
+I0813 16:44:54.052492   49972 httpserver.go:138] [User Login] login success, username: leo
+I0813 16:44:54.996244   49972 httpserver.go:223] [用户请求开始游戏] username: leo

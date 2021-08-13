@@ -1,0 +1,28 @@
+Log file created at: 2021/08/13 01:06:18
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0813 01:06:18.867343   46275 scene.go:95] RandGameMapData_AllSpace begin
+E0813 01:06:18.868691   46275 scene.go:101] RandGameMapData_AllSpace end
+E0813 01:06:18.870283   46275 room.go:161] [100006] execute put bomb cmd
+E0813 01:06:18.870452   46275 scenePlayer.go:70] [PutBomb] begin
+E0813 01:06:18.870517   46275 scenePlayer.go:80] [PutBomb] end
+E0813 01:06:18.870545   46275 room.go:151] [100006] execute move cmd
+E0813 01:06:18.870685   46275 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0813 01:06:18.870712   46275 room.go:151] [100006] execute move cmd
+E0813 01:06:18.871821   46275 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0813 01:06:18.871987   46275 room.go:151] [100006] execute move cmd
+E0813 01:06:18.872204   46275 scenePlayer.go:103] [GetCurrentGrid] x:4, y:4
+E0813 01:06:18.872523   46275 scene.go:140] [GetGameMapGridType] x:4, y:3
+E0813 01:06:18.873434   46275 room.go:161] [100006] execute put bomb cmd
+E0813 01:06:18.873655   46275 scenePlayer.go:70] [PutBomb] begin
+E0813 01:06:18.874539   46275 scenePlayer.go:80] [PutBomb] end
+E0813 01:06:18.874610   46275 room.go:161] [100006] execute put bomb cmd
+E0813 01:06:18.874638   46275 scenePlayer.go:70] [PutBomb] begin
+E0813 01:06:18.874828   46275 scenePlayer.go:80] [PutBomb] end
+E0813 01:06:19.208735   46275 room.go:161] [100006] execute put bomb cmd
+E0813 01:06:19.208767   46275 scenePlayer.go:70] [PutBomb] begin
+E0813 01:06:19.208812   46275 scenePlayer.go:80] [PutBomb] end
+E0813 01:06:21.211286   46275 room.go:161] [100006] execute put bomb cmd
+E0813 01:06:21.211371   46275 scenePlayer.go:70] [PutBomb] begin
+E0813 01:06:21.212275   46275 scenePlayer.go:80] [PutBomb] end

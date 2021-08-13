@@ -3,6 +3,8 @@ package main
 import (
 	"paopao/server/src/common"
 	"time"
+
+	"github.com/golang/glog"
 )
 
 type Bomb struct {
@@ -33,13 +35,16 @@ func NewBomb(player *ScenePlayer) *Bomb {
 
 // 倒计时
 func (this *Bomb) CountDown() {
-	ticker := time.NewTicker(BOMB_MAXTIME * time.Second)
-	<-ticker.C
+	// ticker := time.NewTicker(BOMB_MAXTIME * time.Second)
+	// <-ticker.C
+	time.Sleep(5 * time.Second)
 	this.Explode()
 }
 
 // 爆炸
 func (this *Bomb) Explode() {
+	glog.Infof("[%v的炸弹爆炸] x:%v, y:%v",
+		this.owner.name, this.pos.X, this.pos.Y)
 	// 计算伤害范围
 	// 1. 上下左右
 	up := this.pos.Y + this.owner.power
@@ -59,13 +64,17 @@ func (this *Bomb) Explode() {
 	for _, p := range this.scene.players {
 
 		x, y := p.GetCurrentGrid()
+		glog.Infof("[%v的炸弹爆炸时%v位置] x:%x, y:%v",
+			this.owner.name, p.name, x, y)
 		if y == this.pos.Y && left <= x && x <= right {
 			this.owner.AddScore(HurtScore)
 			p.BeHurt(this.owner)
+			continue
 		}
 		if x == this.pos.X && down <= y && y <= up {
 			this.owner.AddScore(HurtScore)
 			p.BeHurt(this.owner)
+			continue
 		}
 	}
 	// 在场景中删除炸弹

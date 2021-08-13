@@ -39,6 +39,11 @@ enum MsgTypeCmd {
   
 }
 
+message CmdHeader {
+    MsgTypeCmd Cmd = 1;
+    string Data    = 2;
+}
+
 message UserLoginInfo {
     string Token = 1;
 }
