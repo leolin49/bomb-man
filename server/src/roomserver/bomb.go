@@ -17,7 +17,7 @@ type Bomb struct {
 func NewBomb(player *ScenePlayer) *Bomb {
 	row, col := player.GetCurrentGrid()
 	bomb := &Bomb{
-		id:    row*player.scene.GetGameMapWidth() + col,
+		id:    row*player.scene.gameMap.Width + col,
 		pos:   &common.GridPos{X: row, Y: col},
 		owner: player,
 		scene: player.scene,
@@ -64,17 +64,18 @@ func (this *Bomb) Explode() {
 	for _, p := range this.scene.players {
 
 		x, y := p.GetCurrentGrid()
-		glog.Infof("[%v的炸弹爆炸时%v位置] x:%x, y:%v",
+		glog.Infof("[%v的炸弹爆炸时%v位置] x:%v, y:%v",
 			this.owner.name, p.name, x, y)
 		if y == this.pos.Y && left <= x && x <= right {
+			// 水平方向
+			glog.Infof("[炸弹造成<%v,%v>水平方向伤害]", left, right)
 			this.owner.AddScore(HurtScore)
 			p.BeHurt(this.owner)
-			continue
-		}
-		if x == this.pos.X && down <= y && y <= up {
+		} else if x == this.pos.X && down <= y && y <= up {
+			// 垂直方向
+			glog.Infof("[炸弹造成<%v,%v>垂直方向伤害]", down, up)
 			this.owner.AddScore(HurtScore)
 			p.BeHurt(this.owner)
-			continue
 		}
 	}
 	// 在场景中删除炸弹

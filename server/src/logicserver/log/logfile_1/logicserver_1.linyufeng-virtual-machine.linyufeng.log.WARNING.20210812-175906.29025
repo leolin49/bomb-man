@@ -1,6 +1,0 @@
-Log file created at: 2021/08/12 17:59:06
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-E0812 17:59:06.648880   29025 logicserver.go:31] [LogicServer Init] Init success
-E0812 18:08:03.674026   29025 rpcclient.go:53] [LogicServer Rpc] request failed,  unexpected EOF

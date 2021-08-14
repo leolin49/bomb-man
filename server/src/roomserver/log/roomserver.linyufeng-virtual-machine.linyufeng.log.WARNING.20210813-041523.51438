@@ -1,9 +1,0 @@
-Log file created at: 2021/08/13 04:15:23
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-E0813 04:15:23.392954   51438 scene.go:95] RandGameMapData_AllSpace begin
-E0813 04:15:23.394212   51438 scene.go:101] RandGameMapData_AllSpace end
-E0813 04:15:23.394655   51438 scene.go:140] [GetGameMapGridType] x:3, y:4
-E0813 04:15:26.015922   51438 scene.go:140] [GetGameMapGridType] x:2, y:4
-E0813 04:15:32.017975   51438 scene.go:140] [GetGameMapGridType] x:2, y:5

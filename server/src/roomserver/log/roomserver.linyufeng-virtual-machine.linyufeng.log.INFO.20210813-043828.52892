@@ -1,8 +1,0 @@
-Log file created at: 2021/08/13 04:38:28
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I0813 04:38:28.717421   52892 roomserver.go:74] [debug] port: 13000
-E0813 04:38:28.726300   52892 grpcclient.go:78] [InitGrpcClient] error: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp 127.0.0.1:11112: connect: connection refused"
-E0813 04:38:28.726575   52892 grpcclient.go:62] [RoomGrpcClient] init grpc client error: <nil>
-E0813 04:38:28.726742   52892 roomserver.go:31] [RoomServer] room grpc client init error

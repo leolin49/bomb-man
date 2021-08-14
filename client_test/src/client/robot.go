@@ -139,7 +139,7 @@ func (this *Robot) PutBomb() {
 }
 
 func (this *Robot) StartRandOperate() {
-	for {
+	for !this.client.IsClosed() {
 		x := rand.Int31() % 7
 		// fmt.Println("[随机数] x = ", x)
 		switch x {

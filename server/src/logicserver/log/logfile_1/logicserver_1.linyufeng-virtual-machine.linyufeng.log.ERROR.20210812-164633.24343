@@ -1,5 +1,0 @@
-Log file created at: 2021/08/12 16:46:33
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-E0812 16:46:33.694636   24343 logicserver.go:32] [LogicServer Init] Init success

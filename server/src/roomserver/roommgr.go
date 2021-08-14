@@ -36,14 +36,14 @@ func (this *RoomManager) Start() {
 		case rid := <-this.endchan:
 			this.mutex.Lock()
 			delete(this.roomMap, rid)
-			glog.Infof("[Game] room %v end")
+			glog.Infof("[Game] room %v end", rid)
 			this.mutex.Unlock()
 		}
 	}
 }
 
 func (this *RoomManager) UpdateNextRoomId() {
-	atomic.StoreUint32(&this.curNum, 1)
+	atomic.StoreUint32(&this.curNum, this.curNum+1)
 }
 
 func (this *RoomManager) AddRoom(room *Room) (*Room, bool) {

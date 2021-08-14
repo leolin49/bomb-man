@@ -78,6 +78,14 @@ func (this *LogicClient) ParseMsg(data []byte, flag byte) bool {
 		glog.Infoln("===============[收到玩家死亡信息]===============")
 		fmt.Printf("killerid:%v\nkillername:%v\nsorce:%v\n",
 			revCmd.KillId, revCmd.KillName, revCmd.Score)
+		// this.Close()
+	case usercmd.MsgTypeCmd_EndRoom:
+		revCmd := &usercmd.SettleMentInfo{}
+		json.Unmarshal([]byte(info.Data), revCmd)
+		glog.Infoln("===============[收到房间结算信息]===============")
+		for _, p := range revCmd.Players {
+			fmt.Printf("[player]id:%v, score:%v", p.Id, p.Score)
+		}
 		this.Close()
 	}
 	return true

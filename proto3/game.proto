@@ -14,9 +14,9 @@ enum MsgTypeCmd {
     Move          = 6;  // 移动***
     PutBomb       = 7;  // 放炸弹***
     LoadGameMap   = 8;  // 加载游戏地图***
-  
+    GameSenceInit = 9;  // 游戏场景初始化***      
     Death         = 10; // 死亡***
-    EndRoom       = 11; 
+    EndRoom       = 11; // 游戏结束***
     NewScene      = 13;
     ReSetNet      = 15;
     HeartBeat     = 16; // 心跳***
@@ -123,18 +123,16 @@ message ScenePlayer {
     uint32 BombNum  = 2;
     uint32 power    = 3;
     float  speed    = 4;
-    uint32 state    = 5;
+    uint32 state    = 5;    // hp
     float  X        = 6;
     float  Y        = 7;
     bool   isMove   = 8;
+    uint32 score    = 9;    // 玩家得分
 }
 
 // 返回客户端场景更新信息
 message RetUpdateSceneMsg {
     uint64 id   = 1;
-    float  X    = 2;
-    float  Y    = 3;
-
     repeated ScenePlayer players    = 4;
     repeated MsgBomb     bombs      = 5;
 }
@@ -167,4 +165,13 @@ message MapVector {
         repeated CellType x = 1;
     }
     repeated Row Col = 1;
+}
+
+//---------------------------------------------//
+
+// 结算信息
+message SettleMentInfo {
+    uint64 id                       = 1;
+    uint64 gameTime                 = 2;// 游戏时间
+    repeated ScenePlayer players    = 3;// 所有玩家信息
 }

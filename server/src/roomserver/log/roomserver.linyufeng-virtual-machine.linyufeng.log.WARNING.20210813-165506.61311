@@ -1,6 +1,0 @@
-Log file created at: 2021/08/13 16:55:06
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-E0813 16:55:06.336019   61311 token.go:97] [RSADecrypt] crypto/rsa: decryption error
-E0813 16:55:06.336557   61311 playertask.go:101] [MsgTypeCmd_Login] parse room token error: crypto/rsa: decryption error

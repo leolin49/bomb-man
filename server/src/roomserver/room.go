@@ -11,7 +11,7 @@ import (
 
 // 房间类型
 const (
-	ROOMTYPE_1V1 = 1
+	RoomType_1v1 = 1
 )
 
 type Room struct {
@@ -29,10 +29,10 @@ type Room struct {
 	iscustom     bool
 	timeloop     uint64
 
-	maxPlayerNum uint32 // max player number. default :8
-	startTime    uint64 // 开始时间
-	totalTime    uint64 // in second
-	endTime      uint64 // 结束时间
+	maxPlayerNum uint32    // max player number. default :8
+	startTime    time.Time // 开始时间
+	totalTime    uint64    // in second
+	endTime      time.Time // 结束时间
 	endchan      chan bool
 
 	chan_PlayerOp chan *PlayerOp
@@ -47,7 +47,6 @@ func NewRoom(roomtype, roomid uint32) *Room {
 		maxPlayerNum:  2,
 		isStart:       false,
 		isStop:        false,
-		startTime:     uint64(time.Now().Unix()),
 		endchan:       make(chan bool),
 		chan_PlayerOp: make(chan *PlayerOp, 500),
 	}
@@ -59,6 +58,7 @@ func NewRoom(roomtype, roomid uint32) *Room {
 // 玩家进入房间
 func (this *Room) AddPlayer(player *PlayerTask) error {
 	this.mutex.Lock()
+	defer this.mutex.Unlock()
 	if this.curPlayerNum >= this.maxPlayerNum {
 		return errors.New("room is full")
 	}
@@ -68,6 +68,7 @@ func (this *Room) AddPlayer(player *PlayerTask) error {
 	this.players[player.id] = player
 	glog.Infof("[房间] 玩家进入房间  username:%v, uid:%v", player.name, player.id)
 	this.scene.AddPlayer(player) // 将玩家添加到场景
+
 	// 房间内玩家数量达到最大，自动开始游戏
 	if this.curPlayerNum == this.maxPlayerNum {
 		glog.Infoln("[房间] 玩家数量：", len(this.players))
@@ -76,9 +77,29 @@ func (this *Room) AddPlayer(player *PlayerTask) error {
 			glog.Infof("username:%v, uid:%v", v.scenePlayer.name, v.scenePlayer.id)
 		}
 		RoomManager_GetMe().UpdateNextRoomId() // 房间id++
+
+		// 将当前房间内的所有玩家信息发送到客户端
+		for _, pt := range this.players {
+			info := &usercmd.RetUpdateSceneMsg{}
+			info.Id = pt.id
+			for _, sp := range this.scene.players {
+				info.Players = append(info.Players, &usercmd.ScenePlayer{
+					Id:      sp.id,
+					BombNum: sp.curbomb,
+					Power:   sp.power,
+					Speed:   float32(sp.speed),
+					State:   uint32(sp.hp),
+					X:       float32(sp.curPos.X),
+					Y:       float32(sp.curPos.Y),
+					Score:   0,
+					IsMove:  sp.isMove,
+				})
+			}
+			pt.SendCmd(usercmd.MsgTypeCmd_SceneSync, info)
+		}
+
 		go this.StartGame()
 	}
-	this.mutex.Unlock()
 
 	return nil
 }
@@ -86,21 +107,16 @@ func (this *Room) AddPlayer(player *PlayerTask) error {
 // 将玩家移除出房间
 func (this *Room) RemovePlayer(player *PlayerTask) error {
 	this.mutex.Lock()
+	glog.Warningln("[debug]Room.RemovePlayer() func")
 	defer this.mutex.Unlock()
 	delete(this.players, player.id)
-	// 当前房间内只剩一个玩家，游戏胜利，房间计算
-	if this.curPlayerNum--; this.curPlayerNum == 1 {
-		for _, v := range this.players {
-			glog.Infof("[游戏结束] winner:%v, 得分:%v",
-				v.name, v.scenePlayer.score)
-			v.OnClose()
-		}
-	}
+	glog.Warningln("[debug]Room.RemovePlayer() func")
 	return nil
 }
 
 func (this *Room) StartGame() {
 	this.isStart = true
+	this.startTime = time.Now()
 	this.GameLoop()
 }
 
@@ -117,11 +133,20 @@ func (this *Room) IsClosed() bool {
 	return this.isStop
 }
 
+func (this *Room) IsStart() bool {
+	return this.isStart
+}
+
 // 房间结束
 func (this *Room) Close() {
 	if !this.isStop {
-		// TODO房间结束处理
+		// 房间结束处理
 		this.isStop = true
+		// 删除房间内玩家，断开所有连接
+		for _, player := range this.players {
+			player.OnClose()
+		}
+
 		RoomManager_GetMe().endchan <- this.id
 	}
 }
@@ -172,6 +197,8 @@ func (this *Room) GameLoop() {
 				}
 				this.scene.players[playerop.uid].PutBomb(req)
 			}
+		case <-this.endchan:
+			this.Close()
 		}
 	}
 	this.Close()

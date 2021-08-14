@@ -1,6 +1,0 @@
-Log file created at: 2021/08/12 16:46:28
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-E0812 16:46:28.622421   24274 httpserver.go:52] [InitHttpServer] band port error
-E0812 16:46:28.622747   24274 logicserver.go:29] [LogicServer Init] Init error

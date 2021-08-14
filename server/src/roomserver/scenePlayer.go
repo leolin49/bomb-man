@@ -17,11 +17,11 @@ const (
 	HurtScore = 1 // 造成伤害得分
 	KillScore = 3 // 击杀得分
 
-	RoleInitBombPower = 1 // 初始炸弹威力
-	RoleInitSpeed     = 1 // 初始移动速度
-	RoleInitHp        = 3 // 玩家初始血量
-	RoleInitPosX      = 7 // 玩家初始位置x
-	RoleInitPosY      = 7 // 玩家初始位置y
+	RoleInitBombPower = 1  // 初始炸弹威力
+	RoleInitSpeed     = 1  // 初始移动速度
+	RoleInitHp        = 3  // 玩家初始血量
+	RoleInitPosX      = 11 // 玩家初始位置x
+	RoleInitPosY      = 17 // 玩家初始位置y
 )
 
 type ScenePlayer struct {
@@ -40,7 +40,8 @@ type ScenePlayer struct {
 	self  *PlayerTask // 用于通信
 	scene *Scene      // 场景指针
 
-	isMove bool
+	isMove    bool
+	deathTime time.Time // 玩家死亡时间（用于计算存活时间）
 }
 
 func NewScenePlayer(player *PlayerTask, scene *Scene) *ScenePlayer {
@@ -74,6 +75,14 @@ func (this *ScenePlayer) PutBomb(msg *usercmd.MsgPutBomb) bool {
 	if atomic.LoadUint32(&this.curbomb) == this.maxbomb {
 		return false
 	}
+	// 当前位置是否已经存在炸弹
+	x, y := this.GetCurrentGrid()
+	if this.scene.gameMap.MapArray[x][y] == GridType_Bomb {
+		glog.Infof("[%v 放置炸弹] 位置{%v, %v}, 当前位置已存在炸弹",
+			this.name, x, y)
+		return false
+	}
+
 	bomb := NewBomb(this)
 	this.scene.AddBomb(bomb)
 	go bomb.CountDown()
@@ -138,25 +147,12 @@ func (this *ScenePlayer) CaculateNext(way int32) {
 
 // 地图边界检查
 func (this *ScenePlayer) BorderCheck(pos *common.Position) {
-	if pos.X < 0 {
-		pos.X = 0
-	} else if w := float64(this.scene.sceneWidth - 1); pos.X >= w {
-		pos.X = w
-	}
-	if pos.Y < 0 {
-		pos.Y = 0
-	} else if h := float64(this.scene.sceneHeight - 1); pos.Y >= h {
-		pos.Y = h
-	}
+	this.scene.BorderCheck(pos)
 }
 
 // 该格子是否可以通过
 func (this *ScenePlayer) CanPass(x, y uint32) bool {
-	if x >= this.scene.GetGameMapWidth() || y >= this.scene.sceneHeight {
-		return false
-	}
-	t := this.scene.GetGameMapGridType(x, y)
-	return t != usercmd.CellType_Wall && t != usercmd.CellType_Box
+	return this.scene.CanPass(x, y)
 }
 
 // 判断该玩家当前属于哪一个格子
@@ -181,12 +177,14 @@ func (this *ScenePlayer) BeHurt(attacker *ScenePlayer) {
 		// 玩家死亡房间/场景处理
 		this.Death()
 	}
-	glog.Infof("[%v收到伤害] 当前血量hp:%v", this.name, this.hp)
+	glog.Infof("[%v收到%v的炸弹的伤害] 当前血量hp:%v，%v当前得分:%v",
+		this.name, attacker.name, this.hp, attacker.name, attacker.score)
 }
 
 // 玩家造成伤害或击杀，增加得分
 func (this *ScenePlayer) AddScore(x uint32) {
 	atomic.StoreUint32(&this.score, this.score+x)
+	atomic.StoreUint32(&this.self.score, this.self.score+x)
 }
 
 // ---------------------------------------------------------- //
@@ -195,6 +193,7 @@ func (this *ScenePlayer) AddScore(x uint32) {
 func (this *ScenePlayer) SendSceneMessage() {
 	ret := &usercmd.RetUpdateSceneMsg{}
 	// 场景内所有的玩家信息
+	ret.Id = this.id
 	for _, player := range this.scene.players {
 		ret.Players = append(ret.Players, &usercmd.ScenePlayer{
 			Id:      player.id,
@@ -206,7 +205,6 @@ func (this *ScenePlayer) SendSceneMessage() {
 			Y:       float32(player.curPos.Y),
 			IsMove:  player.isMove,
 		})
-
 	}
 	// 场景内所有的炸弹信息
 	for _, bomb := range this.scene.BombMap {
@@ -218,9 +216,6 @@ func (this *ScenePlayer) SendSceneMessage() {
 			CreateTime: 0,
 		})
 	}
-	ret.Id = this.id
-	ret.X = float32(this.curPos.X)
-	ret.Y = float32(this.curPos.Y)
 
 	this.self.SendCmd(usercmd.MsgTypeCmd_SceneSync, ret)
 }
@@ -234,4 +229,25 @@ func (this *ScenePlayer) Death() {
 	this.scene.DelPlayer(this)             // 场景中删除
 	this.self.room.RemovePlayer(this.self) // 把玩家从房间中删除
 
+}
+
+// 添加玩家数据到场景同步信息
+func (this *ScenePlayer) AddAllPlayerInfoToMessage(msg common.Message) {
+	// 类型断言
+	if ret, ok := msg.(*usercmd.RetUpdateSceneMsg); ok {
+
+		for _, player := range this.scene.players {
+			ret.Players = append(ret.Players, &usercmd.ScenePlayer{
+				Id:      player.id,
+				BombNum: player.curbomb,
+				Power:   player.power,
+				Speed:   float32(player.speed),
+				State:   uint32(player.hp),
+				X:       float32(player.curPos.X),
+				Y:       float32(player.curPos.Y),
+				Score:   this.score,
+				IsMove:  player.isMove,
+			})
+		}
+	}
 }
