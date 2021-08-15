@@ -21,7 +21,7 @@ const (
 	RoleInitSpeed     = 1  // 初始移动速度
 	RoleInitHp        = 3  // 玩家初始血量
 	RoleInitPosX      = 11 // 玩家初始位置x
-	RoleInitPosY      = 17 // 玩家初始位置y
+	RoleInitPosY      = 15 // 玩家初始位置y
 )
 
 type ScenePlayer struct {
@@ -52,8 +52,8 @@ func NewScenePlayer(player *PlayerTask, scene *Scene) *ScenePlayer {
 		name:    player.name,
 		key:     player.key,
 		score:   0,
-		curPos:  &common.Position{X: RoleInitPosX, Y: RoleInitPosY},
-		nextPos: &common.Position{X: RoleInitPosX, Y: RoleInitPosY},
+		curPos:  &common.Position{X: RoleInitPosX, Y: float64(RoleInitPosY - (player.id%100)/10)},
+		nextPos: &common.Position{X: RoleInitPosX, Y: float64(RoleInitPosY - (player.id%100)/10)},
 		hp:      RoleInitHp,
 		curbomb: 0,
 		maxbomb: 5,

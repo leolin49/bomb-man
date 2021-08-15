@@ -1,0 +1,6 @@
+Log file created at: 2021/08/15 20:16:56
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W0815 20:16:56.470992   40749 room.go:113] [debug]Room.RemovePlayer() func
+W0815 20:16:56.471391   40749 room.go:116] [debug]Room.RemovePlayer() func

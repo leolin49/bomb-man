@@ -1,0 +1,48 @@
+Log file created at: 2021/08/15 20:18:13
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0815 20:18:13.595925   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 20:19:01.352779   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 20:40:28.712543   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 20:56:07.845895   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 21:01:17.474810   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 21:05:55.630542   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 21:21:34.996732   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 21:25:13.236678   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 21:35:32.910536   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 21:57:57.480830   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 22:06:39.047163   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 22:14:24.904039   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 22:51:06.517017   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 22:59:23.613526   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:03:36.704571   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:04:16.838046   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:15:36.483406   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:26:02.621892   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:29:44.781396   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:31:28.025354   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:49:25.553672   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:52:12.247393   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:52:48.753556   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:56:24.546595   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:58:41.368772   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0815 23:59:53.820276   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 00:08:58.503177   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 00:11:03.857691   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 00:18:18.105704   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 00:20:57.423132   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 00:27:24.285555   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 00:34:41.940749   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 00:43:56.824054   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 00:52:02.288634   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 01:00:41.449845   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 01:03:33.878230   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 01:08:16.888823   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 01:21:48.948193   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 01:53:13.414219   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 02:12:19.020415   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 02:14:37.142098   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 02:23:39.033123   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 02:27:17.188414   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled
+E0816 02:28:22.040322   40539 grpcserver.go:25] [RoomGrpcServer] server error:  rpc error: code = Canceled desc = context canceled

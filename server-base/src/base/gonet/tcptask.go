@@ -18,7 +18,7 @@ type ITcpTask interface {
 const (
 	cmd_max_size    = 128 * 1024
 	cmd_header_size = 4 // 3字节指令长度 1字节是否压缩
-	cmd_verify_time = 100
+	cmd_verify_time = 300
 )
 
 type TcpTask struct {
@@ -86,6 +86,7 @@ func (this *TcpTask) IsClosed() bool {
 }
 
 func (this *TcpTask) Verify() {
+	fmt.Println("[TCP验证完成] ", this.RemoteAddr())
 	this.verified = true
 }
 

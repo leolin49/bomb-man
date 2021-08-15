@@ -1,0 +1,785 @@
+Log file created at: 2021/08/16 00:27:40
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0816 00:27:40.211894   73441 roomserver.go:74] [debug] port: 13000
+I0816 00:27:40.215547   73441 roomserver.go:41] [RoomServer] roomserver init success
+I0816 00:33:24.012853   73441 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:60396 success
+I0816 00:33:24.013380   73441 playertask.go:89] [debug] cmd :  Login
+I0816 00:33:24.013418   73441 playertask.go:102] [RoomServer Login] recv a login request  127.0.0.1:60396
+I0816 00:33:24.013424   73441 playertask.go:103] kqvgmffYsQFESgZLGXwAe09LfpOXvCgSWMG7zJLRDdr0cIkITvA+44p1nY0OIMl+wcEl//ZIn5yoqU8HB6iollmw8nBYQ4COUBV1f/EecPkbeRSil5sbGLQ6Yti+hDFXKdB54z/j5JrC1jf1DfilM+qKdgqbdwcVFqOOrSvRols=
+I0816 00:33:24.014729   73441 room.go:54] [NewRoom] roomtype:1, roomid:1
+I0816 00:33:24.014738   73441 room.go:69] [房间] 玩家[leo]进入[1]房间  
+I0816 00:33:24.014742   73441 scene.go:111] [场景添加玩家] username:  leo
+I0816 00:33:26.014854   73441 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0816 00:33:27.015794   73441 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0816 00:33:28.016659   73441 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0816 00:33:29.017702   73441 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0816 00:33:30.018126   73441 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0816 00:33:31.019497   73441 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0816 00:33:32.020130   73441 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0816 00:33:33.022034   73441 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0816 00:33:34.022391   73441 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0816 00:33:35.023479   73441 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0816 00:33:37.025188   73441 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0816 00:33:37.818683   73441 roomserver.go:62] [RoomServer] NewPlayerTask 192.168.96.248:58628 success
+I0816 00:33:37.822552   73441 playertask.go:89] [debug] cmd :  Login
+I0816 00:33:37.822579   73441 playertask.go:102] [RoomServer Login] recv a login request  192.168.96.248:58628
+I0816 00:33:37.822586   73441 playertask.go:103] eYtOmAnFsEnAQJsEBSkL4qK2TqMQRnyMf9eTW4cqgrNsh97G5YA116okp4Iw7rdiw/Gpx49S0BaguHnZiYyb8eda1EayGpRrhp/moWfAUfrfc/KFrB8mbFjbPFbAgOF8z+jHeTwQKx1fMpgR7HrhXKn9xQGXVsqR1EAFEqPVn+Y=
+I0816 00:33:37.823284   73441 room.go:69] [房间] 玩家[xzw1]进入[1]房间  
+I0816 00:33:37.823292   73441 scene.go:111] [场景添加玩家] username:  xzw1
+I0816 00:33:37.823306   73441 room.go:74] [房间] 玩家数量： 2
+I0816 00:33:37.823310   73441 room.go:75] [游戏开始] 玩家列表：
+I0816 00:33:37.823314   73441 room.go:77] username:leo, uid:100006
+I0816 00:33:37.823317   73441 room.go:77] username:xzw1, uid:100010
+E0816 00:33:37.823524   73441 scene.go:92] [游戏地图初始化] 初始化开始
+E0816 00:33:37.823812   73441 scene.go:98] [游戏地图初始化] 初始化完成
+I0816 00:33:38.025262   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:33:38.025322   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:15
+I0816 00:33:40.026154   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0816 00:33:40.026206   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:15
+I0816 00:33:41.026414   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:33:41.026439   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:15
+I0816 00:33:42.027540   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:33:42.027568   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:14
+I0816 00:33:43.027782   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:33:43.027813   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:15
+I0816 00:33:45.028765   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0816 00:33:45.028795   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:15
+I0816 00:33:46.030676   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:33:46.030703   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:14
+I0816 00:33:47.031246   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:33:47.031296   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:13
+I0816 00:33:48.032922   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:33:48.032972   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:13
+I0816 00:33:49.033232   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:33:49.033383   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:12
+I0816 00:33:50.033672   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:33:50.033700   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:11
+I0816 00:33:51.034212   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:33:51.034242   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:12
+I0816 00:33:52.036220   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:33:52.036266   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:11
+I0816 00:33:53.036724   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:33:53.036751   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:12
+I0816 00:33:54.038611   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:33:54.038767   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:12
+I0816 00:33:55.039368   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:33:55.039396   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:13
+I0816 00:33:56.041469   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:33:56.041499   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:12
+I0816 00:33:57.043225   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0816 00:33:57.043254   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:12
+I0816 00:33:59.045769   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:33:59.045834   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:12
+I0816 00:34:00.045895   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:34:00.045951   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:13
+I0816 00:34:01.046840   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:34:01.046897   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:14
+I0816 00:34:02.047725   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:34:02.047753   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:15
+I0816 00:34:03.049349   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.049486   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:15
+I0816 00:34:03.215227   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.215281   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:14
+I0816 00:34:03.230942   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.231022   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:13, y:14
+I0816 00:34:03.255630   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.255726   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:14, y:14
+I0816 00:34:03.267943   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.268166   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:15, y:14
+I0816 00:34:03.280974   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.281196   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:16, y:14
+I0816 00:34:03.297646   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.297678   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:17, y:14
+I0816 00:34:03.314284   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.314317   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:18, y:14
+I0816 00:34:03.330296   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.330434   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:19, y:14
+I0816 00:34:03.373408   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.373465   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.373486   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:20, y:14
+I0816 00:34:03.373496   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:21, y:14
+I0816 00:34:03.380624   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.380664   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:22, y:14
+I0816 00:34:03.396689   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.396754   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:23, y:14
+I0816 00:34:03.413815   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.413877   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:24, y:14
+I0816 00:34:03.429693   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.429920   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:25, y:14
+I0816 00:34:03.446151   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.446214   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:26, y:14
+I0816 00:34:03.466255   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:03.466498   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:14
+I0816 00:34:03.496628   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.496691   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:13
+I0816 00:34:03.513113   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.513361   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:12
+I0816 00:34:03.529109   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.529170   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:11
+I0816 00:34:03.545708   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.545950   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:10
+I0816 00:34:03.562284   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.562352   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:9
+I0816 00:34:03.578865   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.578941   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:8
+I0816 00:34:03.595969   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.596044   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:7
+I0816 00:34:03.612685   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.612919   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:6
+I0816 00:34:03.631156   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.631221   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:5
+I0816 00:34:03.671384   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.671438   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.671451   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:4
+I0816 00:34:03.671457   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:3
+I0816 00:34:03.713091   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.713160   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.713182   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.713280   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:2
+I0816 00:34:03.713289   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:1
+I0816 00:34:03.713292   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.728118   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.728164   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.782105   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.782191   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.788202   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.788268   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.804704   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.804773   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.821319   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.821392   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.838723   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.838794   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.854423   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.854472   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.870955   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.871097   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.887408   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.887477   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.904312   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.904380   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.920680   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.920785   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.937297   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.937352   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.981866   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.981933   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.981946   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.981952   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:03.987433   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:03.987479   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.003708   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.003797   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.020318   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.020378   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.037493   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.037528   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.051287   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.051318   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:14
+I0816 00:34:04.053699   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.053728   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.070030   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.070103   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.086419   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.086466   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.103214   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.103272   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.119818   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.120081   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.136299   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.136385   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.152992   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.153079   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.169615   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.169661   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.186073   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.186135   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.202380   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.202443   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.219474   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.219522   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.235308   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.235368   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.277037   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.277128   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.277148   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.277161   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.285549   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.285610   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.302237   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.302287   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.318322   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.318414   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.334805   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.334854   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.352244   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.352306   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.367903   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.367934   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.384494   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.384541   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.401043   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.401113   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.417805   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.417854   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.434143   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.434211   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.450836   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.450922   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.467322   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.467448   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.484012   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.484081   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.501295   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.501352   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.560054   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.560084   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.565637   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.565836   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.565851   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.565857   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.608635   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.609039   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.609086   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.609095   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.609104   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.609108   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.616667   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.616748   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.633175   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.633250   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.649757   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.649988   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.666140   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.666370   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.682828   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.683070   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.699465   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.699602   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.716073   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.716144   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.732645   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.732714   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.749247   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.749449   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.765902   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.765962   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.784066   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.784155   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.800289   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.800337   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.815823   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.815893   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.832060   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.832161   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.848456   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.848570   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.865599   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.865662   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.907692   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.907745   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.907759   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.907765   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.948510   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.948573   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.948584   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.948594   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.948603   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.948607   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.964497   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.964527   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.981096   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.981191   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:04.997597   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:04.997693   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:05.014256   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:05.014332   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:05.030830   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:05.030859   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:05.047830   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:05.047861   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:05.065528   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:05.065597   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:05.080590   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:05.080788   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:05.099492   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:05.099530   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:05.113799   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:05.113876   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:05.134574   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:05.134629   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:0
+I0816 00:34:05.148027   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.148085   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:28, y:0
+I0816 00:34:05.163157   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.163203   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.180531   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.180580   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.226201   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.226267   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.226279   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.226286   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.229423   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.229505   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.246478   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.246530   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.262532   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.262566   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.279242   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.279866   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.296347   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.296412   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.313089   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.313132   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.331012   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.331066   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.353909   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.353941   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.361958   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.361991   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.378532   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.378616   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.395009   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.395083   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.411693   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.411744   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.428374   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.428591   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.444978   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.445050   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.462928   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.463129   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.478834   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.478870   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.520813   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.521021   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.521112   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.521269   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.527657   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.527705   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.544210   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.544242   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.561361   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.561427   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.579383   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.579431   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.594366   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.594457   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.611277   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.611322   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.626869   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.627099   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.643667   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.643929   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.660080   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.660149   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:05.677392   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:05.677437   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.053139   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0816 00:34:06.053209   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:14
+I0816 00:34:06.240174   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.240218   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.256739   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.256782   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.273365   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.273397   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.321882   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.321912   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.321924   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.321930   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.324268   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.324311   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.339863   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.339892   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.356361   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.356403   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.372673   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.372724   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.391191   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.391250   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.406884   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.406976   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.422637   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.422700   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.439298   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.439343   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.455829   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.456066   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.471966   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.472140   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.488496   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.488545   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.505601   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:06.505665   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.521629   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:06.522100   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.538213   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:06.538260   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.555750   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:06.555951   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.571345   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:06.571649   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.612382   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:06.612614   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:06.612630   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.612636   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.621164   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:06.621235   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.637946   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:06.638023   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.655002   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:06.655063   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.670745   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:06.670948   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:0
+I0816 00:34:06.690274   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.690306   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:1
+I0816 00:34:06.703956   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.704162   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:2
+I0816 00:34:06.720559   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.720780   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:3
+I0816 00:34:06.737219   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.737273   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:4
+I0816 00:34:06.753635   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.753687   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:5
+I0816 00:34:06.770260   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.770309   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:6
+I0816 00:34:06.786723   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.786772   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:7
+I0816 00:34:06.803375   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.803426   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:8
+I0816 00:34:06.820012   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.820063   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:9
+I0816 00:34:06.836649   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.836698   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:10
+I0816 00:34:06.853139   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.853193   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:11
+I0816 00:34:06.869513   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.869567   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:12
+I0816 00:34:06.912503   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.912558   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.912571   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:13
+I0816 00:34:06.912577   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:14
+I0816 00:34:06.920190   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.920241   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:15
+I0816 00:34:06.935916   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.935967   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:16
+I0816 00:34:06.952587   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.952650   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:17
+I0816 00:34:06.970286   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.970317   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:18
+I0816 00:34:06.998284   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:06.998320   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:19
+I0816 00:34:07.003293   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.003321   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:20
+I0816 00:34:07.018874   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.018906   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:21
+I0816 00:34:07.035393   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.035439   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:22
+I0816 00:34:07.052452   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.053058   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:23
+I0816 00:34:07.068225   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.068271   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:24
+I0816 00:34:07.084877   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.084931   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:25
+I0816 00:34:07.101563   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.101635   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:26
+I0816 00:34:07.118119   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.118190   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:27
+I0816 00:34:07.135318   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.135390   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:28
+I0816 00:34:07.151301   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.151534   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.167599   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.167633   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.209350   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:07.209391   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:07.209408   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.209418   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.217389   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:07.217432   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.235281   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:07.235324   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.250827   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:07.250899   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.267479   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:07.267621   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.283737   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:07.283820   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.300291   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:07.300347   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.316882   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:07.316947   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.333369   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:07.333424   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.350091   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:07.350145   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:07.366511   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:07.366563   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:08.053715   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:34:08.053915   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:14
+I0816 00:34:09.054101   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0816 00:34:09.054164   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:14
+I0816 00:34:10.055732   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:34:10.055785   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:13
+I0816 00:34:11.057254   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:34:11.057281   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:14
+I0816 00:34:11.807167   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:11.807198   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:28, y:29
+I0816 00:34:11.827414   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:11.827451   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:29
+I0816 00:34:11.851128   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:11.851191   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:26, y:29
+I0816 00:34:11.893115   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:11.893169   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:11.893179   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:11.893189   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:25, y:29
+I0816 00:34:11.893196   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:24, y:29
+I0816 00:34:11.893200   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:23, y:29
+I0816 00:34:11.941128   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:11.941394   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:11.941536   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:11.941500   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:22, y:29
+I0816 00:34:11.941633   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:21, y:29
+I0816 00:34:11.941741   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:20, y:29
+I0816 00:34:11.955406   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:11.955456   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:19, y:29
+I0816 00:34:11.973194   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:11.973409   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:18, y:29
+I0816 00:34:11.988487   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:11.988693   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:18, y:28
+I0816 00:34:12.005674   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:12.005725   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:18, y:27
+I0816 00:34:12.021856   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:12.021887   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:18, y:26
+I0816 00:34:12.038495   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:12.038523   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:18, y:25
+I0816 00:34:12.055035   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:12.055065   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:18, y:24
+I0816 00:34:12.071609   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:12.071709   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:18, y:23
+I0816 00:34:12.088163   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:12.088259   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:18, y:22
+I0816 00:34:12.104799   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:12.105041   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:19, y:22
+I0816 00:34:12.121522   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:12.121591   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:20, y:22
+I0816 00:34:12.138419   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:12.138880   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:21, y:22
+I0816 00:34:14.063801   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0816 00:34:14.063830   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:12, y:14
+I0816 00:34:15.064015   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:34:15.064064   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:12, y:15
+I0816 00:34:15.355047   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.355104   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:20, y:22
+I0816 00:34:15.375430   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.375500   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:19, y:22
+I0816 00:34:15.416832   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.416894   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.417009   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:18, y:22
+I0816 00:34:15.417206   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:17, y:22
+I0816 00:34:15.418248   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.418290   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:16, y:22
+I0816 00:34:15.434691   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.434741   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:15, y:22
+I0816 00:34:15.451434   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.451571   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:14, y:22
+I0816 00:34:15.467991   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.468038   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:13, y:22
+I0816 00:34:15.484625   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.484692   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:22
+I0816 00:34:15.501270   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.501321   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:21
+I0816 00:34:15.517907   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.517984   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:20
+I0816 00:34:15.534114   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.534164   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:19
+I0816 00:34:15.550543   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.550603   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:18
+I0816 00:34:15.567421   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.567574   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:17
+I0816 00:34:15.584048   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.584088   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:16
+I0816 00:34:15.600798   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.600882   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:15
+I0816 00:34:15.616723   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.616809   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:14
+I0816 00:34:15.646146   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.646209   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:13
+I0816 00:34:15.661114   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:15.661169   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:13, y:13
+I0816 00:34:15.676654   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:15.676718   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:14, y:13
+I0816 00:34:15.721460   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:15.721499   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:15.721642   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:15.721660   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:15, y:13
+I0816 00:34:15.721667   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:16, y:13
+I0816 00:34:15.721671   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:17, y:13
+I0816 00:34:15.737291   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.737321   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:16, y:13
+I0816 00:34:15.751380   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.751445   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:15, y:13
+I0816 00:34:15.767624   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.767680   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:14, y:13
+I0816 00:34:15.782242   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.782277   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:13, y:13
+I0816 00:34:15.799377   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.799536   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:13
+I0816 00:34:15.840517   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.840575   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:11, y:13
+I0816 00:34:15.846371   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.846450   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:10, y:13
+I0816 00:34:15.848854   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.848913   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:9, y:13
+I0816 00:34:15.865168   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=3
+I0816 00:34:15.865195   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:8, y:13
+I0816 00:34:15.881642   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.881674   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:8, y:12
+I0816 00:34:15.898234   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.898296   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:8, y:11
+I0816 00:34:15.914861   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.914895   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:8, y:10
+I0816 00:34:15.931387   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=2
+I0816 00:34:15.931573   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:8, y:9
+I0816 00:34:15.948129   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:15.948191   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:9, y:9
+I0816 00:34:15.965038   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:15.965064   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:10, y:9
+I0816 00:34:15.982230   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:15.982333   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:11, y:9
+I0816 00:34:16.025917   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:16.025978   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:9
+I0816 00:34:16.063690   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:34:16.063765   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:12, y:14
+I0816 00:34:17.074421   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0816 00:34:17.074450   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:13, y:14
+I0816 00:34:18.075743   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:34:18.075773   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:13, y:15
+I0816 00:34:19.076312   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:34:19.076344   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:13, y:14
+I0816 00:34:20.077968   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:34:20.077999   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:13, y:13
+I0816 00:34:21.079613   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:34:21.079641   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:13, y:12
+I0816 00:34:22.080351   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:34:22.080377   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:13, y:13
+I0816 00:34:23.082242   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:34:23.082272   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:12, y:13
+I0816 00:34:24.082710   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0816 00:34:24.082738   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:13, y:13
+I0816 00:34:24.856075   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:24.856109   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:10
+I0816 00:34:24.872797   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:24.872830   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:11
+I0816 00:34:24.889649   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:24.889695   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:12
+I0816 00:34:24.905588   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:24.905645   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:13
+I0816 00:34:24.922694   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:24.922726   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:14
+I0816 00:34:24.938901   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:24.938940   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:15
+I0816 00:34:24.955868   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:24.956039   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:16
+I0816 00:34:24.971952   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:24.971992   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:17
+I0816 00:34:24.989182   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:24.989238   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:18
+I0816 00:34:25.005080   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.005130   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:19
+I0816 00:34:25.022348   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.022400   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:20
+I0816 00:34:25.038365   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.038431   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:21
+I0816 00:34:25.054847   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.054900   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:22
+I0816 00:34:25.071209   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.071263   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:23
+I0816 00:34:25.084094   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:34:25.084122   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:12, y:13
+I0816 00:34:25.114486   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.114540   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.114554   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:24
+I0816 00:34:25.114560   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:25
+I0816 00:34:25.122581   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.122628   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:26
+I0816 00:34:25.137947   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.138019   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:27
+I0816 00:34:25.180163   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.180187   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:28
+I0816 00:34:25.181425   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.181494   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:29
+I0816 00:34:25.188348   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=1
+I0816 00:34:25.188414   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:12, y:29
+I0816 00:34:25.204163   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.204195   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:13, y:29
+I0816 00:34:25.220520   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.220553   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:14, y:29
+I0816 00:34:25.237855   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.237886   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:15, y:29
+I0816 00:34:25.256326   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.256358   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:16, y:29
+I0816 00:34:25.270188   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.270218   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:17, y:29
+I0816 00:34:25.287125   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.287187   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:18, y:29
+I0816 00:34:25.304186   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.304243   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:19, y:29
+I0816 00:34:25.329454   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.329511   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:20, y:29
+I0816 00:34:25.340287   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.340363   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:21, y:29
+I0816 00:34:25.356237   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.356312   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:22, y:29
+I0816 00:34:25.371082   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.371276   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:23, y:29
+I0816 00:34:25.387444   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.387474   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:24, y:29
+I0816 00:34:25.402783   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.402834   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:25, y:29
+I0816 00:34:25.419249   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.419300   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:26, y:29
+I0816 00:34:25.435835   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.435885   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:27, y:29
+I0816 00:34:25.452474   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.452527   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:28, y:29
+I0816 00:34:25.482520   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.489062   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:25.525119   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.525175   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.525206   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.525227   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:25.525233   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:25.525237   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:25.535247   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.535297   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:25.551862   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.552077   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:25.568338   73441 playertask.go:185] [xzw1收到请求移动的指令] revCmd.Way=4
+I0816 00:34:25.568386   73441 scenePlayer.go:108] [xzw1 移动]当前位置为 x:29, y:29
+I0816 00:34:26.086170   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:34:26.086249   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:12, y:12
+I0816 00:34:27.086745   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:34:27.086800   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:12
+I0816 00:34:28.087032   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:34:28.087062   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:13
+I0816 00:34:29.087546   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0816 00:34:29.087611   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:12, y:13
+I0816 00:34:30.089648   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0816 00:34:30.089710   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:12, y:12
+I0816 00:34:31.091716   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0816 00:34:31.091747   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:13, y:12
+W0816 00:34:32.835008   73441 room.go:113] [debug]Room.RemovePlayer() func
+W0816 00:34:32.835017   73441 room.go:116] [debug]Room.RemovePlayer() func
+I0816 00:34:33.095679   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0816 00:34:33.095715   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:13, y:13
+I0816 00:34:34.096799   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:34:34.096850   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:12, y:13
+I0816 00:34:35.097069   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:34:35.097098   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:13
+I0816 00:34:36.099022   73441 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0816 00:34:36.099051   73441 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:13
+W0816 00:34:36.678309   73441 room.go:113] [debug]Room.RemovePlayer() func
+W0816 00:34:36.678351   73441 room.go:116] [debug]Room.RemovePlayer() func
+I0816 00:34:41.520233   73441 service.go:53] [Service] Got Signal  interrupt
