@@ -157,7 +157,10 @@ func (this *Room) Close() {
 func (this *Room) GameLoop() {
 
 	// TODO 加载地图信息
-	this.scene.RandGameMapData_AllSpace()
+	if !this.scene.gameMap.CustomizeInit() {
+		glog.Errorln("[地图加载失败]")
+		return
+	}
 
 	timeTicker := time.NewTicker(time.Millisecond * 20) // 20ms
 	stop := false

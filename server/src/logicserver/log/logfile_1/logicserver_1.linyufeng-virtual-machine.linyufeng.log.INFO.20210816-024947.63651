@@ -1,0 +1,26 @@
+Log file created at: 2021/08/16 02:49:47
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0816 02:49:47.856619   63651 logicserver.go:56] [debug] port 8001
+I0816 02:49:47.860006   63651 httpserver.go:55] [InitHttpServer] Listen port  8001
+I0816 02:49:47.860075   63651 httpserver.go:67] [InitHttpServer] Service start success
+E0816 02:49:47.860106   63651 logicserver.go:31] [LogicServer Init] Init success
+I0816 02:59:17.800880   63651 httpserver.go:138] [User Login] login success, username: leo
+I0816 02:59:18.970777   63651 httpserver.go:223] [用户请求开始游戏] username: leo
+I0816 03:10:02.413073   63651 httpserver.go:138] [User Login] login success, username: leo
+I0816 03:10:04.700282   63651 httpserver.go:223] [用户请求开始游戏] username: leo
+I0816 03:18:52.530211   63651 httpserver.go:138] [User Login] login success, username: leo
+I0816 03:18:53.399716   63651 httpserver.go:223] [用户请求开始游戏] username: leo
+I0816 03:32:04.470156   63651 httpserver.go:138] [User Login] login success, username: leo
+I0816 03:32:07.460855   63651 httpserver.go:223] [用户请求开始游戏] username: leo
+I0816 03:41:15.763067   63651 httpserver.go:138] [User Login] login success, username: leo
+I0816 03:41:17.267069   63651 httpserver.go:223] [用户请求开始游戏] username: leo
+I0816 03:43:01.576152   63651 httpserver.go:138] [User Login] login success, username: leo
+I0816 03:43:02.673963   63651 httpserver.go:223] [用户请求开始游戏] username: leo
+I0816 04:11:49.199289   63651 httpserver.go:138] [User Login] login success, username: leo
+I0816 04:11:50.566651   63651 httpserver.go:223] [用户请求开始游戏] username: leo
+I0816 04:14:23.422408   63651 httpserver.go:138] [User Login] login success, username: leo
+I0816 04:14:24.965466   63651 httpserver.go:223] [用户请求开始游戏] username: leo
+I0816 04:18:18.063804   63651 httpserver.go:138] [User Login] login success, username: leo
+I0816 04:18:19.745675   63651 httpserver.go:223] [用户请求开始游戏] username: leo

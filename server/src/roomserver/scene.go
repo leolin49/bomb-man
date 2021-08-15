@@ -80,7 +80,7 @@ func (this *Scene) LoadGameMapData() bool {
 // 自定义地图信息
 func (this *Scene) RandGameMapData_AllSpace() {
 	this.gameMap = &GameMap{}
-	this.gameMap.Height, this.gameMap.Width = 30, 30
+	this.gameMap.Height, this.gameMap.Width = 40, 40
 	var x, y, i uint32
 	// 初始化
 	this.gameMap.MapArray = make([][]GridType, this.gameMap.Height)
