@@ -127,6 +127,8 @@ func (this *Scene) DelPlayer(player *ScenePlayer) {
 	if this.room.curPlayerNum == 1 {
 		this.GameSettle()
 	}
+	// 房间结束
+	this.room.endchan <- true
 }
 
 // 添加一个炸弹
@@ -209,6 +211,4 @@ func (this *Scene) GameSettle() {
 		// 发送房间结束命令
 		player.SendCmd(usercmd.MsgTypeCmd_EndRoom, ret)
 	}
-	// 房间结束
-	this.room.endchan <- true
 }

@@ -1,0 +1,24 @@
+Log file created at: 2021/08/15 13:17:16
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0815 13:17:16.859962   21002 scene.go:92] [游戏地图初始化] 初始化开始
+E0815 13:17:16.861316   21002 scene.go:98] [游戏地图初始化] 初始化完成
+W0815 13:18:12.922582   21002 room.go:113] [debug]Room.RemovePlayer() func
+W0815 13:18:12.922586   21002 room.go:116] [debug]Room.RemovePlayer() func
+W0815 13:18:12.922786   21002 room.go:113] [debug]Room.RemovePlayer() func
+W0815 13:18:12.922791   21002 room.go:116] [debug]Room.RemovePlayer() func
+W0815 13:18:12.923294   21002 room.go:113] [debug]Room.RemovePlayer() func
+W0815 13:18:12.923301   21002 room.go:116] [debug]Room.RemovePlayer() func
+E0815 13:40:33.255694   21002 scene.go:92] [游戏地图初始化] 初始化开始
+E0815 13:40:33.255721   21002 scene.go:98] [游戏地图初始化] 初始化完成
+W0815 13:41:12.291699   21002 room.go:113] [debug]Room.RemovePlayer() func
+W0815 13:41:12.291707   21002 room.go:116] [debug]Room.RemovePlayer() func
+W0815 13:41:12.292406   21002 room.go:113] [debug]Room.RemovePlayer() func
+W0815 13:41:12.292645   21002 room.go:116] [debug]Room.RemovePlayer() func
+W0815 13:41:12.294738   21002 room.go:113] [debug]Room.RemovePlayer() func
+W0815 13:41:12.294748   21002 room.go:116] [debug]Room.RemovePlayer() func
+E0815 13:43:21.227796   21002 scene.go:92] [游戏地图初始化] 初始化开始
+E0815 13:43:21.227803   21002 scene.go:98] [游戏地图初始化] 初始化完成
+W0815 13:43:35.072769   21002 room.go:113] [debug]Room.RemovePlayer() func
+W0815 13:43:35.072780   21002 room.go:116] [debug]Room.RemovePlayer() func

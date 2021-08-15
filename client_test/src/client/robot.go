@@ -140,15 +140,15 @@ func (this *Robot) PutBomb() {
 
 func (this *Robot) StartRandOperate() {
 	for !this.client.IsClosed() {
-		x := rand.Int31() % 7
+		x := rand.Int31() % 8
 		// fmt.Println("[随机数] x = ", x)
 		switch x {
-		case 0, 1, 2, 3, 4, 5:
+		case 0, 1, 2, 3, 4, 5, 6:
 			w := rand.Int31() % 4
 			this.Move(w + 1)
 			glog.Infoln("[move] way:", w+1)
 			break
-		case 6:
+		case 7:
 			this.PutBomb()
 			glog.Infoln("[put bomb]")
 			break
@@ -207,7 +207,7 @@ func main() {
 				return
 			}
 			robot.SendRoomToken(roomtoken)
-			time.Sleep(3 * time.Second)
+			time.Sleep(2 * time.Second)
 			go robot.StartRandOperate()
 			for {
 			}

@@ -86,6 +86,7 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 
 	// 验证登录
 	if !this.tcptask.IsVerified() {
+		glog.Infoln("[debug] cmd : ", cmd)
 		if cmd != usercmd.MsgTypeCmd_Login {
 			glog.Errorf("[RoomServer Login] not a login instruction ", this.RemoteAddr())
 			return false
@@ -99,18 +100,30 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 			return false
 		}
 		glog.Infoln("[RoomServer Login] recv a login request ", this.RemoteAddr())
-		// 解析token
 		glog.Infoln(revCmd.Token)
-		info, err := common.ParseRoomToken(revCmd.Token)
+
+		// 解析token，获取用户信息
+		rinfo := &common.RoomTokenInfo{}
+		rinfo, err = common.ParseRoomToken(revCmd.Token)
 		if err != nil {
 			glog.Errorln("[MsgTypeCmd_Login] parse room token error:", err)
 			return false
 		}
+		// 同一个用户重复连接
+		// 遍历server里的所有房间
+		for _, rm := range RoomManager_GetMe().roomMap {
+			for _, pl := range rm.players {
+				if pl.name == rinfo.UserName {
+					this.OnClose()
+					return false
+				}
+			}
+		}
 
-		key := info.UserName + "_roomtoken"
 		// glog.Infoln(key)
 		// glog.Infoln(info.UserId)
 		// glog.Infoln(info.RoomId)
+		key := rinfo.UserName + "_roomtoken"
 		token := RedisManager_GetMe().Get(key)
 		if len(token) == 0 { // token不存在或者token过期
 			glog.Errorln("[MsgTypeCmd_Login] token错误或者已经过期")
@@ -122,11 +135,11 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 
 		// --------验证通过-------------
 		this.tcptask.Verify()
-		this.SetUserInfo(*info) // 初始化playertask中的玩家信息
+		this.SetUserInfo(*rinfo) // 初始化playertask中的玩家信息
 
-		room := RoomManager_GetMe().GetRoomById(info.RoomId)
+		room := RoomManager_GetMe().GetRoomById(rinfo.RoomId)
 		if room == nil { // 当前玩家为房间的第一位玩家，创建房间
-			room = RoomManager_GetMe().NewRoom(RoomType_1v1, info.RoomId)
+			room = RoomManager_GetMe().NewRoom(RoomType_1v1, rinfo.RoomId)
 		}
 		err = room.AddPlayer(this)
 		if err != nil {
@@ -161,7 +174,6 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 		// if common.DecodeGoCmd(data, flag, revCmd) != nil {
 		// 	return false
 		// }
-		glog.Infof("[%v收到请求移动的指令] revCmd.Way=%v", this.name, revCmd.Way)
 		if this.room == nil || this.room.IsClosed() {
 			glog.Infoln("[收到请求移动的指令] 房间不存在")
 			return false
@@ -170,6 +182,7 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 			glog.Infoln("[收到请求移动的指令] 游戏未开始")
 			return false
 		}
+		glog.Infof("[%v收到请求移动的指令] revCmd.Way=%v", this.name, revCmd.Way)
 		this.room.chan_PlayerOp <- &PlayerOp{uid: this.id, op: PlayerMoveOp, msg: revCmd}
 
 	case usercmd.MsgTypeCmd_PutBomb: // 放炸弹
@@ -178,7 +191,6 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 		// if common.DecodeGoCmd(data, flag, revCmd) != nil {
 		// 	return false
 		// }
-		glog.Infof("[%v收到请求放炸弹的指令]", this.name)
 		if this.room == nil || this.room.IsClosed() {
 			glog.Infoln("[收到请求放炸弹的指令] 房间不存在")
 			return false
@@ -187,6 +199,7 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 			glog.Infoln("[收到请求放炸弹的指令] 游戏未开始")
 			return false
 		}
+		glog.Infof("[%v收到请求放炸弹的指令]", this.name)
 		this.room.chan_PlayerOp <- &PlayerOp{uid: this.id, op: PlayerPutBombOp, msg: revCmd}
 
 	default:

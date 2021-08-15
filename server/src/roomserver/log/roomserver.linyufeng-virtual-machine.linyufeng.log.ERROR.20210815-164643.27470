@@ -1,0 +1,6 @@
+Log file created at: 2021/08/15 16:46:43
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0815 16:46:43.089366   27470 playertask.go:91] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:51924)
+E0815 16:47:08.541784   27470 playertask.go:91] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:51924)

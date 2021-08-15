@@ -39,6 +39,7 @@ func (this *LogicClient) Connect(addr string) bool {
 
 func (this *LogicClient) ParseMsg(data []byte, flag byte) bool {
 
+	fmt.Println(string(data))
 	// cmd := usercmd.MsgTypeCmd(common.GetCmd(data))
 	info := usercmd.CmdHeader{}
 	err := json.Unmarshal(data, &info)
@@ -58,8 +59,8 @@ func (this *LogicClient) ParseMsg(data []byte, flag byte) bool {
 		// 玩家信息
 		fmt.Println("--------------[玩家信息]-------------")
 		for _, v := range revCmd.Players {
-			info := fmt.Sprintf("[player]id:%v, x:%v, y:%v, bombnum:%v, hp:%v",
-				v.Id, v.X, v.Y, v.BombNum, v.State)
+			info := fmt.Sprintf("[player]id:%v, x:%v, y:%v, bombnum:%v, hp:%v, score:%v",
+				v.Id, v.X, v.Y, v.BombNum, v.State, v.Score)
 			fmt.Println(info)
 		}
 		// 炸弹信息
@@ -84,7 +85,7 @@ func (this *LogicClient) ParseMsg(data []byte, flag byte) bool {
 		json.Unmarshal([]byte(info.Data), revCmd)
 		glog.Infoln("===============[收到房间结算信息]===============")
 		for _, p := range revCmd.Players {
-			fmt.Printf("[player]id:%v, score:%v", p.Id, p.Score)
+			fmt.Printf("[player]id:%v, score:%v\n", p.Id, p.Score)
 		}
 		this.Close()
 	}

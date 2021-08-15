@@ -1,0 +1,373 @@
+Log file created at: 2021/08/15 15:35:33
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0815 15:35:33.469498   24543 roomserver.go:74] [debug] port: 13000
+I0815 15:35:33.472409   24543 roomserver.go:41] [RoomServer] roomserver init success
+I0815 15:36:31.919970   24543 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:58774 success
+I0815 15:36:31.921909   24543 playertask.go:101] [RoomServer Login] recv a login request  127.0.0.1:58774
+I0815 15:36:31.921956   24543 playertask.go:102] YF5FzrSmp15deDq2D4irXLqnEcjbmL5IrbxlSnPZWJZhsfOaKaIE6vb8lxUVjp1nAUf5EFixqFyjIxI66mXZrwdYRAvjUVrJ1g1LKAahL87t9S+6/ejbEyD79mXOUtUUqaG1sJ0H8MtlUe9EKKHqe/WojW9Wg6waJE6kPFNDUKc=
+I0815 15:36:31.923866   24543 room.go:54] [NewRoom] roomtype:1, roomid:1
+I0815 15:36:31.923940   24543 room.go:69] [房间] 玩家进入房间  username:leo, uid:100006
+I0815 15:36:31.923947   24543 scene.go:111] [场景添加玩家] username:  leo
+I0815 15:36:33.923932   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:36:33.923950   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:34.925124   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:36:34.925159   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:35.925640   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:36:35.925658   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:36.926512   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:36:36.926528   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:37.927345   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:36:37.927399   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:38.927935   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:36:38.927979   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:39.928592   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:36:39.928646   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:36:40.928636   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:36:40.928668   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:41.930302   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:36:41.930317   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:42.931456   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:36:42.931471   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:43.932375   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:36:43.932408   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:44.933964   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:36:44.933981   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:45.934161   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:36:45.934285   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:46.934878   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:36:46.934893   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:36:47.399752   24543 roomserver.go:62] [RoomServer] NewPlayerTask 192.168.96.248:55803 success
+I0815 15:36:47.404285   24543 playertask.go:101] [RoomServer Login] recv a login request  192.168.96.248:55803
+I0815 15:36:47.404324   24543 playertask.go:102] eYtOmAnFsEnAQJsEBSkL4qK2TqMQRnyMf9eTW4cqgrNsh97G5YA116okp4Iw7rdiw/Gpx49S0BaguHnZiYyb8eda1EayGpRrhp/moWfAUfrfc/KFrB8mbFjbPFbAgOF8z+jHeTwQKx1fMpgR7HrhXKn9xQGXVsqR1EAFEqPVn+Y=
+I0815 15:36:47.405311   24543 room.go:69] [房间] 玩家进入房间  username:xzw1, uid:100010
+I0815 15:36:47.405340   24543 scene.go:111] [场景添加玩家] username:  xzw1
+I0815 15:36:47.405355   24543 room.go:74] [房间] 玩家数量： 2
+I0815 15:36:47.405358   24543 room.go:75] [游戏开始] 玩家列表：
+I0815 15:36:47.405362   24543 room.go:77] username:xzw1, uid:100010
+I0815 15:36:47.405365   24543 room.go:77] username:leo, uid:100006
+E0815 15:36:47.405751   24543 scene.go:92] [游戏地图初始化] 初始化开始
+E0815 15:36:47.406222   24543 scene.go:98] [游戏地图初始化] 初始化完成
+I0815 15:36:47.935462   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:36:47.935510   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11, y:17.3
+I0815 15:36:48.937210   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:36:48.937235   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10.7, y:17
+I0815 15:36:49.939004   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:36:49.939079   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11, y:17
+I0815 15:36:50.939765   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:36:50.939811   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11, y:16.7
+I0815 15:36:51.940318   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:36:51.940351   24543 scenePlayer.go:91] [leo 放置炸弹] 炸弹位置{11, 17}, 已放炸弹:1, 剩余炸弹:4
+I0815 15:36:52.941604   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:36:52.941631   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10.7, y:17
+I0815 15:36:53.943108   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:36:53.943133   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11, y:17.3
+I0815 15:36:54.945675   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:36:54.945699   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11, y:17.6
+I0815 15:36:55.945922   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:36:55.945948   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11.3, y:18
+I0815 15:36:56.941298   24543 bomb.go:46] [leo的炸弹爆炸] x:11, y:17
+I0815 15:36:56.941335   24543 bomb.go:67] [leo的炸弹爆炸时leo位置] x:11, y:18
+I0815 15:36:56.941359   24543 bomb.go:76] [炸弹造成<16,18>垂直方向伤害]
+I0815 15:36:56.941366   24543 scenePlayer.go:180] [leo收到leo的炸弹的伤害] 当前血量hp:2，leo当前得分:1
+I0815 15:36:56.941374   24543 bomb.go:67] [leo的炸弹爆炸时xzw1位置] x:11, y:17
+I0815 15:36:56.941382   24543 bomb.go:71] [炸弹造成<10,12>水平方向伤害]
+I0815 15:36:56.941387   24543 scenePlayer.go:180] [xzw1收到leo的炸弹的伤害] 当前血量hp:2，leo当前得分:2
+I0815 15:36:56.947905   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:36:56.947935   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11, y:18.3
+I0815 15:36:57.949902   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:36:57.949966   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11, y:18.6
+I0815 15:36:58.951986   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:36:58.952030   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10.7, y:19
+I0815 15:36:59.953676   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:36:59.953717   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11, y:19.3
+I0815 15:37:00.954978   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:37:00.955000   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11, y:19
+I0815 15:37:01.955702   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:37:01.955860   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10.7, y:19
+I0815 15:37:02.955699   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:37:02.955741   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10.399999999999999, y:19
+I0815 15:37:03.957691   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:37:03.957717   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10, y:19.3
+I0815 15:37:04.959087   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:37:04.959134   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10, y:19.6
+I0815 15:37:05.959269   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:37:05.959330   24543 scenePlayer.go:91] [leo 放置炸弹] 炸弹位置{10, 20}, 已放炸弹:1, 剩余炸弹:4
+I0815 15:37:06.960232   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:37:06.960258   24543 scenePlayer.go:81] [leo 放置炸弹] 位置{10, 20}, 当前位置已存在炸弹
+I0815 15:37:07.962072   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:37:07.962106   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10.3, y:20
+I0815 15:37:08.963945   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:37:08.964010   24543 scenePlayer.go:81] [leo 放置炸弹] 位置{10, 20}, 当前位置已存在炸弹
+I0815 15:37:09.964720   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:37:09.964989   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10, y:19.7
+I0815 15:37:10.960145   24543 bomb.go:46] [leo的炸弹爆炸] x:10, y:20
+I0815 15:37:10.960212   24543 bomb.go:67] [leo的炸弹爆炸时leo位置] x:10, y:20
+I0815 15:37:10.960223   24543 bomb.go:71] [炸弹造成<9,11>水平方向伤害]
+I0815 15:37:10.960230   24543 scenePlayer.go:180] [leo收到leo的炸弹的伤害] 当前血量hp:1，leo当前得分:3
+I0815 15:37:10.960238   24543 bomb.go:67] [leo的炸弹爆炸时xzw1位置] x:11, y:17
+I0815 15:37:10.965202   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:37:10.965255   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10, y:20
+I0815 15:37:11.967037   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:37:11.967103   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:9.7, y:20
+I0815 15:37:12.969232   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:37:12.969304   24543 scenePlayer.go:91] [leo 放置炸弹] 炸弹位置{10, 20}, 已放炸弹:1, 剩余炸弹:4
+I0815 15:37:13.971409   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:37:13.971435   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10, y:19.7
+I0815 15:37:14.972505   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:37:14.972549   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10, y:19.4
+I0815 15:37:15.974345   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:37:15.974393   24543 scenePlayer.go:91] [leo 放置炸弹] 炸弹位置{10, 19}, 已放炸弹:2, 剩余炸弹:3
+I0815 15:37:16.975731   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:37:16.975758   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10.3, y:19
+I0815 15:37:17.969575   24543 bomb.go:46] [leo的炸弹爆炸] x:10, y:20
+I0815 15:37:17.969620   24543 bomb.go:67] [leo的炸弹爆炸时leo位置] x:10, y:19
+I0815 15:37:17.969626   24543 bomb.go:76] [炸弹造成<19,21>垂直方向伤害]
+I0815 15:37:17.969630   24543 scenePlayer.go:168] [玩家死亡] username: leo
+I0815 15:37:17.969691   24543 scene.go:121] [场景删除玩家] username:  leo
+I0815 15:37:17.969696   24543 scene.go:190] [游戏结束] winner:xzw1, 得分:0
+I0815 15:37:17.969700   24543 scene.go:199] [玩家结算] username:leo, gametime:30s, score:4
+I0815 15:37:17.969739   24543 scene.go:199] [玩家结算] username:xzw1, gametime:30s, score:0
+W0815 15:37:17.969839   24543 room.go:113] [debug]Room.RemovePlayer() func
+W0815 15:37:17.969849   24543 room.go:116] [debug]Room.RemovePlayer() func
+I0815 15:37:17.969855   24543 scenePlayer.go:180] [leo收到leo的炸弹的伤害] 当前血量hp:0，leo当前得分:4
+I0815 15:37:17.969863   24543 bomb.go:67] [leo的炸弹爆炸时xzw1位置] x:11, y:17
+W0815 15:37:17.970665   24543 room.go:113] [debug]Room.RemovePlayer() func
+W0815 15:37:17.970675   24543 room.go:116] [debug]Room.RemovePlayer() func
+I0815 15:37:17.970682   24543 roommgr.go:39] [Game] room 1 end
+W0815 15:37:17.971860   24543 room.go:113] [debug]Room.RemovePlayer() func
+W0815 15:37:17.971963   24543 room.go:116] [debug]Room.RemovePlayer() func
+I0815 15:37:20.975686   24543 bomb.go:46] [leo的炸弹爆炸] x:10, y:19
+I0815 15:37:20.975785   24543 bomb.go:67] [leo的炸弹爆炸时xzw1位置] x:11, y:17
+I0815 15:38:49.208862   24543 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:58794 success
+I0815 15:38:49.208991   24543 playertask.go:101] [RoomServer Login] recv a login request  127.0.0.1:58794
+I0815 15:38:49.208998   24543 playertask.go:102] TSANMACwsA13fQJO0oCT/d2pRUBRTBiwRfidUA1ai/CBnxrexo0b9kuoywtwCeTx4MSKStIyT143/tqUIhIqiTnpz4AWDFJeXCvALIMOxZ91MhTbqeOx+I8m9/f1vYfu9t+HmsYyoyWzpLv4xYCvmtUhrSogBbzVPq2KFVdrw7w=
+I0815 15:38:49.210624   24543 room.go:54] [NewRoom] roomtype:1, roomid:2
+I0815 15:38:49.210644   24543 room.go:69] [房间] 玩家进入房间  username:leo, uid:100006
+I0815 15:38:49.210649   24543 scene.go:111] [场景添加玩家] username:  leo
+I0815 15:38:51.211205   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:38:51.211225   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:38:52.211161   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:38:52.211380   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:38:53.211967   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:38:53.212007   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:38:54.212079   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:38:54.212134   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:38:55.212704   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:38:55.212741   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:38:56.212912   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:38:56.212929   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:38:57.213902   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:38:57.213919   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:38:58.215862   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:38:58.215879   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:38:59.216508   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:38:59.216556   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:00.217174   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:00.217193   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:01.218037   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:01.218052   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:02.218706   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:02.218723   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:03.218918   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:39:03.219153   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:04.220170   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:39:04.220219   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:39:05.222036   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:05.222098   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:06.223507   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:06.223559   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:07.224631   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:39:07.224679   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:39:08.226242   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:08.226379   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:09.227684   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:39:09.227701   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:39:10.230070   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:39:10.230193   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:11.231101   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:11.231118   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:12.232440   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:12.232474   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:13.234009   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:13.234469   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:14.234779   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:39:14.234795   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:15.235906   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:15.236093   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:16.236388   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:39:16.236589   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:17.237234   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:17.237265   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:18.238527   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:39:18.238543   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:19.239907   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:39:19.239961   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:39:20.240147   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:39:20.240201   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:39:21.242015   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:21.242069   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:22.243722   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:22.243958   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:23.245094   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:23.245172   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:24.246861   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:24.246902   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:25.247381   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:25.247419   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:26.247368   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:26.247400   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:27.248649   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:27.248705   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:28.249984   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:39:28.249999   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:29.250947   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:39:29.250966   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:39:30.250768   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:30.250805   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:31.251988   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:39:31.252024   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:39:32.253375   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:32.253393   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:33.254344   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:33.254378   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:34.255014   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:39:34.255055   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:35.256069   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:35.256114   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:36.256651   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:36.256708   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:37.258255   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:37.258271   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:38.258525   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:38.258540   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:39.258874   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:39.258888   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:40.259470   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:40.259486   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:41.259977   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:41.259994   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:42.261846   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:42.261915   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:43.262190   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:39:43.262227   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:44.263681   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:44.264368   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:45.265184   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:39:45.265246   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:39:46.266745   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:39:46.266787   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:47.268741   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:47.268759   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:48.269236   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:48.269275   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:49.269603   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:49.269619   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:50.270201   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:50.270220   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:51.271474   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:39:51.271503   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:39:52.271504   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:52.271557   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:53.273070   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:53.273150   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:54.273173   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:54.273189   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:55.274462   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:39:55.274480   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:56.275116   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:39:56.275134   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:57.275922   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:57.275939   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:58.277752   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:58.277769   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:39:59.277913   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:39:59.277929   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:00.278415   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:40:00.278470   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:01.279442   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:40:01.279479   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:02.280543   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:40:02.280577   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:03.281653   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:40:03.281670   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:04.282797   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:40:04.282813   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:05.284501   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:40:05.284657   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:40:06.285005   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:40:06.285056   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:07.285899   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:40:07.285939   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:08.286401   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:40:08.286448   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:09.286714   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:40:09.286745   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:10.289100   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:40:10.289142   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:11.290733   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:40:11.290751   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:12.290849   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:40:12.290866   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:13.291571   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:40:13.291585   24543 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 15:40:14.292577   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:40:14.292612   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:15.293380   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:40:15.293397   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:16.294023   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:40:16.294042   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:17.294201   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:40:17.294217   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:18.295561   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:40:18.295597   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:19.296164   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:40:19.296183   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:20.297442   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:40:20.297481   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:21.298376   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:40:21.298393   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:22.300375   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:40:22.300421   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:23.301956   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:40:23.301974   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:24.302496   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:40:24.302513   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:25.302869   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:40:25.302886   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:26.304523   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:40:26.304539   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:27.304676   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:40:27.304727   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 15:40:28.306138   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=4
+I0815 15:40:28.306191   24543 playertask.go:182] [收到请求移动的指令] 游戏未开始
+W0815 15:40:29.209845   24543 room.go:113] [debug]Room.RemovePlayer() func
+W0815 15:40:29.209855   24543 room.go:116] [debug]Room.RemovePlayer() func
+I0815 15:40:45.449718   24543 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:58804 success
+I0815 15:40:45.450543   24543 playertask.go:101] [RoomServer Login] recv a login request  127.0.0.1:58804
+I0815 15:40:45.450564   24543 playertask.go:102] eIVXYUrC3wT/uSMWcwR9jLHBht7bJBJ7cP02CXc8TlS6BMKmo10AQc8GTJj/y31ZfPNyDUN9lJlRm+JJCLphpKWPfYweA027GtmyRU7lZ8ffTcbHIr6c16SXNLS30fkpyvtUxw/VyljB0X3FPNIMii+OJXYpdKbQivaVeuVt8kM=
+I0815 15:40:45.451319   24543 room.go:69] [房间] 玩家进入房间  username:leo, uid:100006
+I0815 15:40:45.451329   24543 scene.go:111] [场景添加玩家] username:  leo
+I0815 15:40:45.451349   24543 room.go:74] [房间] 玩家数量： 1
+I0815 15:40:45.451353   24543 room.go:75] [游戏开始] 玩家列表：
+I0815 15:40:45.451357   24543 room.go:77] username:leo, uid:100006
+E0815 15:40:45.452108   24543 scene.go:92] [游戏地图初始化] 初始化开始
+E0815 15:40:45.452132   24543 scene.go:98] [游戏地图初始化] 初始化完成
+I0815 15:40:47.452121   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:40:47.452181   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10.7, y:17
+I0815 15:40:48.452060   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:40:48.452121   24543 scenePlayer.go:91] [leo 放置炸弹] 炸弹位置{11, 17}, 已放炸弹:1, 剩余炸弹:4
+I0815 15:40:49.452937   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=2
+I0815 15:40:49.453008   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11, y:16.7
+I0815 15:40:50.456262   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=1
+I0815 15:40:50.456410   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:11, y:17
+I0815 15:40:51.458431   24543 playertask.go:176] [leo收到请求移动的指令] revCmd.Way=3
+I0815 15:40:51.458457   24543 scenePlayer.go:104] [leo 移动]当前位置为 x:10.7, y:17
+I0815 15:40:52.458582   24543 playertask.go:193] [leo收到请求放炸弹的指令]
+I0815 15:40:52.458648   24543 scenePlayer.go:81] [leo 放置炸弹] 位置{11, 17}, 当前位置已存在炸弹
+I0815 15:40:53.012460   24543 service.go:53] [Service] Got Signal  interrupt
+I0815 15:40:53.452879   24543 bomb.go:46] [leo的炸弹爆炸] x:11, y:17
+I0815 15:40:53.452899   24543 bomb.go:67] [leo的炸弹爆炸时leo位置] x:11, y:17
+I0815 15:40:53.452904   24543 bomb.go:71] [炸弹造成<10,12>水平方向伤害]
+I0815 15:40:53.452908   24543 scenePlayer.go:180] [leo收到leo的炸弹的伤害] 当前血量hp:2，leo当前得分:1

@@ -1,0 +1,303 @@
+Log file created at: 2021/08/15 18:10:58
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0815 18:10:58.282143   42526 roomserver.go:74] [debug] port: 13000
+I0815 18:10:58.288830   42526 roomserver.go:41] [RoomServer] roomserver init success
+I0815 18:11:16.496469   42526 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:59418 success
+I0815 18:11:16.496786   42526 playertask.go:89] [debug] cmd :  Login
+I0815 18:11:16.496864   42526 playertask.go:102] [RoomServer Login] recv a login request  127.0.0.1:59418
+I0815 18:11:16.496873   42526 playertask.go:103] O3vzhZtItwwJDWyBwkGS7I4Vo5KXo1fTRH7KzgdaKZxqTncsZzdlLM6YvX4HOw7hgLI8NQ2EUdWmMZo6KfX5sDzDtzSR+2bQ9zBXCCLFF6qfhAvotuUpWzNl3UcDr0ewBnCVsSNbdxRlNSLZd51yTAHQq4ssNr+227A9GX3tMv0=
+I0815 18:11:16.497956   42526 room.go:54] [NewRoom] roomtype:1, roomid:1
+I0815 18:11:16.497989   42526 room.go:69] [房间] 玩家[abc]进入[1]房间  
+I0815 18:11:16.497995   42526 scene.go:111] [场景添加玩家] username:  abc
+I0815 18:11:18.498874   42526 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 18:11:19.499906   42526 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 18:11:20.500372   42526 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 18:11:21.501850   42526 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 18:11:22.501991   42526 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 18:11:23.502675   42526 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 18:11:24.503445   42526 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 18:11:25.504384   42526 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 18:11:26.504433   42526 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 18:11:27.505720   42526 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 18:11:28.432368   42526 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:59430 success
+I0815 18:11:28.432977   42526 playertask.go:89] [debug] cmd :  Login
+I0815 18:11:28.433024   42526 playertask.go:102] [RoomServer Login] recv a login request  127.0.0.1:59430
+I0815 18:11:28.433032   42526 playertask.go:103] OmRW8R/chGOnpE1I9zFV2dC8i6IvwFNQQJomXCY3taTnCpw5ueRKjxN93/rkWN39vcV6dIIxfcAIkPF1QiRP06x+1R2MuJgBRDt7CHM3M3G4wS90leC3ORpmZu7PXgWuH2myTaI+xjFASLxIpOPHhaWGlT4W1L6Df7OCYgxGjFw=
+I0815 18:11:28.433988   42526 room.go:69] [房间] 玩家[leo]进入[1]房间  
+I0815 18:11:28.434176   42526 scene.go:111] [场景添加玩家] username:  leo
+I0815 18:11:28.434253   42526 room.go:74] [房间] 玩家数量： 2
+I0815 18:11:28.434262   42526 room.go:75] [游戏开始] 玩家列表：
+I0815 18:11:28.434267   42526 room.go:77] username:leo, uid:100006
+I0815 18:11:28.434271   42526 room.go:77] username:abc, uid:100005
+E0815 18:11:28.434618   42526 scene.go:92] [游戏地图初始化] 初始化开始
+E0815 18:11:28.434975   42526 scene.go:98] [游戏地图初始化] 初始化完成
+I0815 18:11:28.506507   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=2
+I0815 18:11:28.506572   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:11, y:16
+I0815 18:11:29.507041   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:11:29.507074   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:16
+I0815 18:11:30.433254   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:11:30.433279   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:18
+I0815 18:11:30.508407   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:11:30.508438   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:17
+I0815 18:11:31.433469   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0815 18:11:31.433494   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:18
+I0815 18:11:31.510187   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:11:31.510249   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:18
+I0815 18:11:32.433898   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:11:32.433925   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:19
+I0815 18:11:32.510324   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=3
+I0815 18:11:32.510350   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:11, y:18
+I0815 18:11:33.435427   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0815 18:11:33.435490   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:19
+I0815 18:11:33.511025   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:11:33.511052   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:18
+I0815 18:11:34.436054   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:11:34.436081   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:20
+I0815 18:11:34.512554   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=3
+I0815 18:11:34.512578   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:11, y:18
+I0815 18:11:35.436555   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0815 18:11:35.436580   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:20
+I0815 18:11:35.514201   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=2
+I0815 18:11:35.514267   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:11, y:17
+I0815 18:11:36.436552   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:11:36.436618   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:21
+I0815 18:11:36.516618   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:11:36.516661   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:17
+I0815 18:11:37.438103   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0815 18:11:37.438147   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:21
+I0815 18:11:37.517759   42526 playertask.go:202] [abc收到请求放炸弹的指令]
+I0815 18:11:37.517782   42526 scenePlayer.go:91] [abc 放置炸弹] 炸弹位置{12, 17}, 已放炸弹:1, 剩余炸弹:4
+I0815 18:11:38.440080   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:11:38.440132   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:20
+I0815 18:11:38.519437   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=2
+I0815 18:11:38.519465   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:16
+I0815 18:11:39.440507   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0815 18:11:39.440551   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:20
+I0815 18:11:39.522141   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=3
+I0815 18:11:39.522165   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:11, y:16
+I0815 18:11:40.441928   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:11:40.441975   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:21
+I0815 18:11:40.522763   42526 playertask.go:202] [abc收到请求放炸弹的指令]
+I0815 18:11:40.522826   42526 scenePlayer.go:91] [abc 放置炸弹] 炸弹位置{11, 16}, 已放炸弹:2, 剩余炸弹:3
+I0815 18:11:41.442619   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0815 18:11:41.442644   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:21
+I0815 18:11:41.523754   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:11:41.523821   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:11, y:17
+I0815 18:11:42.444574   42526 playertask.go:202] [leo收到请求放炸弹的指令]
+I0815 18:11:42.444637   42526 scenePlayer.go:91] [leo 放置炸弹] 炸弹位置{11, 21}, 已放炸弹:1, 剩余炸弹:4
+I0815 18:11:42.518681   42526 bomb.go:46] [abc的炸弹爆炸] x:12, y:17
+I0815 18:11:42.518743   42526 bomb.go:67] [abc的炸弹爆炸时leo位置] x:11, y:21
+I0815 18:11:42.518751   42526 bomb.go:67] [abc的炸弹爆炸时abc位置] x:11, y:17
+I0815 18:11:42.518756   42526 bomb.go:71] [炸弹造成<11,13>水平方向伤害]
+I0815 18:11:42.518760   42526 scenePlayer.go:184] [abc收到abc的炸弹的伤害] 当前血量hp:2，abc当前得分:1
+I0815 18:11:42.523942   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:11:42.524326   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:17
+I0815 18:11:43.446919   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:11:43.446944   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:22
+I0815 18:11:43.524627   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:11:43.524653   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:13, y:17
+I0815 18:11:44.448091   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:11:44.448152   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:23
+I0815 18:11:44.525479   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=2
+I0815 18:11:44.525503   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:13, y:16
+I0815 18:11:45.448428   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0815 18:11:45.448451   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:23
+I0815 18:11:45.523820   42526 bomb.go:46] [abc的炸弹爆炸] x:11, y:16
+I0815 18:11:45.523882   42526 bomb.go:67] [abc的炸弹爆炸时abc位置] x:13, y:16
+I0815 18:11:45.523893   42526 bomb.go:67] [abc的炸弹爆炸时leo位置] x:10, y:23
+I0815 18:11:45.525969   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:11:45.525992   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:13, y:17
+I0815 18:11:46.448969   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0815 18:11:46.449033   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:23
+I0815 18:11:46.527254   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=3
+I0815 18:11:46.527280   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:17
+I0815 18:11:47.444865   42526 bomb.go:46] [leo的炸弹爆炸] x:11, y:21
+I0815 18:11:47.444887   42526 bomb.go:67] [leo的炸弹爆炸时abc位置] x:12, y:17
+I0815 18:11:47.444892   42526 bomb.go:67] [leo的炸弹爆炸时leo位置] x:9, y:23
+I0815 18:11:47.450299   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:11:47.450337   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:24
+I0815 18:11:47.528697   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:11:47.528724   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:18
+I0815 18:11:48.451668   42526 playertask.go:202] [leo收到请求放炸弹的指令]
+I0815 18:11:48.451698   42526 scenePlayer.go:91] [leo 放置炸弹] 炸弹位置{9, 24}, 已放炸弹:1, 剩余炸弹:4
+I0815 18:11:48.529005   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:11:48.529060   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:13, y:18
+I0815 18:11:49.453726   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:11:49.453754   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:23
+I0815 18:11:49.529236   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:11:49.529295   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:13, y:19
+I0815 18:11:50.454369   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:11:50.454393   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:22
+I0815 18:11:50.529919   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=3
+I0815 18:11:50.529995   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:19
+I0815 18:11:51.455835   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:11:51.455909   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:23
+I0815 18:11:51.533273   42526 playertask.go:202] [abc收到请求放炸弹的指令]
+I0815 18:11:51.533350   42526 scenePlayer.go:91] [abc 放置炸弹] 炸弹位置{12, 19}, 已放炸弹:1, 剩余炸弹:4
+I0815 18:11:52.455976   42526 playertask.go:202] [leo收到请求放炸弹的指令]
+I0815 18:11:52.456038   42526 scenePlayer.go:91] [leo 放置炸弹] 炸弹位置{9, 23}, 已放炸弹:2, 剩余炸弹:3
+I0815 18:11:52.535865   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=2
+I0815 18:11:52.535891   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:18
+I0815 18:11:53.452380   42526 bomb.go:46] [leo的炸弹爆炸] x:9, y:24
+I0815 18:11:53.452420   42526 bomb.go:67] [leo的炸弹爆炸时leo位置] x:9, y:23
+I0815 18:11:53.452426   42526 bomb.go:76] [炸弹造成<23,25>垂直方向伤害]
+I0815 18:11:53.452441   42526 scenePlayer.go:184] [leo收到leo的炸弹的伤害] 当前血量hp:2，leo当前得分:1
+I0815 18:11:53.452446   42526 bomb.go:67] [leo的炸弹爆炸时abc位置] x:12, y:18
+I0815 18:11:53.456727   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0815 18:11:53.456768   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:23
+I0815 18:11:53.536490   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=3
+I0815 18:11:53.536513   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:11, y:18
+I0815 18:11:54.457352   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:11:54.457375   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:22
+I0815 18:11:54.536792   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:11:54.537330   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:11, y:19
+I0815 18:11:55.457628   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0815 18:11:55.457694   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:22
+I0815 18:11:55.537443   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:11:55.537508   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:11, y:20
+I0815 18:11:56.458422   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:11:56.458443   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:21
+I0815 18:11:56.534414   42526 bomb.go:46] [abc的炸弹爆炸] x:12, y:19
+I0815 18:11:56.534434   42526 bomb.go:67] [abc的炸弹爆炸时abc位置] x:11, y:20
+I0815 18:11:56.534438   42526 bomb.go:67] [abc的炸弹爆炸时leo位置] x:9, y:21
+I0815 18:11:56.537643   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:11:56.537680   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:20
+I0815 18:11:57.456895   42526 bomb.go:46] [leo的炸弹爆炸] x:9, y:23
+I0815 18:11:57.456916   42526 bomb.go:67] [leo的炸弹爆炸时abc位置] x:12, y:20
+I0815 18:11:57.456921   42526 bomb.go:67] [leo的炸弹爆炸时leo位置] x:9, y:21
+I0815 18:11:57.460996   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:11:57.461062   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:20
+I0815 18:11:57.539691   42526 playertask.go:202] [abc收到请求放炸弹的指令]
+I0815 18:11:57.539727   42526 scenePlayer.go:91] [abc 放置炸弹] 炸弹位置{12, 20}, 已放炸弹:1, 剩余炸弹:4
+I0815 18:11:58.462947   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:11:58.463011   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:21
+I0815 18:11:58.540642   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:11:58.540686   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:12, y:21
+I0815 18:11:59.463890   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:11:59.463935   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:22
+I0815 18:11:59.541102   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:11:59.541164   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:13, y:21
+I0815 18:12:00.464553   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0815 18:12:00.464611   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:8, y:22
+I0815 18:12:00.541242   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=2
+I0815 18:12:00.541267   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:13, y:20
+I0815 18:12:01.464856   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:12:01.464904   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:8, y:23
+I0815 18:12:01.542591   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:12:01.542799   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:13, y:21
+I0815 18:12:02.465007   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0815 18:12:02.465032   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:7, y:23
+I0815 18:12:02.540242   42526 bomb.go:46] [abc的炸弹爆炸] x:12, y:20
+I0815 18:12:02.540267   42526 bomb.go:67] [abc的炸弹爆炸时abc位置] x:13, y:21
+I0815 18:12:02.540273   42526 bomb.go:67] [abc的炸弹爆炸时leo位置] x:7, y:23
+I0815 18:12:02.542487   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:12:02.542513   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:13, y:22
+I0815 18:12:03.465392   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0815 18:12:03.465441   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:8, y:23
+I0815 18:12:03.542932   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:12:03.542957   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:13, y:23
+I0815 18:12:04.466034   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0815 18:12:04.466088   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:23
+I0815 18:12:04.543545   42526 playertask.go:202] [abc收到请求放炸弹的指令]
+I0815 18:12:04.543607   42526 scenePlayer.go:91] [abc 放置炸弹] 炸弹位置{13, 23}, 已放炸弹:1, 剩余炸弹:4
+I0815 18:12:05.468498   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0815 18:12:05.468538   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:23
+I0815 18:12:05.545591   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:12:05.545617   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:14, y:23
+I0815 18:12:06.468833   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:12:06.468859   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:22
+I0815 18:12:06.547534   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=2
+I0815 18:12:06.547559   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:14, y:22
+I0815 18:12:07.469000   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0815 18:12:07.469023   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:22
+I0815 18:12:07.547732   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=1
+I0815 18:12:07.547774   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:14, y:23
+I0815 18:12:08.469077   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:12:08.469120   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:23
+I0815 18:12:08.548609   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:12:08.548746   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:15, y:23
+I0815 18:12:09.469607   42526 playertask.go:202] [leo收到请求放炸弹的指令]
+I0815 18:12:09.470419   42526 scenePlayer.go:91] [leo 放置炸弹] 炸弹位置{9, 23}, 已放炸弹:1, 剩余炸弹:4
+I0815 18:12:09.544111   42526 bomb.go:46] [abc的炸弹爆炸] x:13, y:23
+I0815 18:12:09.544132   42526 bomb.go:67] [abc的炸弹爆炸时abc位置] x:15, y:23
+I0815 18:12:09.544137   42526 bomb.go:67] [abc的炸弹爆炸时leo位置] x:9, y:23
+I0815 18:12:09.549306   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:12:09.549350   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:16, y:23
+I0815 18:12:10.471570   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:12:10.471594   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:22
+I0815 18:12:10.551133   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=3
+I0815 18:12:10.551155   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:15, y:23
+I0815 18:12:11.473642   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:12:11.473679   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:9, y:21
+I0815 18:12:11.551405   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:12:11.551431   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:16, y:23
+I0815 18:12:12.474140   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0815 18:12:12.474165   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:21
+I0815 18:12:12.551693   42526 playertask.go:202] [abc收到请求放炸弹的指令]
+I0815 18:12:12.551754   42526 scenePlayer.go:91] [abc 放置炸弹] 炸弹位置{16, 23}, 已放炸弹:1, 剩余炸弹:4
+I0815 18:12:13.474448   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:12:13.474496   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:22
+I0815 18:12:13.553389   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:12:13.553413   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:17, y:23
+I0815 18:12:14.471294   42526 bomb.go:46] [leo的炸弹爆炸] x:9, y:23
+I0815 18:12:14.471336   42526 bomb.go:67] [leo的炸弹爆炸时leo位置] x:10, y:22
+I0815 18:12:14.471342   42526 bomb.go:67] [leo的炸弹爆炸时abc位置] x:17, y:23
+I0815 18:12:14.475499   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:12:14.475560   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:21
+I0815 18:12:14.554038   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=3
+I0815 18:12:14.554760   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:16, y:23
+I0815 18:12:15.475845   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0815 18:12:15.475870   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:21
+I0815 18:12:15.554606   42526 playertask.go:202] [abc收到请求放炸弹的指令]
+I0815 18:12:15.554635   42526 scenePlayer.go:81] [abc 放置炸弹] 位置{16, 23}, 当前位置已存在炸弹
+I0815 18:12:16.477828   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=3
+I0815 18:12:16.477852   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:21
+I0815 18:12:16.555672   42526 playertask.go:202] [abc收到请求放炸弹的指令]
+I0815 18:12:16.555699   42526 scenePlayer.go:81] [abc 放置炸弹] 位置{16, 23}, 当前位置已存在炸弹
+I0815 18:12:17.477948   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:12:17.477974   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:10, y:20
+I0815 18:12:17.552032   42526 bomb.go:46] [abc的炸弹爆炸] x:16, y:23
+I0815 18:12:17.552126   42526 bomb.go:67] [abc的炸弹爆炸时abc位置] x:16, y:23
+I0815 18:12:17.552135   42526 bomb.go:71] [炸弹造成<15,17>水平方向伤害]
+I0815 18:12:17.552139   42526 scenePlayer.go:184] [abc收到abc的炸弹的伤害] 当前血量hp:1，abc当前得分:2
+I0815 18:12:17.552144   42526 bomb.go:67] [abc的炸弹爆炸时leo位置] x:10, y:20
+I0815 18:12:17.557381   42526 playertask.go:202] [abc收到请求放炸弹的指令]
+I0815 18:12:17.557406   42526 scenePlayer.go:91] [abc 放置炸弹] 炸弹位置{16, 23}, 已放炸弹:1, 剩余炸弹:4
+I0815 18:12:18.478699   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=4
+I0815 18:12:18.478724   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:20
+I0815 18:12:18.558372   42526 playertask.go:202] [abc收到请求放炸弹的指令]
+I0815 18:12:18.558396   42526 scenePlayer.go:81] [abc 放置炸弹] 位置{16, 23}, 当前位置已存在炸弹
+I0815 18:12:19.478802   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=1
+I0815 18:12:19.478825   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:21
+I0815 18:12:19.559362   42526 playertask.go:202] [abc收到请求放炸弹的指令]
+I0815 18:12:19.559386   42526 scenePlayer.go:81] [abc 放置炸弹] 位置{16, 23}, 当前位置已存在炸弹
+I0815 18:12:20.479863   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:12:20.479885   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:20
+I0815 18:12:20.560435   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=3
+I0815 18:12:20.560458   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:15, y:23
+I0815 18:12:21.484803   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:12:21.484827   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:19
+I0815 18:12:21.561023   42526 playertask.go:185] [abc收到请求移动的指令] revCmd.Way=4
+I0815 18:12:21.561047   42526 scenePlayer.go:108] [abc 移动]当前位置为 x:16, y:23
+I0815 18:12:22.485425   42526 playertask.go:185] [leo收到请求移动的指令] revCmd.Way=2
+I0815 18:12:22.485451   42526 scenePlayer.go:108] [leo 移动]当前位置为 x:11, y:18
+I0815 18:12:22.558060   42526 bomb.go:46] [abc的炸弹爆炸] x:16, y:23
+I0815 18:12:22.558077   42526 bomb.go:67] [abc的炸弹爆炸时abc位置] x:16, y:23
+I0815 18:12:22.558081   42526 bomb.go:71] [炸弹造成<15,17>水平方向伤害]
+I0815 18:12:22.558085   42526 scenePlayer.go:172] [玩家死亡] username: abc
+I0815 18:12:22.558148   42526 scene.go:121] [场景删除玩家] username:  abc
+I0815 18:12:22.558153   42526 scene.go:190] [游戏结束] winner:leo, 得分:1
+I0815 18:12:22.558158   42526 scene.go:199] [玩家结算] username:abc, gametime:54s, score:3
+I0815 18:12:22.558177   42526 scene.go:199] [玩家结算] username:leo, gametime:54s, score:1
+W0815 18:12:22.558184   42526 room.go:113] [debug]Room.RemovePlayer() func
+W0815 18:12:22.558188   42526 room.go:116] [debug]Room.RemovePlayer() func
+I0815 18:12:22.558191   42526 scenePlayer.go:184] [abc收到abc的炸弹的伤害] 当前血量hp:0，abc当前得分:3
+I0815 18:12:22.558195   42526 bomb.go:67] [abc的炸弹爆炸时leo位置] x:11, y:18
+W0815 18:12:22.558250   42526 room.go:113] [debug]Room.RemovePlayer() func
+W0815 18:12:22.558254   42526 room.go:116] [debug]Room.RemovePlayer() func
+I0815 18:12:22.558259   42526 roommgr.go:39] [Game] room 1 end
+W0815 18:12:22.558887   42526 room.go:113] [debug]Room.RemovePlayer() func
+W0815 18:12:22.558893   42526 room.go:116] [debug]Room.RemovePlayer() func
+I0815 19:28:28.879552   42526 service.go:53] [Service] Got Signal  interrupt

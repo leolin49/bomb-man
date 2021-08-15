@@ -1,0 +1,45 @@
+Log file created at: 2021/08/15 16:42:53
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0815 16:42:53.927975   27174 roomserver.go:74] [debug] port: 13000
+I0815 16:42:53.930714   27174 roomserver.go:41] [RoomServer] roomserver init success
+I0815 16:43:06.333183   27174 roomserver.go:62] [RoomServer] NewPlayerTask 192.168.96.248:53553 success
+E0815 16:43:06.337458   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:09.322164   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+I0815 16:43:10.958905   27174 roomserver.go:62] [RoomServer] NewPlayerTask 127.0.0.1:59182 success
+I0815 16:43:10.959512   27174 playertask.go:93] [debug] cmd :  Login
+I0815 16:43:10.959636   27174 playertask.go:102] [RoomServer Login] recv a login request  127.0.0.1:59182
+I0815 16:43:10.959646   27174 playertask.go:103] RSa/VC8ceLe4TMc8Aqo1iTEQAYKBIwk+NlA3jve9mHWhBcSPyJEagjCqzCqbOGy5Z/j4FUeFZbSLiT8RxSe/3OEqEmEYHXDqq0NCmxYBct9XIOoCYooSffx1zwG3aijjhGFqThMvY+qzATRW60woBMOoi6L3mSml8HriC62q+jk=
+I0815 16:43:10.961403   27174 room.go:54] [NewRoom] roomtype:1, roomid:1
+I0815 16:43:10.961441   27174 room.go:69] [房间] 玩家[leo]进入[1]房间  
+I0815 16:43:10.961447   27174 scene.go:111] [场景添加玩家] username:  leo
+I0815 16:43:12.960176   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:13.960322   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+E0815 16:43:14.838537   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+I0815 16:43:14.961463   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:15.962766   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:16.964461   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+E0815 16:43:17.025346   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:17.190941   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:17.522390   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:17.671430   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:17.787970   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+I0815 16:43:17.964731   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+E0815 16:43:18.118746   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:18.317555   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:18.466805   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:18.616275   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+I0815 16:43:18.965806   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:19.966386   27174 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 16:43:20.966954   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:21.967286   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:22.968343   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:23.970210   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:24.970343   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:25.971097   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:26.972304   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:27.973877   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:28.974922   27174 playertask.go:182] [收到请求移动的指令] 游戏未开始
+I0815 16:43:29.975556   27174 playertask.go:199] [收到请求放炸弹的指令] 游戏未开始
+I0815 16:43:30.329979   27174 service.go:53] [Service] Got Signal  interrupt

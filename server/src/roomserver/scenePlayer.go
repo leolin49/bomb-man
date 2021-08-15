@@ -95,6 +95,10 @@ func (this *ScenePlayer) PutBomb(msg *usercmd.MsgPutBomb) bool {
 
 // 移动
 func (this *ScenePlayer) Move(msg *usercmd.MsgMove) {
+	// TODO BUG:invalid memory address or nil pointer dereference
+	if this == nil {
+		return
+	}
 	this.isMove = true
 
 	this.CaculateNext(msg.Way)     // 计算下一个位置
@@ -204,6 +208,7 @@ func (this *ScenePlayer) SendSceneMessage() {
 			X:       float32(player.curPos.X),
 			Y:       float32(player.curPos.Y),
 			IsMove:  player.isMove,
+			Score:   this.score,
 		})
 	}
 	// 场景内所有的炸弹信息

@@ -1,0 +1,16 @@
+Log file created at: 2021/08/15 16:43:06
+Running on machine: linyufeng-virtual-machine
+Binary: Built with gc go1.16.6 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0815 16:43:06.337458   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:09.322164   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:14.838537   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:17.025346   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:17.190941   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:17.522390   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:17.671430   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:17.787970   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:18.118746   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:18.317555   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:18.466805   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)
+E0815 16:43:18.616275   27174 playertask.go:90] [RoomServer Login] not a login instruction %!(EXTRA string=192.168.96.248:53553)

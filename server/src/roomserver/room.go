@@ -66,7 +66,7 @@ func (this *Room) AddPlayer(player *PlayerTask) error {
 	this.curPlayerNum++
 	player.room = this
 	this.players[player.id] = player
-	glog.Infof("[房间] 玩家进入房间  username:%v, uid:%v", player.name, player.id)
+	glog.Infof("[房间] 玩家[%v]进入[%v]房间  ", player.name, this.id)
 	this.scene.AddPlayer(player) // 将玩家添加到场景
 
 	// 房间内玩家数量达到最大，自动开始游戏
@@ -91,7 +91,7 @@ func (this *Room) AddPlayer(player *PlayerTask) error {
 					State:   uint32(sp.hp),
 					X:       float32(sp.curPos.X),
 					Y:       float32(sp.curPos.Y),
-					Score:   0,
+					Score:   10,
 					IsMove:  sp.isMove,
 				})
 			}
@@ -106,6 +106,9 @@ func (this *Room) AddPlayer(player *PlayerTask) error {
 
 // 将玩家移除出房间
 func (this *Room) RemovePlayer(player *PlayerTask) error {
+	if this == nil {
+		return nil
+	}
 	this.mutex.Lock()
 	glog.Warningln("[debug]Room.RemovePlayer() func")
 	defer this.mutex.Unlock()
@@ -146,7 +149,7 @@ func (this *Room) Close() {
 		for _, player := range this.players {
 			player.OnClose()
 		}
-
+		glog.Infof("[房间%v游戏结束] 游戏持续时间:%v", this.id, this.totalTime)
 		RoomManager_GetMe().endchan <- this.id
 	}
 }
