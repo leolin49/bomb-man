@@ -19,7 +19,7 @@ const (
 
 	RoleInitBombPower = 1  // 初始炸弹威力
 	RoleInitSpeed     = 1  // 初始移动速度
-	RoleInitHp        = 3  // 玩家初始血量
+	RoleInitHp        = 10 // 玩家初始血量
 	RoleInitPosX      = 11 // 玩家初始位置x
 	RoleInitPosY      = 15 // 玩家初始位置y
 )

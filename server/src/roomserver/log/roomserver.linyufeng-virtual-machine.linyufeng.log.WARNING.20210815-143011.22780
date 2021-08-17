@@ -1,8 +1,0 @@
-Log file created at: 2021/08/15 14:30:11
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-W0815 14:30:11.345182   22780 room.go:113] [debug]Room.RemovePlayer() func
-W0815 14:30:11.345409   22780 room.go:116] [debug]Room.RemovePlayer() func
-E0815 14:37:32.951336   22780 scene.go:92] [游戏地图初始化] 初始化开始
-E0815 14:37:32.951658   22780 scene.go:98] [游戏地图初始化] 初始化完成

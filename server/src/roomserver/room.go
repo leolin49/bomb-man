@@ -156,6 +156,7 @@ func (this *Room) Close() {
 
 func (this *Room) GameLoop() {
 
+	this.scene.gameMap = &GameMap{}
 	// TODO 加载地图信息
 	if !this.scene.gameMap.CustomizeInit() {
 		glog.Errorln("[地图加载失败]")

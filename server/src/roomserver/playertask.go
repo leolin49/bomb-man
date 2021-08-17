@@ -120,9 +120,6 @@ func (this *PlayerTask) ParseMsg(data []byte, flag byte) bool {
 			}
 		}
 
-		// glog.Infoln(key)
-		// glog.Infoln(info.UserId)
-		// glog.Infoln(info.RoomId)
 		key := rinfo.UserName + "_roomtoken"
 		token := RedisManager_GetMe().Get(key)
 		if len(token) == 0 { // token不存在或者token过期

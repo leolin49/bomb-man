@@ -1,6 +1,0 @@
-Log file created at: 2021/08/15 13:11:45
-Running on machine: linyufeng-virtual-machine
-Binary: Built with gc go1.16.6 for linux/amd64
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-E0815 13:11:45.467489   20561 scene.go:92] [游戏地图初始化] 初始化开始
-E0815 13:11:45.467711   20561 scene.go:98] [游戏地图初始化] 初始化完成
