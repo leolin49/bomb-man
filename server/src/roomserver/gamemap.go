@@ -10,6 +10,11 @@ import (
 	"github.com/golang/glog"
 )
 
+const (
+	MaxGridNumberX = 32
+	MaxGridNumberY = 32
+)
+
 type GridType uint32
 
 const (

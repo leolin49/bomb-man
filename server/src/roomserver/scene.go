@@ -18,6 +18,8 @@ type Scene struct {
 	bombNum     uint32 // 炸弹编号
 
 	gameMap *GameMap // 游戏地图信息
+	// AOI九宫格
+	aoiVector []AoiGrid
 }
 
 func NewScene(room *Room) *Scene {
@@ -112,6 +114,10 @@ func (this *Scene) AddPlayer(player *PlayerTask) {
 		sp := NewScenePlayer(player, this)
 		this.players[player.id] = sp
 		player.scenePlayer = sp
+
+		// aoi
+		sp.AoiEnter()
+		// sp.EnterAoiGrid()
 	}
 }
 
@@ -211,4 +217,19 @@ func (this *Scene) GameSettle() {
 		// 发送房间结束命令
 		player.SendCmd(usercmd.MsgTypeCmd_EndRoom, ret)
 	}
+}
+
+// AOI
+func (this *Scene) GetAoiPlayersByIdx(idx int) map[uint64]*ScenePlayer {
+	return this.aoiVector[idx].players
+}
+
+// 新aoi宫格中添加玩家
+func (this *Scene) AoiAddPlayer(idx int, player *ScenePlayer) {
+	this.aoiVector[idx].players[player.id] = player
+}
+
+// 旧aoi宫格中移除玩家
+func (this *Scene) AoiDelPlayer(idx int, player *ScenePlayer) {
+	delete(this.aoiVector[idx].players, player.id)
 }
