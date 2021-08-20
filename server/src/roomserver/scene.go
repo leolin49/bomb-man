@@ -20,6 +20,8 @@ type Scene struct {
 	gameMap *GameMap // 游戏地图信息
 	// AOI九宫格
 	aoiVector []AoiGrid
+	// AOI十字链表
+	aoiCrossList CrossLinkedList
 }
 
 func NewScene(room *Room) *Scene {
@@ -38,6 +40,7 @@ func NewScene(room *Room) *Scene {
 // 场景信息初始化
 func (this *Scene) Init(room *Room) {
 	this.LoadGameMapData()
+	this.aoiCrossList.Init()
 }
 
 // TODO 加载地图数据
@@ -226,10 +229,10 @@ func (this *Scene) GetAoiPlayersByIdx(idx int) map[uint64]*ScenePlayer {
 
 // 新aoi宫格中添加玩家
 func (this *Scene) AoiAddPlayer(idx int, player *ScenePlayer) {
-	this.aoiVector[idx].players[player.id] = player
+	this.aoiVector[idx].AddPlayer(player)
 }
 
 // 旧aoi宫格中移除玩家
 func (this *Scene) AoiDelPlayer(idx int, player *ScenePlayer) {
-	delete(this.aoiVector[idx].players, player.id)
+	this.aoiVector[idx].DelPlayer(player)
 }

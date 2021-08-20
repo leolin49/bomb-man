@@ -47,7 +47,7 @@ type ScenePlayer struct {
 	// AOI减少视野
 	watcher   map[uint64]*ScenePlayer // 观察者集合（此时所有关注当前角色的对象）
 	beWatcher map[uint64]*ScenePlayer // 被观察者集合（此时当前角色关注的所有对象）
-	vision    float64                 // 视野
+	vision    int                     // 视野
 	// AOI九宫格
 	aoiIdx int
 }
@@ -285,11 +285,11 @@ func (this *ScenePlayer) DistanceTo(player *ScenePlayer) float64 {
 func (this *ScenePlayer) AoiEnter() {
 	for _, player := range this.scene.players {
 		// 玩家在我的视野内
-		if this.DistanceTo(player) <= this.vision {
+		if this.DistanceTo(player) <= float64(this.vision) {
 			player.EnterVision(this)
 		}
 		// 我在玩家的视野内
-		if player.DistanceTo(this) <= player.vision {
+		if player.DistanceTo(this) <= float64(this.vision) {
 			this.EnterVision(player)
 		}
 	}
@@ -300,20 +300,20 @@ func (this *ScenePlayer) AoiMove() {
 	// 遍历场景内的所有对象
 	for _, player := range this.scene.players {
 		// 如果该玩家原来在【我的被观察者集合】中，并且现在的距离已经大于【我的视野】(我原来看得到他，现在看不到)
-		if _, ok := this.beWatcher[player.id]; ok && this.DistanceTo(player) > this.vision {
+		if _, ok := this.beWatcher[player.id]; ok && this.DistanceTo(player) > float64(this.vision) {
 			player.LeaveVision(this)
 		}
 		// 如果该玩家原来在【我的观察者集合】中，并且现在的距离已经大于【它的视野】（他原来看的到我，现在看不到）
-		if _, ok := this.watcher[player.id]; ok && this.DistanceTo(player) > player.vision {
+		if _, ok := this.watcher[player.id]; ok && this.DistanceTo(player) > float64(this.vision) {
 			this.LeaveVision(player)
 		}
 
 		// 如果该玩家原来不在【我的被观察者集合】中，并且现在的距离已经小于【我的视野】（我原来看不到他，现在看得到）
-		if _, ok := this.beWatcher[player.id]; !ok && this.DistanceTo(player) <= this.vision {
+		if _, ok := this.beWatcher[player.id]; !ok && this.DistanceTo(player) <= float64(this.vision) {
 			player.EnterVision(this)
 		}
 		// 如果该玩家原来不在【我的观察者集合】中，并且现在的距离已经小于【它的视野】（他原来看不到我，现在看得到）
-		if _, ok := this.watcher[player.id]; !ok && this.DistanceTo(player) <= player.vision {
+		if _, ok := this.watcher[player.id]; !ok && this.DistanceTo(player) <= float64(this.vision) {
 			this.EnterVision(player)
 		}
 	}
@@ -437,3 +437,5 @@ func (this *ScenePlayer) LeaveAoiGrid() {
 		delete(pl.beWatcher, this.id)
 	}
 }
+
+// ---------------------------------------------------------------------- //
